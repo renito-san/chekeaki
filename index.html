@@ -1,0 +1,2003 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="ChekEAki — Servicios del sureste: plomeros, electricistas, mecánicos, gomeras, handyman y más en Patillas, Guayama, Arroyo, Maunabo y Yabucoa, con teléfono directo y búsqueda en vivo en Maps, ClasificadosOnline y Facebook." />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0f766e" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#070c0b" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PR" />
+    <meta property="og:title" content="ChekEAki — Servicios del sureste" />
+    <meta property="og:description" content="Plomeros, electricistas, mecánicos y más en Patillas, Guayama y Arroyo. Llama directo." />
+    <meta property="og:url" content="https://muse.ai/s/buscador-de-servicios-lr6xhm4ow8vxz/5Jg3GMw_6JeUmwKp_ISNQBM2XHoHx_fjmrrIJFWctUs" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="ChekEAki — Servicios del sureste" />
+    <meta name="twitter:description" content="Plomeros, electricistas, mecánicos y más en Patillas, Guayama y Arroyo. Llama directo." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='white'/%3E%3Ctext x='32' y='45' font-family='Arial,Helvetica,sans-serif' font-size='38' font-weight='bold' fill='%230f766e' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E" />
+    <title>ChekEAki — Servicios del sureste</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root{
+        color-scheme:light dark;
+        --bg:#eef4f2;
+        --surface:#ffffff;
+        --surface-2:#e8efec;
+        --ink:#0c1a16;
+        --ink-soft:#5b6b64;
+        --line:#dce6e1;
+        --brand:#0f766e;
+        --brand-dark:#0a5c55;
+        --brand-soft:#dff2ee;
+        --blue:#2563eb; --blue-soft:#e3ecfe;
+        --amber:#b45309; --amber-soft:#fdeecd;
+        --rose:#be3455; --rose-soft:#fde3ea;
+        --violet:#6d28d9; --violet-soft:#ebe4fd;
+        --green:#15803d; --green-soft:#dcf2e2;
+        --wa:#22c55e; --wa-dark:#15803d; --wa-soft:#e2f7e9;
+        --open:#16a34a;
+        --maps:#0f766e; --maps-soft:#dff2ee;
+        --clas:#b45309; --clas-soft:#fdf1e2;
+        --fb:#2563eb; --fb-soft:#e8effd;
+        --warn-bg:#fdf3ee; --warn-ink:#7c2d12; --warn-line:#f0d5c8;
+        --chat-bg:#eef3f1;
+        --shadow:0 10px 30px rgba(12,40,34,.10);
+        --shadow-lg:0 18px 44px rgba(9,52,45,.22);
+        --radius:20px;
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#070c0b; --surface:#131a18; --surface-2:#1b2421;
+          --ink:#f2f7f4; --ink-soft:#9db0a6; --line:#24312c;
+          --brand:#2dd4bf; --brand-dark:#2dd4bf; --brand-soft:#0f2f2a;
+          --blue:#7aa7f8; --blue-soft:#18294d;
+          --amber:#f0a04a; --amber-soft:#35260e;
+          --rose:#fb8fab; --rose-soft:#3a1622;
+          --violet:#b79cff; --violet-soft:#271a4d;
+          --green:#4ade80; --green-soft:#12301c;
+          --wa:#22c55e; --wa-dark:#4ade80; --wa-soft:#0f2e1c;
+          --open:#4ade80; --maps:#2dd4bf; --maps-soft:#0f2f2a;
+          --clas:#f0a04a; --clas-soft:#33270f; --fb:#7aa7f8; --fb-soft:#1a2a4a;
+          --warn-bg:#2e1d16; --warn-ink:#f6c9b8; --warn-line:#54382b;
+          --chat-bg:#0d1312; --shadow:0 10px 30px rgba(0,0,0,.4); --shadow-lg:0 18px 44px rgba(0,0,0,.5);
+        }
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth;scroll-padding-bottom:118px}
+      body{margin:0;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+      h1,h2,h3{font-family:inherit;line-height:1.15;margin:0;letter-spacing:-.02em}
+      a{color:inherit} button{font:inherit;cursor:pointer}
+      .wrap{max-width:1000px;margin:0 auto;padding:18px 18px 56px}
+      @media (max-width:700px){.wrap{padding:12px 14px calc(132px + env(safe-area-inset-bottom))}}
+      @media (min-width:701px){.wrap{padding-bottom:56px}}
+
+      /* ---------- HERO SHELL (gradient app header) ---------- */
+      .hero-shell{position:relative;overflow:hidden;background:linear-gradient(135deg,#0d9488 0%,#0f766e 38%,#0a5c55 68%,#155e75 100%);border-radius:28px;padding:22px 22px 18px;box-shadow:var(--shadow-lg);color:#fff}
+      .hero-shell::before{content:"";position:absolute;width:190px;height:190px;border-radius:50%;background:rgba(255,255,255,.08);top:-100px;right:-60px;pointer-events:none}
+      .hero-shell::after{content:"";position:absolute;width:130px;height:130px;border-radius:50%;background:rgba(45,212,191,.16);bottom:-75px;left:-35px;pointer-events:none}
+      .hero-shell>*{position:relative;z-index:1}
+      @media (max-width:520px){.hero-shell{padding:20px 16px 16px;border-radius:24px}
+        .hero-sub{font-size:.92rem}
+        .hero-pills{gap:5px;margin-top:10px}
+        .hero-pills span{font-size:.75rem;padding:4px 8px}
+        .panel .lab{margin:12px 2px 7px}
+        .sugg-chips{margin-top:8px;gap:5px}
+        .sugg-chip{padding:5px 10px;min-height:30px;font-size:.76rem}
+      }
+      .hero h1{font-size:clamp(1.7rem,5.5vw,2.3rem);font-weight:800;letter-spacing:-.035em;color:#fff;line-height:1.05}
+      .hero h1 em{font-style:normal;color:#99f6e4}
+      .wordmark{margin:0 0 10px;font-size:1.02rem;font-weight:800;letter-spacing:.05em;color:#fff}
+      .wordmark em{font-style:normal;color:#99f6e4}
+      .search-note{margin:10px 2px 0;color:rgba(255,255,255,.8);font-size:.8rem;font-weight:500}
+      .hero-sub{margin:10px 0 0;color:rgba(255,255,255,.88);font-size:.98rem;font-weight:500;max-width:34rem;line-height:1.5}
+      .hero-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+      .hero-pills span{display:inline-flex;align-items:center;gap:6px;background:rgba(4,42,38,.62);border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:999px;padding:5px 11px;font-size:.78rem;font-weight:600;letter-spacing:.01em}
+      .hero-pills span i{width:7px;height:7px;border-radius:50%;background:#5eead4;display:block;flex:none}
+      .panel{background:transparent;border:0;box-shadow:none;padding:0;margin-top:14px}
+      .search-card{background:var(--surface);border-radius:22px;padding:14px;box-shadow:0 14px 34px rgba(0,0,0,.18)}
+      @media (prefers-color-scheme: dark){.search-card{box-shadow:0 14px 34px rgba(0,0,0,.45)}}
+      .search-box{display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:999px;padding:5px 5px 5px 18px;background:var(--surface);transition:border-color .15s}
+      .search-card .search-box{border-color:transparent;background:var(--surface-2)}
+      @media (prefers-color-scheme: dark){.search-card .search-box{background:#0d1513}}
+      .search-box:focus-within{border-color:var(--brand)}
+      .search-card .search-box:focus-within{border-color:var(--brand)}
+      .search-box svg{flex:none;color:var(--brand)}
+      .search-box input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--ink);font-size:1.05rem;font-weight:600;padding:12px 0;font-family:inherit}
+      .search-box input::placeholder{color:var(--ink-soft);font-weight:400}
+      .clear-btn{border:0;background:var(--surface);color:var(--ink-soft);width:30px;height:30px;border-radius:999px;font-size:.9rem;line-height:1;display:none;align-items:center;justify-content:center;flex:none}
+      .clear-btn.show{display:inline-flex}
+      .go-btn{border:0;border-radius:999px;background:#0f766e;color:#fff;font-weight:600;font-size:.95rem;padding:12px 22px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;min-height:48px;box-shadow:0 6px 16px rgba(15,118,110,.35)}
+      .go-btn:hover{filter:brightness(1.07)} .go-btn:disabled{opacity:.35;cursor:default;box-shadow:none}
+      .panel .lab{display:block;font-weight:600;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.78);margin:18px 2px 9px}
+      .panel .lab:first-child{margin-top:2px;color:#fff}
+      .towns{display:flex;flex-wrap:nowrap;gap:7px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+      .town{border:1px solid rgba(255,255,255,.5);background:rgba(4,42,38,.5);color:#fff;border-radius:999px;padding:9px 15px;font-weight:600;font-size:.88rem;display:inline-flex;align-items:center;gap:7px;min-height:40px;transition:all .15s;backdrop-filter:blur(4px)}
+      .town .dot{display:none}
+      .town[aria-pressed="true"]{border-color:#fff;background:#fff;color:#0a5c55;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+      .town-home{font-size:.75rem;font-weight:600;background:rgba(255,255,255,.24);color:inherit;border-radius:999px;padding:2px 7px;letter-spacing:.03em;text-transform:uppercase}
+      .town[aria-pressed="true"] .town-home{background:#dff2ee;color:#0a5c55}
+      .town:not([aria-pressed="true"]) .town-home{background:rgba(255,255,255,.22);color:#fff}
+
+      /* ---------- Sections ---------- */
+      .section{margin-top:38px}
+      .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+      .section-head h2{font-size:1.28rem;font-weight:600;letter-spacing:-.02em;display:flex;align-items:center;gap:11px}
+      .section-head p{margin:0;color:var(--ink-soft);font-size:.9rem}
+      .sec-ico{width:38px;height:38px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;flex:none;color:var(--brand-dark);background:var(--brand-soft)}
+      @media (prefers-color-scheme: dark){.sec-ico{color:var(--brand)}}
+      .sec-ico svg{width:20px;height:20px}
+
+      /* ---------- Categories: colorful tiles ---------- */
+      .cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;width:100%}
+      .cat-btn{--cat:#0f766e;--cat-bg:#dff2ee;border:2px solid transparent;background:var(--cat-bg);color:var(--ink);border-radius:20px;padding:16px 6px 13px;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:600;font-size:.84rem;text-align:center;min-height:106px;justify-content:center;min-width:0;overflow:hidden;transition:transform .15s,border-color .15s,box-shadow .15s}
+      .cat-btn>span{min-width:0;max-width:100%;overflow-wrap:break-word}
+      .cat-btn svg{color:var(--cat);flex:none;width:44px;height:44px;background:var(--surface);border-radius:14px;padding:9px;box-shadow:0 5px 12px rgba(12,40,34,.12)}
+      .cat-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+      .cat-btn:active{transform:scale(.97)}
+      .cat-btn.active{border-color:var(--cat);box-shadow:0 0 0 3px color-mix(in srgb,var(--cat) 22%,transparent)}
+      .cat-btn[data-cat="plomero"]{--cat:#0f766e;--cat-bg:#dff2ee}
+      .cat-btn[data-cat="electricista"]{--cat:#b45309;--cat-bg:#fdeecd}
+      .cat-btn[data-cat="mecanico"]{--cat:#2563eb;--cat-bg:#e3ecfe}
+      .cat-btn[data-cat="gomera"]{--cat:#be3455;--cat-bg:#fde3ea}
+      .cat-btn[data-cat="limpieza"]{--cat:#15803d;--cat-bg:#dcf2e2}
+      .cat-btn[data-cat="handyman"]{--cat:#6d28d9;--cat-bg:#ebe4fd}
+      .cat-btn[data-cat="aireacondicionado"]{--cat:#0369a1;--cat-bg:#e0f2fe}
+      .cat-btn[data-cat="selladodetecho"]{--cat:#9a3412;--cat-bg:#fde8dd}
+      .cat-btn[data-cat="exterminador"]{--cat:#4d7c0f;--cat-bg:#ecf3d8}
+      .cat-btn[data-cat="cerrajero"]{--cat:#a16207;--cat-bg:#fdf3c7}
+      .cat-btn[data-cat="grua"]{--cat:#b91c1c;--cat-bg:#fde2e2}
+      .cat-btn[data-cat="alquilerdeherramientas"]{--cat:#0e7490;--cat-bg:#dcf3f8}
+      .cat-btn[data-cat="mudanzas"]{--cat:#7c3aed;--cat-bg:#efe7fd}
+      .cat-btn[data-cat="jardineria"]{--cat:#15803d;--cat-bg:#dcf2e2}
+      .cat-btn[data-cat="reparaciondeneveras"]{--cat:#0284c7;--cat-bg:#e1f1fb}
+      .cat-btn[data-cat="pintura"]{--cat:#c026d3;--cat-bg:#fae3fb}
+      @media (prefers-color-scheme: dark){
+        .cat-btn[data-cat="plomero"]{--cat:#2dd4bf;--cat-bg:#0f2f2a}
+        .cat-btn[data-cat="electricista"]{--cat:#f0a04a;--cat-bg:#35260e}
+        .cat-btn[data-cat="mecanico"]{--cat:#7aa7f8;--cat-bg:#18294d}
+        .cat-btn[data-cat="gomera"]{--cat:#fb8fab;--cat-bg:#3a1622}
+        .cat-btn[data-cat="limpieza"]{--cat:#4ade80;--cat-bg:#12301c}
+        .cat-btn[data-cat="handyman"]{--cat:#b79cff;--cat-bg:#271a4d}
+        .cat-btn[data-cat="aireacondicionado"]{--cat:#38bdf8;--cat-bg:#0c2a3d}
+        .cat-btn[data-cat="selladodetecho"]{--cat:#fb923c;--cat-bg:#38200f}
+        .cat-btn[data-cat="exterminador"]{--cat:#a3e635;--cat-bg:#243311}
+        .cat-btn[data-cat="cerrajero"]{--cat:#facc15;--cat-bg:#33290a}
+        .cat-btn[data-cat="grua"]{--cat:#fca5a5;--cat-bg:#3a1515}
+        .cat-btn[data-cat="alquilerdeherramientas"]{--cat:#22d3ee;--cat-bg:#0d2c33}
+        .cat-btn[data-cat="mudanzas"]{--cat:#c4b5fd;--cat-bg:#251947}
+        .cat-btn[data-cat="jardineria"]{--cat:#4ade80;--cat-bg:#12301c}
+        .cat-btn[data-cat="reparaciondeneveras"]{--cat:#38bdf8;--cat-bg:#0c2a3d}
+        .cat-btn[data-cat="pintura"]{--cat:#f0abfc;--cat-bg:#33123a}
+        .cat-btn svg{background:#0d1513;box-shadow:none}
+      }
+      @media (max-width:520px){.cats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.cat-btn{font-size:.78rem;min-height:98px;padding:12px 4px 10px;border-radius:17px}.cat-btn svg{width:38px;height:38px;padding:8px}.cat-tag{padding:3px 6px}}
+
+      /* ---------- Filters / preview / live results ---------- */
+      .filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+      .filter{border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);border-radius:999px;padding:9px 15px;font-weight:600;font-size:.88rem;display:inline-flex;align-items:center;gap:7px;min-height:40px;box-shadow:0 3px 10px rgba(12,40,34,.05)}
+      .filter .dot{width:8px;height:8px;border-radius:999px;background:var(--line)}
+      .filter[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+      @media (prefers-color-scheme: dark){.filter[aria-pressed="true"]{color:#070c0b}}
+      .filter[aria-pressed="true"] .dot{background:var(--open)}
+      .preview{background:var(--brand-soft);border-radius:14px;padding:13px 16px;font-weight:600;font-size:.93rem;margin-bottom:14px;display:flex;gap:9px;align-items:center;flex-wrap:wrap;color:var(--ink)}
+      .preview .q{color:var(--brand-dark);font-weight:600}
+      .preview.empty{background:var(--surface-2);color:var(--ink-soft);font-weight:500}
+      .results{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+      @media (max-width:700px){.results{grid-template-columns:1fr}}
+      .rcard{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:11px;box-shadow:0 4px 14px rgba(12,40,34,.06)}
+      .rcard.wide{grid-column:1 / -1}
+      .rcard-top{display:flex;align-items:center;gap:13px}
+      .rcard-ico{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;flex:none}
+      .rcard-ico svg{width:26px;height:26px}
+      .rcard-ico{background:var(--surface-2);color:var(--brand-dark)} @media (prefers-color-scheme: dark){.rcard-ico{color:var(--brand)}}
+      .rcard h3{font-size:1.08rem;font-weight:600}
+      .rcard .rank{font-size:.75rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft)}
+      .rcard p{margin:0;color:var(--ink-soft);font-size:.92rem}
+      .glance{display:flex;flex-wrap:wrap;gap:5px 14px;font-size:.86rem;font-weight:600;color:var(--ink-soft)}
+      .glance span{display:inline-flex;align-items:center;gap:6px}
+      .glance .stars{color:#d97706;letter-spacing:1px}
+      @media (prefers-color-scheme: dark){.glance .stars{color:#f0a04a}}
+      .glance .open{color:var(--open)} .glance svg{flex:none}
+      .rcard .spacer{flex:1}
+      .big-btn{border:0;border-radius:999px;padding:14px 18px;font-weight:600;font-size:.95rem;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;text-align:center;min-height:50px;transition:filter .15s,opacity .15s}
+      .big-btn:hover{filter:brightness(1.06)}
+      .big-btn.maps,.big-btn.clas,.big-btn.fb,.big-btn.wa{background:#0f766e;color:#fff}
+      .big-btn.disabled{opacity:.35;pointer-events:none}
+      .rcard-alt{font-size:.86rem;font-weight:600;text-align:center;color:var(--brand-dark);text-decoration:none}
+      @media (prefers-color-scheme: dark){.rcard-alt{color:var(--brand)}}
+      .rcard-alt:hover{text-decoration:underline;text-underline-offset:3px}
+      .rcard-alt.disabled{opacity:.35;pointer-events:none}
+
+      /* ---------- Provider cards ---------- */
+      .dir-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+      @media (max-width:700px){.dir-grid{grid-template-columns:1fr}}
+      .pcard{--pc:#0f766e;--pc-soft:#dff2ee;position:relative;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 14px rgba(12,40,34,.06);overflow:hidden}
+      .pcard.cat-plomero{--pc:#0f766e;--pc-soft:#dff2ee}.pcard.cat-electricista{--pc:#b45309;--pc-soft:#fdeecd}
+      .pcard.cat-mecanico{--pc:#2563eb;--pc-soft:#e3ecfe}.pcard.cat-gomera{--pc:#be3455;--pc-soft:#fde3ea}
+      .pcard.cat-limpieza{--pc:#15803d;--pc-soft:#dcf2e2}.pcard.cat-handyman{--pc:#6d28d9;--pc-soft:#ebe4fd}
+      .pcard.cat-aireacondicionado{--pc:#0369a1;--pc-soft:#e0f2fe}.pcard.cat-pintura{--pc:#c026d3;--pc-soft:#fae3fb}
+      @media (prefers-color-scheme: dark){
+        .pcard{--pc:#2dd4bf;--pc-soft:#1b2421}
+        .pcard.cat-plomero{--pc:#2dd4bf;--pc-soft:#0f2f2a}.pcard.cat-electricista{--pc:#f0a04a;--pc-soft:#35260e}
+        .pcard.cat-mecanico{--pc:#7aa7f8;--pc-soft:#18294d}.pcard.cat-gomera{--pc:#fb8fab;--pc-soft:#3a1622}
+        .pcard.cat-limpieza{--pc:#4ade80;--pc-soft:#12301c}.pcard.cat-handyman{--pc:#b79cff;--pc-soft:#271a4d}
+        .pcard.cat-aireacondicionado{--pc:#38bdf8;--pc-soft:#0c2a3d}.pcard.cat-pintura{--pc:#f0abfc;--pc-soft:#33123a}
+        .pcard .pnote{color:#c3d2ca}
+      }
+      .pcard-top{display:flex;align-items:center;gap:12px}
+      .svc-chip{width:fit-content;max-width:100%;font-size:.92rem;font-weight:700;color:var(--ink);background:var(--pc-soft);border-radius:10px;padding:5px 11px;overflow-wrap:anywhere}
+      .pcard-avatar{width:44px;height:44px;border-radius:14px;background:var(--pc-soft);color:var(--pc);display:flex;align-items:center;justify-content:center;flex:none}
+      .pcard-avatar svg{width:24px;height:24px}
+      .pcard h3{font-size:1.05rem;font-weight:800;flex:1;min-width:0;line-height:1.25}
+      .badge{flex:none;font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:4px 9px}
+      .badge.local{background:var(--green-soft);color:var(--green)} .badge.cob{background:var(--amber-soft);color:var(--amber)} .badge.hand{background:var(--violet-soft);color:var(--violet)}
+      .approved-mark{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:600;color:var(--brand-dark);background:var(--brand-soft);border-radius:999px;padding:4px 10px;width:fit-content}
+      @media (prefers-color-scheme: dark){.approved-mark{color:var(--brand)}}
+      .dir-approved-head{font-weight:600;font-size:.98rem;margin:18px 0 10px}
+      .pcard .addr{margin:0;color:var(--ink-soft);font-size:.9rem;display:flex;gap:7px;align-items:flex-start}
+      .pcard .addr svg{flex:none;margin-top:3px;color:var(--pc)}
+      .pcard .meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.86rem;font-weight:500;color:var(--ink-soft);line-height:1.5}
+      .pcard .meta span{display:inline-flex;align-items:center;gap:6px}
+      .pcard .meta .stars{color:#d97706;letter-spacing:1px}
+      @media (prefers-color-scheme: dark){.pcard .meta .stars{color:#f0a04a}}
+      .pcard .meta .open{color:var(--open)}
+      .pcard .meta .notpub{font-weight:500}
+      .pcard .pnote{margin:0;font-size:.88rem;color:var(--ink-soft);background:var(--pc-soft);border-radius:12px;padding:9px 12px}
+      .pcard .actions{display:flex;gap:8px;margin-top:8px}
+      .pcard .actions a{flex:1;border:1.5px solid transparent;border-radius:999px;padding:13px 10px;font-weight:600;font-size:.92rem;display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;min-height:48px;text-align:center;transition:filter .15s}
+      .pcard .actions a:hover{filter:brightness(1.07)}
+      .act-call{background:#0f766e;color:#fff}
+      .act-wa{background:var(--surface);color:var(--wa-dark);border-color:var(--wa-dark)}
+      .no-phone{border:1.5px dashed var(--line);border-radius:999px;padding:11px;text-align:center;font-weight:600;font-size:.88rem;color:var(--ink-soft)}
+      .gap-banner{background:var(--amber-soft);border:0;color:var(--ink);border-radius:14px;padding:13px 16px;font-weight:600;font-size:.92rem;margin-bottom:12px}
+      .dir-count{font-weight:600;color:var(--ink-soft);font-size:.9rem;margin:0 0 12px}
+      .dir-note{margin:14px 0 0;color:var(--ink-soft);font-size:.85rem;line-height:1.6}
+
+      /* ---------- Registro / form (legacy classes kept) ---------- */
+      .reg-notice{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);border-radius:12px;padding:14px 16px;font-size:.93rem;line-height:1.55;margin-bottom:16px}
+      .reg-form{display:grid;grid-template-columns:1fr 1fr;gap:14px} @media (max-width:640px){.reg-form{grid-template-columns:1fr}}
+      .reg-field{display:flex;flex-direction:column;gap:6px}.reg-field.full{grid-column:1 / -1}
+      .reg-field label{font-weight:600;font-size:.82rem;color:var(--ink-soft)}
+      .reg-field input,.reg-field select,.reg-field textarea{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;font-weight:500;background:var(--surface);color:var(--ink);outline:0;width:100%}
+      .reg-field textarea{resize:vertical;min-height:76px}
+      .reg-field input:focus,.reg-field select:focus,.reg-field textarea:focus{border-color:var(--brand)}
+      .reg-field .hint{font-size:.82rem;color:var(--ink-soft);font-weight:500}
+      .reg-error{display:none;grid-column:1 / -1;background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);border-radius:12px;padding:11px 14px;font-weight:600;font-size:.92rem}.reg-error.show{display:block}
+      .reg-submit{grid-column:1 / -1;border:0;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600;font-size:.98rem;padding:14px 18px;min-height:50px}
+      .reg-preview{display:none;margin-top:20px}.reg-preview.show{display:block}.reg-preview h3{font-size:1rem;font-weight:600;margin-bottom:10px}
+      .reg-share{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+      .reg-share button,.reg-share a{flex:1;min-width:170px;border-radius:999px;padding:12px;font-weight:600;font-size:.93rem;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;min-height:48px;text-align:center}
+      .reg-copy{border:1px solid var(--line);background:var(--surface);color:var(--ink)} .reg-wa{background:var(--wa);color:#052e12;border:0}
+      .reg-status{margin:10px 0 0;font-size:.9rem;font-weight:600;color:var(--brand-dark)}
+      .reg-field input,.reg-field select{min-height:50px;font-size:1rem}
+      .reg-opt-toggle{grid-column:1 / -1;border:1px solid var(--line);background:transparent;color:var(--ink-soft);border-radius:999px;padding:12px;font-weight:600;font-size:.93rem;min-height:48px}
+      .reg-opt-fields{display:none;grid-column:1 / -1;grid-template-columns:1fr 1fr;gap:14px}.reg-opt-fields.show{display:grid} @media (max-width:640px){.reg-opt-fields{grid-template-columns:1fr}}
+
+      .map-block{margin-top:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden;box-shadow:var(--shadow)}
+      .map-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 20px;flex-wrap:wrap}
+      .map-head h3{font-size:.98rem;font-weight:600;display:flex;align-items:center;gap:8px}
+      .map-head h3 svg{color:var(--brand)}
+      .map-toggle{border:0;background:var(--brand);color:#fff;border-radius:999px;padding:9px 16px;font-weight:600;font-size:.88rem;min-height:40px}
+      .map-frame{display:none}.map-frame.show{display:block}.map-frame iframe{width:100%;height:340px;border:0;display:block}
+
+      /* ---------- Help chat ---------- */
+      .help{margin-top:38px;border:1px solid var(--line);border-radius:24px;background:var(--surface);overflow:hidden;box-shadow:var(--shadow)}
+      .help-head{padding:22px 22px 4px}
+      .help-head h2{font-size:1.15rem;font-weight:600;display:flex;align-items:center;gap:11px}
+      .help-head p{margin:8px 0 0;color:var(--ink-soft);font-size:.92rem}
+      .help-log{background:var(--chat-bg);margin:14px;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:8px;max-height:320px;overflow-y:auto}
+      .hmsg{max-width:88%;padding:10px 13px;border-radius:16px;font-size:.93rem;overflow-wrap:anywhere}
+      .hmsg.in{align-self:flex-start;background:var(--surface);color:var(--ink);border-bottom-left-radius:5px;box-shadow:0 3px 10px rgba(12,40,34,.06)}
+      .hmsg.out{align-self:flex-end;background:#0f766e;color:#fff;border-bottom-right-radius:5px}
+      .hmsg p{margin:0}.hmsg p + p{margin-top:5px}
+      .hmsg .links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+      .hmsg .links a{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 12px;font-weight:600;font-size:.83rem;text-decoration:none}
+      .hmsg.out .links a{color:var(--ink)}
+      .help-form{display:flex;gap:8px;padding:0 14px 16px}
+      .help-form input{flex:1;min-width:0;border:1px solid var(--line);border-radius:999px;padding:12px 16px;font:inherit;font-weight:500;background:var(--surface);color:var(--ink);outline:0}
+      .help-form input:focus{border-color:var(--brand)}
+      .help-form button{border:0;border-radius:999px;background:#0f766e;color:#fff;font-weight:600;padding:12px 20px;min-height:46px}
+
+      /* ---------- Tips ---------- */
+      .tips{display:grid;grid-template-columns:1fr 1fr;gap:12px} @media (max-width:760px){.tips{grid-template-columns:1fr}}
+      .tip-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 4px 14px rgba(12,40,34,.06)}
+      .tip-card h3{font-size:.98rem;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+      .tip-card ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+      .tip-card li{display:flex;gap:9px;align-items:flex-start;font-size:.93rem;color:var(--ink-soft)}
+      .tip-card li strong{color:var(--ink)} .tip-card li svg{flex:none;margin-top:3px}
+      .tip-card li svg{color:var(--brand)}
+
+      /* ---------- Collapsibles / register CTA ---------- */
+      .toggle-btn{width:100%;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:15px 18px;font-weight:600;font-size:.97rem;display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;box-shadow:var(--shadow)}
+      a.toggle-btn{background:linear-gradient(135deg,#0d9488,#0a5c55);color:#fff;border:0;box-shadow:0 12px 26px rgba(15,118,110,.32);font-weight:600;font-size:1rem;min-height:56px}
+      a.toggle-btn:hover{filter:brightness(1.07)}
+      .toggle-btn .chev{transition:transform .15s;flex:none}
+      .toggle-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+      .collapse{display:none}.collapse.show{display:block}.reg-wrap{display:none}.reg-wrap.show{display:block}.collapse .section-head{margin-top:22px}
+
+      footer{margin-top:44px;border-top:1px solid var(--line);padding-top:16px;color:var(--ink-soft);font-size:.85rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-weight:600}
+
+      /* ---------- Sticky bottom bar ---------- */
+      .mobile-bar{position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:50;display:flex;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px;box-shadow:0 16px 38px rgba(7,30,25,.28)}
+      .mobile-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;font-weight:600;font-size:.9rem;border-radius:999px;padding:10px 10px;min-height:46px;text-align:center}
+      .mobile-bar .mb-search{background:var(--surface-2);color:var(--ink)}
+      .mobile-bar .mb-reg{background:#0f766e;color:#fff;box-shadow:0 6px 14px rgba(15,118,110,.3)}
+      .mobile-bar svg{flex:none}
+      @media (min-width:701px){.mobile-bar{display:none}}
+      /* ---------- Revisión: sugerencias, etiquetas y confianza ---------- */
+      .sugg-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+      .sugg-chip{border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);border-radius:999px;padding:7px 12px;font-weight:600;font-size:.8rem;min-height:34px}
+      .sugg-chip:hover{border-color:var(--brand);color:var(--brand-dark)}
+      .live-search{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+      .live-lab{display:block;font-weight:700;font-size:.9rem;margin:0 0 8px;color:var(--ink)}
+      .live-row{display:flex;gap:8px}
+      .live-row input,.live-row select{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;font-weight:500;font-size:1rem;background:var(--surface);color:var(--ink);outline:0;min-height:48px}
+      .live-row input{flex:1;min-width:0}
+      .live-row select{flex:none;max-width:42%}
+      .live-row input:focus,.live-row select:focus{border-color:var(--brand)}
+      .live-search .sugg-chips{margin-top:10px}
+      .cat-tag{font-size:.75rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;border-radius:999px;padding:3px 8px;background:var(--surface);color:var(--ink-soft);box-shadow:0 2px 6px rgba(12,40,34,.1);max-width:100%;text-align:center;line-height:1.3;overflow-wrap:break-word}
+      .cat-tag.indir{color:var(--brand-dark)}
+      .dir-loading{font-weight:600;color:var(--ink-soft);font-size:.9rem;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+      .dir-loading::before{content:"";width:14px;height:14px;border-radius:50%;border:2.5px solid var(--line);border-top-color:var(--brand);animation:spin 0.8s linear infinite;flex:none}
+      @keyframes spin{to{transform:rotate(360deg)}}
+      @media (prefers-reduced-motion: reduce){.dir-loading::before{animation:none}}
+      .verified-line{font-size:.76rem;font-weight:600;color:var(--ink-soft)}
+      .report-link{align-self:flex-start;border:0;background:transparent;color:var(--ink-soft);font-size:.8rem;font-weight:600;text-decoration:underline;text-underline-offset:3px;padding:4px 0;cursor:pointer}
+      .report-link:hover{color:var(--ink)}
+      .ext-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+      .ext-links a{border-radius:999px;padding:10px 15px;font-weight:600;font-size:.88rem;text-decoration:none;min-height:42px;display:inline-flex;align-items:center}
+      .ext-links a.maps,.ext-links a.clas,.ext-links a.fb{background:#0f766e;color:#fff}
+      .src-note{font-size:.8rem;color:var(--ink-soft);margin:8px 0 0}
+      .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:86px;z-index:60;background:var(--ink);color:var(--bg);border-radius:999px;padding:11px 18px;font-weight:600;font-size:.88rem;box-shadow:var(--shadow-lg);display:none;max-width:92vw;text-align:center}
+      .toast.show{display:block}
+      /* ---------- Diseño: fila fija, esqueleto, teléfono aparte, escritorio, movimiento ---------- */
+      .sticky-cats{position:sticky;top:8px;z-index:45;display:flex;gap:7px;overflow-x:auto;padding:8px;margin-bottom:14px;background:var(--surface);border:1px solid var(--line);border-radius:999px;box-shadow:0 6px 18px rgba(12,40,34,.08);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+      .sticky-cats::-webkit-scrollbar{display:none}
+      .sticky-chip{flex:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink-soft);border-radius:999px;padding:8px 13px;font-weight:600;font-size:.82rem;min-height:38px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+      .sticky-chip svg{color:var(--chip-c,#0f766e);flex:none}
+      .sticky-chip.active{border-color:var(--chip-c,#0f766e);background:var(--chip-bg,#dff2ee);color:var(--ink)}
+      @media (prefers-color-scheme: dark){.sticky-chip svg{color:#2dd4bf}.sticky-chip.active{background:var(--surface-2)}}
+      .towns::-webkit-scrollbar{display:none}
+      .town{flex:none;white-space:nowrap}
+      .phone-line{margin:0;font-size:.95rem;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:7px}
+      .phone-line svg{color:var(--pc);flex:none}
+      .skel-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+      @media (max-width:700px){.skel-grid{grid-template-columns:1fr}}
+      @media (min-width:1000px){.skel-grid{grid-template-columns:repeat(3,1fr)}.dir-grid{grid-template-columns:repeat(3,1fr)}}
+      .skel{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px;display:flex;flex-direction:column;gap:10px}
+      .skel .bar{height:14px;border-radius:7px;background:var(--surface-2);animation:pulse 1.2s ease-in-out infinite}
+      .skel .bar.w40{width:40%}.skel .bar.w70{width:70%}.skel .bar.w55{width:55%}
+      .skel .bar.btn{height:44px;border-radius:999px}
+      @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+      .mobile-bar{justify-content:center}
+      .mobile-bar .mb-reg{max-width:520px;width:100%}
+      @media (prefers-reduced-motion: reduce){
+        html{scroll-behavior:auto}
+        *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+        .cat-btn:hover,.cat-btn:active{transform:none}
+        .skel .bar{animation:none}
+      }
+      /* ---------- Reestructura: resultados por categoría, Nuevos y conteos ---------- */
+      .hidden{display:none !important}
+      /* La etiqueta «En el directorio» nunca se parte a mitad de palabra:
+         puede saltar de línea entre palabras, pero DIRECTORIO queda entero. */
+      .cat-btn>span{overflow-wrap:normal;word-break:normal;hyphens:none}
+      .cat-btn>span.cat-tag{overflow-wrap:normal;word-break:normal;hyphens:none;white-space:normal}
+      @media (min-width:701px){.cats{grid-template-columns:repeat(auto-fill,minmax(148px,1fr))}}
+      .dir-result-title{font-size:1.12rem;font-weight:800;margin:0 0 10px;letter-spacing:-.01em}
+      .new-date-line{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:var(--brand-dark);background:var(--brand-soft);border-radius:999px;padding:4px 10px;width:fit-content}
+      @media (prefers-color-scheme: dark){.new-date-line{color:var(--brand)}}
+      .more-search{margin-top:16px;border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:18px;box-shadow:0 4px 14px rgba(12,40,34,.06)}
+      .more-search h3{font-size:1rem;font-weight:600;margin:0 0 6px}
+      .more-search p{margin:0;color:var(--ink-soft);font-size:.92rem}
+      .more-search .ext-links{margin-top:12px}
+      .empty-state{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px;box-shadow:0 4px 14px rgba(12,40,34,.06)}
+      .empty-state p{margin:0;color:var(--ink-soft);font-size:.95rem;font-weight:500}
+      .empty-state .more-search{border:0;box-shadow:none;padding:0;margin-top:14px}
+        </style>
+  </head>
+  <body>
+    <div class="wrap">
+
+      <div class="hero-shell" id="topSearch">
+      <header class="hero">
+        <p class="wordmark">ChekE<em>Aki</em></p>
+        <h1>¿Qué necesitas <em>hoy?</em></h1>
+        <p class="hero-sub">Servicios cerca de ti en el sureste de Puerto Rico: revisa la ficha y llama en segundos.</p>
+      </header>
+
+      <!-- ============ BUSCADOR ============ -->
+      <section class="panel" aria-label="Buscador de ChekEAki">
+        <label class="lab" for="serviceInput">¿Qué necesitas?</label>
+        <div class="search-card">
+        <div class="search-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="serviceInput" type="text" placeholder="Ej. plomero, electricista, alquiler de herramientas…" autocomplete="off" aria-label="¿Qué necesitas?" />
+          <button class="clear-btn" id="clearBtn" type="button" aria-label="Borrar búsqueda">✕</button>
+          <button class="go-btn" id="goBtn" type="button" disabled>
+            <span>Buscar</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div class="sugg-chips" id="suggChips" role="group" aria-label="Sugerencias de búsqueda"></div>
+        </div>
+        <p class="search-note">Guardamos de forma anónima las búsquedas sin resultado para añadir categorías</p>
+
+        <span class="lab" id="townLab">Pueblo</span>
+        <div class="towns" id="towns" role="group" aria-labelledby="townLab">
+          <button type="button" class="town" data-town="Patillas" aria-pressed="true"><span class="dot"></span>Patillas <span class="town-home">tu zona</span></button>
+          <button type="button" class="town" data-town="Guayama" aria-pressed="false"><span class="dot"></span>Guayama</button>
+          <button type="button" class="town" data-town="Arroyo" aria-pressed="false"><span class="dot"></span>Arroyo</button>
+          <button type="button" class="town" data-town="Maunabo" aria-pressed="false"><span class="dot"></span>Maunabo</button>
+          <button type="button" class="town" data-town="Yabucoa" aria-pressed="false"><span class="dot"></span>Yabucoa</button>
+          <button type="button" class="town" data-town="__zona" aria-pressed="false"><span class="dot"></span>Toda la zona</button>
+        </div>
+      </section>
+      </div>
+
+      <!-- ============ CATEGORÍAS ============ -->
+      <section class="section" aria-label="Categorías de servicios">
+        <div class="section-head">
+          <h2><span class="sec-ico teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>Categorías</h2>
+        </div>
+        <div class="cats" id="cats"></div>
+      </section>
+
+      <!-- ============ NUEVOS EN EL DIRECTORIO (inicio: solo últimos aprobados) ============ -->
+      <section class="section" id="newSection" aria-label="Nuevos en el directorio">
+        <div class="section-head">
+          <h2><span class="sec-ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.7-5h14.6L21 9"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/></svg></span>Nuevos en el directorio</h2>
+          <p>Los últimos registros aprobados, con su fecha. Solo se muestran los de los últimos 30 días.</p>
+        </div>
+        <p class="dir-loading" id="dirLoading">Cargando registros aprobados…</p>
+        <div class="skel-grid" id="dirSkeleton" aria-hidden="true">
+          <div class="skel"><div class="bar w40"></div><div class="bar w70"></div><div class="bar w55"></div><div class="bar btn"></div></div>
+          <div class="skel"><div class="bar w40"></div><div class="bar w70"></div><div class="bar w55"></div><div class="bar btn"></div></div>
+          <div class="skel"><div class="bar w40"></div><div class="bar w70"></div><div class="bar w55"></div><div class="bar btn"></div></div>
+        </div>
+        <div id="newBody"></div>
+      </section>
+
+      <!-- ============ RESULTADO POR CATEGORÍA (solo aparece al elegir una) ============ -->
+      <section class="section hidden" id="dirSection" aria-label="Resultado de la categoría elegida">
+        <div class="section-head">
+          <h2><span class="sec-ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.7-5h14.6L21 9"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/></svg></span>Proveedores</h2>
+        </div>
+        <div class="sticky-cats hidden" id="stickyCats" role="group" aria-label="Cambiar de categoría sin volver arriba"></div>
+        <div class="filters hidden" id="dirFilters" role="group" aria-label="Filtros del directorio">
+          <button type="button" class="filter" id="fOpen" aria-pressed="false"><span class="dot"></span>Con horario hoy</button>
+          <button type="button" class="filter" id="fRated" aria-pressed="false"><span class="dot"></span>Mejor valorados primero</button>
+        </div>
+        <div id="dirBody"></div>
+      </section>
+
+      <!-- ============ REGISTRA TU NEGOCIO GRATIS ============ -->
+      <section class="section" id="regSection" aria-label="Registra tu negocio gratis">
+        <a class="toggle-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfw3Cu4Ce_ExO7nSsX-97k3YvFwVAaXDZZoGReoN1bu0URzsQ/viewform" target="_blank" rel="noopener" style="text-decoration:none">Registra tu negocio gratis
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
+        <p style="margin:12px 4px 0;color:var(--ink-soft);font-size:.9rem;line-height:1.55;text-align:center">Llena el formulario y tu registro queda guardado para revisión. Al aprobarse, aparecerá en el directorio.</p>
+      </section>
+
+      <!-- ============ MÁS OPCIONES ============ -->
+      <section class="section" aria-label="Más opciones">
+        <button type="button" class="toggle-btn" id="moreToggle" aria-expanded="false">Más opciones
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="collapse" id="moreBox">
+        <div class="section-head">
+          <h2><span class="sec-ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>Buscar en vivo</h2>
+        </div>
+
+        <div class="live-search">
+          <label class="live-lab" for="liveInput">¿Qué servicio buscas?</label>
+          <div class="live-row">
+            <input id="liveInput" type="text" placeholder="Ej. plomero, pintura…" autocomplete="off" />
+            <select id="liveTown" aria-label="Pueblo para la búsqueda en vivo">
+              <option value="Patillas">Patillas</option>
+              <option value="Guayama">Guayama</option>
+              <option value="Arroyo">Arroyo</option>
+              <option value="Maunabo">Maunabo</option>
+              <option value="Yabucoa">Yabucoa</option>
+              <option value="__zona">Toda la zona</option>
+            </select>
+          </div>
+          <div class="sugg-chips" id="liveChips" role="group" aria-label="Sugerencias para la búsqueda en vivo"></div>
+        </div>
+
+        <div class="preview empty" id="preview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <span id="previewText">Escribe o elige un servicio arriba para activar los botones de abajo.</span>
+        </div>
+
+        <div class="results">
+          <article class="rcard wide">
+            <div class="rcard-top">
+              <span class="rcard-ico maps"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <div>
+                <span class="rank maps">Fuente principal</span>
+                <h3>Google Maps</h3>
+              </div>
+            </div>
+            <div class="glance" aria-label="Qué verás en Maps">
+              <span class="stars" aria-hidden="true">★★★★★</span>
+              <span>Estrellas y reseñas de cada negocio</span>
+              <span class="open"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"/></svg>Abierto ahora en verde · cerrado en rojo</span>
+              <span>Pueblo y distancia</span>
+            </div>
+            <p>Ficha completa de cada negocio: <strong>llamar</strong> o <strong>WhatsApp</strong> desde ahí.</p>
+            <div class="spacer"></div>
+            <a class="big-btn maps disabled" id="btnMaps" href="#" target="_blank" rel="noopener">Ver resultados en Maps
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+          </article>
+
+          <article class="rcard">
+            <div class="rcard-top">
+              <span class="rcard-ico clas"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="m12 2 9 5H3z"/></svg></span>
+              <div>
+                <span class="rank clas">Segunda fuente</span>
+                <h3>ClasificadosOnline</h3>
+              </div>
+            </div>
+            <p>Anuncios locales por pueblo, incluso negocios sin ficha en Maps.</p>
+            <div class="spacer"></div>
+            <a class="big-btn clas disabled" id="btnClas" href="#" target="_blank" rel="noopener">Ver en Clasificados
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+            <a class="rcard-alt" href="https://www.clasificadosonline.com/Servicios.asp" target="_blank" rel="noopener">Ir directo a la Guía de Servicios →</a>
+          </article>
+
+          <article class="rcard">
+            <div class="rcard-top">
+              <span class="rcard-ico fb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+              <div>
+                <span class="rank fb">Tercera fuente</span>
+                <h3>Facebook</h3>
+              </div>
+            </div>
+            <p>Páginas y grupos locales del área.</p>
+            <p class="src-note">Ojo: Facebook puede pedirte iniciar sesión para mostrar los resultados.</p>
+            <div class="spacer"></div>
+            <a class="big-btn fb disabled" id="btnFb" href="#" target="_blank" rel="noopener">Ver en Facebook
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+            <a class="rcard-alt disabled" id="btnFbGroups" href="#" target="_blank" rel="noopener">Buscar en grupos locales →</a>
+          </article>
+
+          <article class="rcard wide">
+            <div class="rcard-top">
+              <span class="rcard-ico wa"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.2-.8l.5-.6c.1-.2.1-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg></span>
+              <div>
+                <span class="rank wa">Para compartir</span>
+                <h3>Llévalo en WhatsApp</h3>
+              </div>
+            </div>
+            <p>Tu búsqueda con los enlaces de las tres fuentes, lista para enviar.</p>
+            <div class="spacer"></div>
+            <a class="big-btn wa disabled" id="btnWa" href="#" target="_blank" rel="noopener">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2z"/></svg>
+              Enviar búsqueda por WhatsApp</a>
+          </article>
+        </div>
+
+        <div class="map-block">
+          <div class="map-head">
+            <h3><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Mapa de la zona <span style="font-weight:600;color:var(--ink-soft);font-size:.85rem">(opcional)</span></h3>
+            <button type="button" class="map-toggle" id="mapToggle" aria-expanded="false">Ver mapa</button>
+          </div>
+          <div class="map-frame" id="mapFrame">
+            <iframe id="mapIframe" title="Mapa de Google Maps con la búsqueda" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <p class="src-note" style="padding:0 20px 14px">Si el mapa no carga aquí dentro, usa el botón «Ver resultados en Maps» de arriba: abre la búsqueda completa en Google Maps.</p>
+        </div>
+      <!-- ============ AYUDA (chat secundario) ============ -->
+      <section class="help" aria-label="Ayuda para buscar">
+        <div class="help-head">
+          <h2><span class="sec-ico rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.5 0-3-.4-4.2-1.1L3 20l1.1-5.3A8.5 8.5 0 1 1 21 11.5z"/></svg></span>Búscalo con tus palabras</h2>
+          <p>Escríbelo como lo dirías, como «alguien que bregue con techos», y te devuelvo los enlaces de búsqueda.</p>
+        </div>
+        <div class="help-log" id="helpLog" role="log" aria-live="polite" aria-label="Ayuda para buscar con tus palabras">
+          <div class="hmsg in"><p>Dime el servicio y el pueblo, como lo dirías en voz alta. Yo lo convierto en búsqueda en Maps, ClasificadosOnline y Facebook.</p></div>
+        </div>
+        <form class="help-form" id="helpForm">
+          <input id="helpInput" type="text" placeholder="Ej. alguien que limpie cisternas en Arroyo…" autocomplete="off" aria-label="Qué necesitas" />
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+
+      <!-- ============ CONSEJOS ============ -->
+      <section class="section" aria-label="Consejos para elegir">
+        <div class="section-head"><h2><span class="sec-ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="m9 12 2 2 4-4.5"/></svg></span>Antes de llamar</h2></div>
+        <div class="tips">
+          <div class="tip-card check">
+            <h3><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5.5"/></svg>Qué revisar en cada resultado</h3>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Reseñas recientes</strong> — no solo la nota: lee qué dicen los últimos comentarios.</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Llama antes de ir</strong> — confirma horario y si cubre tu pueblo; no todo lo publicado está al día.</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Pide estimado por escrito</strong> antes de autorizar el trabajo, aunque sea por mensaje.</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Compara 2–3 opciones</strong> entre fuentes: el mejor en Maps no siempre es el más barato en Clasificados.</span></li>
+            </ul>
+          </div>
+          <div class="tip-card warn">
+            <h3><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 10 18H2z"/><path d="M12 10v5"/><path d="M12 18.5h.01"/></svg>Ojo con estas señales</h3>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg><span>Te pide <strong>depósito completo por adelantado</strong> sin contrato ni recibo.</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg><span>Insiste en moverse <strong>fuera de la plataforma</strong> (solo WhatsApp) y evade preguntas básicas.</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg><span>Precio <strong>demasiado bueno</strong> comparado con los demás, con prisa para que decidas.</span></li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg><span>No aparece en <strong>ninguna otra fuente</strong> ni tiene reseñas verificables.</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <p class="dir-note">Cada tarjeta del directorio muestra su fecha de verificación: el horario puede cambiar — confirma llamando antes de ir. <strong>Local</strong> = negocio en ese pueblo · <strong>Cobertura</strong> = empresa de fuera que atiende el área a domicilio · <strong>Handyman</strong> = servicios generales, no un especialista dedicado. El directorio cubre por ahora Patillas, Guayama y Arroyo; Maunabo y Yabucoa se buscan en vivo en Maps, ClasificadosOnline y Facebook.</p>
+      <p class="dir-note">Los resultados en vivo se abren en cada fuente: verifica teléfono y horario allí, porque pueden cambiar.</p>
+      </div>
+      </section>
+
+      <footer>
+        <span>ChekEAki · Servicios del sureste</span>
+        <span>Patillas · Guayama · Arroyo · Maunabo · Yabucoa</span>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <nav class="mobile-bar" aria-label="Acciones rápidas">
+      <a class="mb-reg" href="https://docs.google.com/forms/d/e/1FAIpQLSfw3Cu4Ce_ExO7nSsX-97k3YvFwVAaXDZZoGReoN1bu0URzsQ/viewform" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Registrar negocio gratis</a>
+    </nav>
+    <script>
+      (function(){
+        var input = document.getElementById('serviceInput');
+        var clearBtn = document.getElementById('clearBtn');
+        var goBtn = document.getElementById('goBtn');
+        var preview = document.getElementById('preview');
+        var previewText = document.getElementById('previewText');
+        var liveInput = document.getElementById('liveInput');
+        var liveTown = document.getElementById('liveTown');
+        var btnMaps = document.getElementById('btnMaps');
+        var btnClas = document.getElementById('btnClas');
+        var btnFb = document.getElementById('btnFb');
+        var btnFbGroups = document.getElementById('btnFbGroups');
+        var btnWa = document.getElementById('btnWa');
+        var fOpen = document.getElementById('fOpen');
+        var fRated = document.getElementById('fRated');
+        var mapToggle = document.getElementById('mapToggle');
+        var mapFrame = document.getElementById('mapFrame');
+        var mapIframe = document.getElementById('mapIframe');
+
+        var TOWN_NAMES = ['Patillas','Guayama','Arroyo','Maunabo','Yabucoa'];
+        var town = 'Patillas';
+        var openNow = false; /* filtro «Con horario hoy»: calculado del horario publicado, no una foto fija */
+        var sort = 'default'; /* 'default' | 'rated' */
+        var mapShown = false;
+
+        /* Orden de presentación de las categorías. Cuáles tienen proveedores
+           propios y cuántos NO se decide aquí: se calcula en catCounts(). */
+        var CATS = [
+          { name:'Plomero', icon:'<path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/>' },
+          { name:'Electricista', icon:'<path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>' },
+          { name:'Mecánico', icon:'<path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>' },
+          { name:'Gomera', icon:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/>' },
+          { name:'Handyman', icon:'<path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.6 15.6a7 7 0 1 1 3.4-3.4L16 12l-4.5 4.5"/>' },
+          { name:'Limpieza', icon:'<path d="M12 2.7 17.7 8.4a8 8 0 1 1-11.4 0z"/>' },
+          { name:'Aire acondicionado', icon:'<path d="M2 12h20"/><path d="M12 2v20"/><path d="m19 5-3 3"/><path d="m5 19 3-3"/><path d="M5 5l3 3"/><path d="m19 19-3-3"/>' },
+          { name:'Sellado de techo', icon:'<path d="M2 12 12 3l10 9"/><path d="M5 10v10h14V10"/>' },
+          { name:'Exterminador', icon:'<circle cx="12" cy="13" r="5"/><path d="M12 8V4"/><path d="m8 6 2 2M16 6l-2 2"/><path d="M7 14H3M21 14h-4M8 18l-3 3M16 18l3 3"/>' },
+          { name:'Cerrajero', icon:'<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9"/><path d="M17 4l3 3M14 7l3 3"/>' },
+          { name:'Grúa', icon:'<path d="M3 17h18"/><path d="M6 17V5h9l3 5"/><path d="M18 10v4"/><circle cx="7.5" cy="19.5" r="1.6"/><circle cx="16.5" cy="19.5" r="1.6"/>' },
+          { name:'Alquiler de herramientas', icon:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>' },
+          { name:'Mudanzas', icon:'<path d="M1 8h13v9H1z"/><path d="M14 11h4l3 3v3h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/>' },
+          { name:'Jardinería', icon:'<path d="M11 20A7 7 0 0 1 4 13c0-4 3-8 8-11 5 3 8 7 8 11a7 7 0 0 1-7 7"/><path d="M12 22v-9"/>' },
+          { name:'Reparación de neveras', icon:'<rect x="6" y="2" width="12" height="20" rx="2"/><path d="M6 10h12"/><path d="M9 5v2M9 13v3"/>' },
+          { name:'Pintura', icon:'<rect x="3" y="3" width="14" height="7" rx="1"/><path d="M17 6h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H10v3"/><rect x="9" y="14" width="2.5" height="7" rx="1"/>' }
+        ];
+        var REDUCED_MOTION = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+        function scrollToDir(){ var el = document.getElementById('dirSection'); if(el) el.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block:'start' }); }
+        function catSlug(name){ return (name || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,''); }
+        var CAT_COLORS = { plomero:['#0f766e','#dff2ee'], electricista:['#b45309','#fdeecd'], mecanico:['#2563eb','#e3ecfe'], gomera:['#be3455','#fde3ea'], limpieza:['#15803d','#dcf2e2'], handyman:['#6d28d9','#ebe4fd'], aireacondicionado:['#0369a1','#e0f2fe'], selladodetecho:['#9a3412','#fde8dd'], exterminador:['#4d7c0f','#ecf3d8'], cerrajero:['#a16207','#fdf3c7'], grua:['#b91c1c','#fde2e2'], alquilerdeherramientas:['#0e7490','#dcf3f8'], mudanzas:['#7c3aed','#efe7fd'], jardineria:['#15803d','#dcf2e2'], reparaciondeneveras:['#0284c7','#e1f1fb'], pintura:['#c026d3','#fae3fb'] };
+        var catsEl = document.getElementById('cats');
+        CATS.forEach(function(c){
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'cat-btn'; b.setAttribute('data-service', c.name); b.setAttribute('data-cat', catSlug(c.name));
+          b.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + c.icon + '</svg>';
+          var nm = document.createElement('span'); nm.textContent = c.name; b.appendChild(nm);
+          /* La etiqueta se calcula en updateCatTags(): «En el directorio · N»
+             con N contado del directorio curado + aprobados, o «Maps». */
+          var tg = document.createElement('span'); tg.className = 'cat-tag';
+          tg.textContent = 'Maps';
+          b.appendChild(tg);
+          b.addEventListener('click', function(){
+            input.value = c.name;
+            doExplicitSearch();
+            scrollToDir();
+          });
+          catsEl.appendChild(b);
+        });
+
+        /* Fila fija de categorías sobre los resultados: cambiar sin volver arriba ni saltar */
+        var stickyEl = document.getElementById('stickyCats');
+        if(stickyEl){
+          CATS.forEach(function(c){
+            var col = CAT_COLORS[catSlug(c.name)] || ['#0f766e','#dff2ee'];
+            var b = document.createElement('button');
+            b.type = 'button'; b.className = 'sticky-chip'; b.setAttribute('data-service', c.name);
+            b.style.setProperty('--chip-c', col[0]);
+            b.style.setProperty('--chip-bg', col[1]);
+            b.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + c.icon + '</svg>';
+            var nm = document.createElement('span'); nm.textContent = c.name; b.appendChild(nm);
+            b.addEventListener('click', function(){ input.value = c.name; doExplicitSearch(); });
+            stickyEl.appendChild(b);
+          });
+        }
+
+        /* Sugerencias como chips (sustituyen al <datalist>, que varía por móvil) */
+        var SUGGESTIONS = ['Plomero','Electricista','Mecánico','Gomera','Pintura','Cerrajero'];
+        var suggEl = document.getElementById('suggChips');
+        SUGGESTIONS.forEach(function(s){
+          var ch = document.createElement('button');
+          ch.type = 'button'; ch.className = 'sugg-chip'; ch.textContent = s;
+          ch.addEventListener('click', function(){
+            input.value = s; doExplicitSearch();
+            scrollToDir();
+          });
+          suggEl.appendChild(ch);
+        });
+
+        function townLabel(){ return town === '__zona' ? 'el sureste de Puerto Rico' : town; }
+        function townForQuery(){ return town === '__zona' ? 'Patillas Puerto Rico' : town + ', Puerto Rico'; }
+        function service(){ return input.value.trim(); }
+        function enc(s){ return encodeURIComponent(s); }
+
+        /* Búsquedas de SERVICIOS, no de ventas: por categoría se usa la frase
+           de servicio (técnico / servicio / taller / instalación / reparación)
+           para que no salgan vendedores de productos. */
+        var SERVICE_QUERIES = [
+          ['aire acondicionado','técnico aire acondicionado instalación reparación'],
+          ['reparacion de neveras','técnico reparación neveras'],
+          ['reparacion de generadores','técnico reparación generadores'],
+          ['limpieza de cisterna','servicio limpieza de cisterna'],
+          ['sellado de techo','servicio sellado techo'],
+          ['alquiler de herramientas','alquiler herramientas servicio'],
+          ['alquiler de equipos','alquiler equipos servicio'],
+          ['construccion y remodelacion','servicio construcción remodelación'],
+          ['construccion','servicio construcción remodelación'],
+          ['plomero','plomero servicio'],
+          ['electricista','electricista servicio'],
+          ['mecanico','taller mecánica'],
+          ['mecanica','taller mecánica'],
+          ['limpieza','servicio limpieza'],
+          ['handyman','handyman servicio reparaciones hogar'],
+          ['exterminador','servicio exterminador fumigación'],
+          ['fumigacion','servicio exterminador fumigación'],
+          ['gomera','gomera servicio'],
+          ['cerrajero','cerrajero servicio'],
+          ['grua','servicio grúa'],
+          ['mudanzas','servicio mudanzas'],
+          ['mudanza','servicio mudanzas'],
+          ['jardineria','servicio jardinería'],
+          ['pintura','pintor servicio pintura'],
+          ['pintor','pintor servicio pintura']
+        ];
+        /* La clave más larga gana: «limpieza de cisterna» antes que «limpieza». */
+        SERVICE_QUERIES.sort(function(a,b){ return b[0].length - a[0].length; });
+        function serviceQuery(s){
+          var n = s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+          for(var i = 0; i < SERVICE_QUERIES.length; i++){
+            if(n.indexOf(SERVICE_QUERIES[i][0]) !== -1) return SERVICE_QUERIES[i][1];
+          }
+          if(/servicio|tecnico|taller|reparacion|instalacion|mantenimiento/.test(n)) return s;
+          return 'servicio ' + s;
+        }
+        function mapsQuery(s){
+          var q = serviceQuery(s) + ' en ' + townForQuery();
+          if(openNow) q += ' abierto ahora';
+          if(sort === 'rated') q += ' mejor valorados';
+          return q;
+        }
+        function urls(sArg){
+          var s = (typeof sArg === 'string') ? sArg.trim() : service();
+          if(!s) return null;
+          var sq = serviceQuery(s);
+          var townLoc = town === '__zona' ? 'Puerto Rico' : town;
+          var clasQ = 'site:clasificadosonline.com Servicios ' + sq + ' ' + townLoc;
+          var fbQ = sq + ' ' + (town === '__zona' ? 'Patillas Guayama Arroyo Puerto Rico' : town + ' Puerto Rico');
+          var mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + enc(mapsQuery(s));
+          var clasUrl = 'https://www.google.com/search?q=' + enc(clasQ);
+          var fbUrl = 'https://www.facebook.com/search/top?q=' + enc(fbQ);
+          var waText = 'Busco: ' + s + ' en ' + townLabel() + '\n\nGoogle Maps:\n' + mapsUrl + '\n\nClasificadosOnline:\n' + clasUrl + '\n\nFacebook:\n' + fbUrl;
+          return {
+            maps: mapsUrl, clas: clasUrl, fb: fbUrl,
+            fbGroups: 'https://www.facebook.com/search/groups?q=' + enc(fbQ),
+            wa: 'https://wa.me/?text=' + enc(waText),
+            embed: 'https://www.google.com/maps?q=' + enc(mapsQuery(s)) + '&output=embed'
+          };
+        }
+
+        function filterDesc(){
+          var parts = [];
+          if(openNow) parts.push('solo con horario hoy');
+          if(sort === 'rated') parts.push('mejor valorados primero');
+          return parts.length ? parts.join(' · ') : 'directorio y búsqueda en vivo';
+        }
+
+        /* ---------- Directorio curado (verificado el 2026-11-02) ---------- */
+        var PILOT_CATS = ['Plomero','Electricista','Mecánico','Gomera','Handyman'];
+        var DIR_TOWNS = ['Patillas','Guayama','Arroyo'];
+        var PROVIDERS = [
+          {cat:'Plomero', name:'R W B Plumbing', type:'local', towns:['Patillas'], addr:'Calle Rubi, C14 Villas de Patillas, PR 00723', phone:'787-449-5361', rating:null, hours:null},
+          {cat:'Plomero', name:'Alexis Navarro', type:'handyman', towns:['Guayama'], addr:'Guayama y pueblos limítrofes', phone:'787-910-6739', rating:null, hours:'Disponibilidad 7 días, según su anuncio', note:'Handyman que ofrece trabajos de plomería — no es un plomero dedicado.'},
+          {cat:'Plomero', name:'Rising Sun Plumbing', type:'cobertura', towns:['Arroyo'], addr:'A domicilio — lista Arroyo entre sus áreas de servicio', phone:null, rating:null, hours:null, note:'Empresa de cobertura: no es un taller local de Arroyo.'},
+          {cat:'Plomero', name:'Connect Home', type:'cobertura', towns:['Arroyo'], addr:'Cobertura en todo Puerto Rico', phone:'787-999-5050', rating:null, hours:'Lun–Sáb · 8:00 AM–5:00 PM', note:'Empresa de cobertura: no es un taller local de Arroyo.'},
+          {cat:'Electricista', name:'SL Electrical Solutions', type:'cobertura', towns:['Guayama'], addr:'Base en Ponce · cobertura explícita en Guayama', phone:'787-560-4194', rating:null, hours:'Emergencias 24/7', note:'Empresa de cobertura: no es un taller local de Guayama.'},
+          {cat:'Electricista', name:'Alexis Navarro', type:'handyman', towns:['Guayama'], addr:'Guayama', phone:'787-910-6739', rating:null, hours:null, note:'Handyman que ofrece trabajos de electricidad — no es un taller eléctrico dedicado.'},
+          {cat:'Electricista', name:'Connect Home', type:'cobertura', towns:['Patillas','Guayama','Arroyo'], addr:'Cobertura en todo Puerto Rico', phone:'787-999-5050', rating:null, hours:'Lun–Sáb · 8:00 AM–5:00 PM', note:'Empresa de cobertura a domicilio — no es un taller local.'},
+          {cat:'Electricista', name:'Valiant Electric', type:'cobertura', towns:['Guayama','Arroyo'], addr:'Cobertura en todo Puerto Rico — lista Guayama y Arroyo', phone:'1-877-544-3396', rating:null, hours:null, note:'Empresa de cobertura a domicilio — no es un taller local.'},
+          {cat:'Electricista', name:'Tu Perito el Electricista · Miguel A. Rivera', type:'cobertura', towns:['Patillas','Guayama','Arroyo'], addr:'A domicilio en todo Puerto Rico', phone:'787-383-2670', rating:null, hours:'24/7, según su página', note:'Perito electricista a domicilio — cobertura, no un taller local.'},
+          {cat:'Electricista', name:'King Electric PR', type:'cobertura', towns:['Patillas','Guayama','Arroyo'], addr:'Base en Carolina · a domicilio en todo Puerto Rico', phone:'787-450-0960', wa:true, rating:null, hours:null, note:'Empresa de cobertura — teléfono y WhatsApp publicados.'},
+          {cat:'Mecánico', name:'Electromecánica FEN', type:'local', towns:['Patillas'], addr:'124 PR-3, Patillas, PR 00723', phone:null, rating:null, hours:null, note:'Figura activo (no cerrado permanentemente).'},
+          {cat:'Mecánico', name:'Taller Márquez & Márquez Towing', type:'local', towns:['Patillas'], addr:'PR-184, Patillas, PR 00723', phone:'787-839-1941', rating:{stars:5.0,count:12}, hours:'Lun–Vie · 8:30 AM–4:00 PM · Sáb · 9:00 AM–12:00 PM', note:'Hojalatería y pintura, estimados para seguros, grúa, mecánica liviana y cerrajería.'},
+          {cat:'Mecánico', name:'Mecánica liviana y mantenimiento a domicilio', type:'local', towns:['Guayama','Arroyo'], addr:'A domicilio en Arroyo, Guayama y Salinas', phone:'939-325-9732', rating:null, hours:'Lun–Vie · 8:45 AM–5:00 PM', openChecked:true, note:'Servicio a domicilio, no un taller fijo.'},
+          {cat:'Mecánico', name:'Taller de Mecánica Yuraquito', type:'local', towns:['Guayama'], addr:'Guayama', phone:null, rating:null, hours:null},
+          {cat:'Mecánico', name:'Garage Miguel and MC Cakes and More', type:'local', towns:['Guayama'], addr:'Carretera 1, Bo. Línea Capo, Km 0.4, Guayama', phone:'787-678-8634', rating:{stars:4.5,count:2}, hours:'Lun–Sáb · 7:00 AM–4:30 PM'},
+          {cat:'Mecánico', name:'Taller Berty', type:'local', towns:['Guayama'], addr:'PR-3, Km 142.3, Guayama', phone:'787-536-4036', rating:{stars:5.0,count:13}, hours:'Lun–Vie · 8:00 AM–5:00 PM · Sáb · 8:30 AM–12:00 PM'},
+          {cat:'Mecánico', name:'Electromecánica Ortiz', type:'local', towns:['Arroyo'], addr:'Arroyo', phone:'787-217-3358', rating:null, hours:'Lun–Vie · 8:00 AM–5:00 PM', openChecked:true},
+          {cat:'Mecánico', name:'Taller Mecánico', type:'local', towns:['Arroyo'], addr:'Cll Jazmin 6, Arroyo', phone:null, rating:null, hours:null},
+          {cat:'Gomera', name:'Gomera El Seboruco', type:'local', towns:['Patillas'], addr:'PR-3, Patillas, PR 00723', phone:'787-201-8797', rating:null, hours:'Lun–Sáb · 7:00 AM–5:00 PM · Dom · 7:00 AM–12:00 PM', openChecked:true},
+          {cat:'Gomera', name:'El Gomero', type:'local', towns:['Patillas'], addr:'Cll Orquidea, Patillas, PR 00723', phone:'787-929-2465', rating:null, hours:'Lun–Sáb · 8:00 AM–5:00 PM', openChecked:true},
+          {cat:'Gomera', name:'Casa Las Gomas', type:'local', towns:['Patillas'], addr:'PR-755, Patillas', phone:'787-519-4280', rating:null, hours:'Lun–Sáb · 8:00 AM–5:00 PM · Dom · 9:00 AM–2:00 PM'},
+          {cat:'Gomera', name:'Gomera Melania', type:'local', towns:['Guayama'], addr:'Carretera #3, Bo. Jobos, Sector Melaria, KM 140.2, Guayama, PR 00784', phone:'787-238-9211', rating:null, hours:'Lun–Sáb · 8:00 AM–5:00 PM', openChecked:true},
+          {cat:'Gomera', name:'Gomera y Agrocentro Puente Jobos', type:'local', towns:['Guayama'], addr:'105-103 PR-3, Guayama, PR 00784', phone:null, rating:null, hours:'Lun–Sáb · 8:30 AM–4:30 PM', openChecked:true},
+          {cat:'Gomera', name:'Felix Auto Parts y Gomera', type:'local', towns:['Guayama'], addr:'Guayama', phone:'787-686-6172', rating:{stars:5.0,count:14}, hours:'Lun–Vie · 8:00 AM–5:00 PM · Sáb · 8:00 AM–3:00 PM'},
+          {cat:'Gomera', name:'Big Boss Tire', type:'local', towns:['Guayama'], addr:'Ave. Los Veteranos #14, Guayama', phone:'787-348-7215', rating:{stars:4.5,count:8}, hours:'Lun–Sáb · 8:00 AM–5:00 PM'},
+          {cat:'Gomera', name:'RAPID TIRE', type:'local', towns:['Guayama'], addr:'Melania, PR-3, detrás del garage Gulf, Guayama', phone:'787-592-1621', rating:null, hours:'Lun–Vie · 8:00 AM–5:00 PM · Sáb · 8:00 AM–4:00 PM'},
+          {cat:'Gomera', name:'Gomera Los Hermanos & Carwash', type:'local', towns:['Arroyo'], addr:'PR-3, Arroyo, PR 00714', phone:null, rating:null, hours:null, note:'Figura activa (no cerrada permanentemente). Es la única gomera local verificada en Arroyo y no tiene teléfono publicado.'},
+          {cat:'Handyman', name:'Alexis Navarro', type:'handyman', towns:['Guayama'], addr:'Guayama y pueblos limítrofes', phone:'787-910-6739', rating:null, hours:'Disponibilidad 7 días, según su anuncio', note:'Handyman en Guayama: ofrece plomería, electricidad y reparaciones generales del hogar.'}
+        ];
+        /* Fecha de verificación POR proveedor (campo `verified`, formato
+           AAAA-MM-DD): antes era un texto único escrito a mano para todos,
+           que envejecía mal. Cada ficha puede llevar su propia fecha —
+           basta cambiar el `verified` de esa entrada — y la tarjeta la
+           muestra relativa («hace 3 semanas») junto a la fecha. Los que
+           no traen el campo quedan con la verificación inicial del
+           directorio, 2026-11-02. */
+        PROVIDERS.forEach(function(p){ if(!p.verified) p.verified = '2026-11-02'; });
+        var GAPS = {
+          'Plomero|Guayama':'Sin plomero dedicado verificado en Guayama: la opción de aquí es un handyman. Para plomería dedicada, usa la búsqueda en vivo de abajo.',
+          'Plomero|Arroyo':'Sin local verificado en Arroyo. Lo que sigue son empresas de cobertura que sí listan Arroyo — no son talleres de Arroyo.',
+          'Electricista|Patillas':'Sin electricista local verificado en Patillas. Lo que sigue es cobertura a domicilio para todo Puerto Rico.',
+          'Electricista|Guayama':'Sin taller eléctrico dedicado verificado en Guayama: hay un handyman local y empresas de cobertura que atienden Guayama.',
+          'Electricista|Arroyo':'Sin electricista local verificado en Arroyo. Lo que sigue es cobertura a domicilio que atiende el área.',
+          'Gomera|Arroyo':'En Arroyo no hay gomera con teléfono verificado: la única local verificada no publica teléfono.'
+        };
+        /* ---------- Registros aprobados desde Google Sheets (CSV público) ---------- */
+        var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfw3Cu4Ce_ExO7nSsX-97k3YvFwVAaXDZZoGReoN1bu0URzsQ/viewform';
+        var SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/1OQ6Cp5mafPjEU5tOo__OI575_T4zU7aeNQJVfh0RtEo/export?format=csv&gid=0';
+        var toastEl = document.getElementById('toast');
+        var toastTimer = null;
+        function showToast(msg){
+          if(!toastEl) return;
+          toastEl.textContent = msg;
+          toastEl.classList.add('show');
+          if(toastTimer) clearTimeout(toastTimer);
+          toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 4200);
+        }
+        /* ---------- Búsquedas sin resultado: envío a un destino de René ----------
+           ANTES esto se guardaba en la memoria del teléfono de cada visitante
+           y se ofrecía un botón público de descarga: René nunca lo recibía.
+           Ahora:
+           · Solo se registra cuando el visitante PULSA Buscar, Enter o un
+             chip/categoría — nunca al escribir letra por letra.
+           · No hay botón de descarga en la vista pública.
+           · El envío va por POST al Google Form de René para búsquedas
+             sin resultado, usando googleFormUrlTemplate con los
+             marcadores {busqueda}, {pueblo} y {fecha}:
+             entry.1807308739 = Búsqueda, entry.99014164 = Pueblo y
+             entry.426951995 = Fecha.
+             - appsScriptUrl queda vacío (no se usa Apps Script).
+           Las búsquedas también quedan en una cola interna de la sesión. */
+        var NO_RESULT_DESTINO = { appsScriptUrl:'', googleFormUrlTemplate:'https://docs.google.com/forms/d/e/1FAIpQLSdhi1m-7R1zBb9CGcphRgHo0xjtOPAZ6eWwo10ioYGiSsbh1Q/formResponse?entry.1807308739={busqueda}&entry.99014164={pueblo}&entry.426951995={fecha}' };
+        var NO_RESULT_SENT = {};
+        var NO_RESULT_PENDING = [];
+        var explicitSearchPending = false;
+        var lastSearchHadResult = true;
+        var lastSearchLabel = '';
+        function reportNoResult(q, townOverride){
+          if(!normTxt(q || '')) return;
+          /* La búsqueda va SOLA (categoría o frase, sin repetir el pueblo);
+             el pueblo viaja aparte en su propio campo. «Toda la zona»
+             (__zona) se traduce a «Toda la zona sureste», nunca el código
+             interno. townOverride lo usa la ayuda «con tus palabras» para
+             reportar el pueblo que el usuario escribió en la frase. */
+          var repTown = (typeof townOverride !== 'undefined' && townOverride !== null && townOverride !== '') ? townOverride : (typeof town !== 'undefined' ? town : '');
+          if(repTown === '__zona') repTown = 'Toda la zona sureste';
+          /* La deduplicación usa búsqueda + pueblo: la misma búsqueda
+             en Patillas y luego en Maunabo se reporta por separado. */
+          var key = normTxt(q || '') + '|' + normTxt(repTown || '');
+          if(NO_RESULT_SENT[key]) return;
+          NO_RESULT_SENT[key] = true;
+          var entry = { busqueda:q, pueblo:repTown, fecha:new Date().toISOString() };
+          NO_RESULT_PENDING.push(entry);
+          try {
+            if(NO_RESULT_DESTINO.appsScriptUrl){
+              var payload = JSON.stringify(entry);
+              if(navigator.sendBeacon){
+                navigator.sendBeacon(NO_RESULT_DESTINO.appsScriptUrl, new Blob([payload], { type:'text/plain;charset=utf-8' }));
+              } else if(typeof fetch === 'function'){
+                fetch(NO_RESULT_DESTINO.appsScriptUrl, { method:'POST', mode:'no-cors', body:payload, keepalive:true });
+              }
+            } else if(NO_RESULT_DESTINO.googleFormUrlTemplate){
+              var url = NO_RESULT_DESTINO.googleFormUrlTemplate
+                .replace('{busqueda}', encodeURIComponent(entry.busqueda))
+                .replace('{pueblo}', encodeURIComponent(entry.pueblo))
+                .replace('{fecha}', encodeURIComponent(entry.fecha));
+              if(typeof fetch === 'function') fetch(url, { method:'POST', mode:'no-cors', keepalive:true });
+            }
+          } catch(e){ /* sin destino válido, la cola interna basta */ }
+        }
+        /* Búsqueda explícita: marca la intención, refresca y, solo si el
+           resultado quedó vacío, lo reporta UNA vez. Escribir en el campo
+           llama a refresh() a secas y nunca reporta nada. */
+        function doExplicitSearch(){
+          explicitSearchPending = true;
+          refresh();
+          explicitSearchPending = false;
+        }
+        var APPROVED_PROVIDERS = [];
+        var APPROVED_LOADED = false;
+        var LOCAL_TOWN_NAMES = ['Patillas','Guayama','Arroyo','Maunabo','Yabucoa'];
+        function parseCSV(text){
+          var rows = [], row = [], field = '', inQ = false;
+          for(var i = 0; i < text.length; i++){
+            var ch = text.charAt(i), nx = i + 1 < text.length ? text.charAt(i + 1) : '';
+            if(inQ){
+              if(ch === '"' && nx === '"'){ field += '"'; i++; }
+              else if(ch === '"'){ inQ = false; }
+              else { field += ch; }
+            } else {
+              if(ch === '"'){ inQ = true; }
+              else if(ch === ','){ row.push(field); field = ''; }
+              else if(ch === '\r'){ /* skip */ }
+              else if(ch === '\n'){ row.push(field); rows.push(row); row = []; field = ''; }
+              else { field += ch; }
+            }
+          }
+          if(field !== '' || row.length){ row.push(field); rows.push(row); }
+          return rows;
+        }
+        /* Columnas por NOMBRE de encabezado (con las posiciones de hoy como
+           respaldo): si el formulario cambia de orden, no se rompe en silencio. */
+        function colIndex(headers, keys, fallback){
+          for(var i = 0; i < headers.length; i++){
+            var h = normTxt(headers[i] || '');
+            if(!h) continue;
+            for(var k = 0; k < keys.length; k++){ if(h.indexOf(keys[k]) !== -1) return i; }
+          }
+          return fallback;
+        }
+        function buildApproved(rows){
+          var out = [];
+          if(!rows.length) return out;
+          var headers = rows[0] || [];
+          var looksHeader = normTxt((headers[6] || '')).indexOf('aprob') !== -1 || normTxt((headers[0] || '')).indexOf('nombre') !== -1 || normTxt((headers[0] || '')).indexOf('marca') !== -1;
+          /* La columna de WhatsApp se busca APARTE y nunca dentro de la
+             de teléfono: si no, una columna «¿Tiene WhatsApp?» podría
+             leerse como si fuera el número. En el formulario de registro
+             esa casilla es «¿Tiene WhatsApp?» (Sí/No); sin esa columna
+             en la hoja, whatsapp queda -1 y el registro sale sin botón
+             de WhatsApp, igual que un curado sin wa:true. Primero se
+             busca la frase exacta «tiene whatsapp» en TODOS los
+             encabezados; solo si no aparece se acepta un encabezado con
+             «whatsapp» que NO sea la columna del número. */
+          function waCol(headers){
+            var i, h;
+            for(i = 0; i < headers.length; i++){ h = normTxt(headers[i] || ''); if(h.indexOf('tiene whatsapp') !== -1) return i; }
+            for(i = 0; i < headers.length; i++){
+              h = normTxt(headers[i] || '');
+              if(h.indexOf('whatsapp') !== -1 && h.indexOf('telefono') === -1 && h.indexOf('celular') === -1 && h.indexOf('numero') === -1) return i;
+            }
+            return -1;
+          }
+          var COL = {
+            nombre: looksHeader ? colIndex(headers, ['nombre','negocio','empresa'], 0) : 0,
+            servicio: looksHeader ? colIndex(headers, ['servicio','categoria','oficio'], 1) : 1,
+            pueblo: looksHeader ? colIndex(headers, ['pueblo','municipio','ubicacion'], 2) : 2,
+            telefono: looksHeader ? colIndex(headers, ['telefono','celular','numero'], 3) : 3,
+            horario: looksHeader ? colIndex(headers, ['horario','hora'], 4) : 4,
+            descripcion: looksHeader ? colIndex(headers, ['descripcion','detalle','nota'], 5) : 5,
+            aprobado: looksHeader ? colIndex(headers, ['aprob'], 6) : 6,
+            fecha: looksHeader ? colIndex(headers, ['fecha'], 7) : 7,
+            otro: looksHeader ? colIndex(headers, ['otro'], 8) : 8,
+            whatsapp: looksHeader ? waCol(headers) : -1
+          };
+          rows.forEach(function(r, idx){
+            if(idx === 0 && looksHeader) return;
+            if(!r || r.length < 7) return;
+            function cell(i){ return i >= 0 && i < r.length ? (r[i] || '').trim() : ''; }
+            var nombre = cell(COL.nombre);
+            var aprobado = cell(COL.aprobado);
+            if(!nombre) return;
+            /* SOLO filas con Aprobado = Sí */
+            if(normTxt(aprobado) !== 'si') return;
+            var servicioBase = cell(COL.servicio);
+            var pueblo = cell(COL.pueblo);
+            var telefono = cell(COL.telefono);
+            var horario = cell(COL.horario);
+            var descripcion = cell(COL.descripcion);
+            var otro = cell(COL.otro);
+            var fechaRaw = cell(COL.fecha);
+            var fechaDate = null;
+            /* SIN Date.parse: interpreta «2/11/2026» como mes/día (11 de
+               febrero) y la hoja puede venir en dd/mm. Se aceptan solo
+               dos formatos, leídos a mano: el recomendado en la columna,
+               AAAA-MM-DD («2026-11-02»), y dd/mm/aaaa, donde el primer
+               número es el DÍA. Cualquier otro formato se descarta en
+               vez de adivinarlo mal. */
+            var fm = /^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(fechaRaw);
+            if(fm){ fechaDate = new Date(parseInt(fm[1],10), parseInt(fm[2],10) - 1, parseInt(fm[3],10)); }
+            else {
+              var dm = /^(\d{1,2})[\/](\d{1,2})[\/](\d{4})/.exec(fechaRaw);
+              if(dm){ fechaDate = new Date(parseInt(dm[3],10), parseInt(dm[2],10) - 1, parseInt(dm[1],10)); }
+            }
+            var waRaw = normTxt(cell(COL.whatsapp));
+            var tieneWa = (waRaw === 'si' || waRaw === 'yes' || waRaw === 'true' || waRaw === '1' || waRaw === 'x');
+            var servicioFinal = otro ? otro : servicioBase;
+            if(!servicioFinal) servicioFinal = servicioBase;
+            var puebloNorm = normTxt(pueblo);
+            var isCoverage = (puebloNorm === 'toda la zona sureste' || puebloNorm === 'todo puerto rico');
+            var isLocal = false;
+            LOCAL_TOWN_NAMES.forEach(function(t){ if(normTxt(t) === puebloNorm) isLocal = true; });
+            var type = isCoverage ? 'cobertura' : 'local';
+            out.push({
+              cat: servicioFinal,
+              name: nombre,
+              type: type,
+              towns: isCoverage ? LOCAL_TOWN_NAMES.slice() : (pueblo ? [pueblo] : []),
+              addr: pueblo || 'Sureste de Puerto Rico',
+              phone: telefono ? telefono : null,
+              wa: tieneWa,
+              rating: null,
+              hours: horario ? horario : null,
+              note: descripcion ? descripcion : null,
+              fecha: fechaRaw ? fechaRaw : null,
+              approvedDate: fechaDate,
+              isApproved: true,
+              isCoverage: isCoverage,
+              openChecked: false
+            });
+          });
+          return out;
+        }
+        function approvedMatchesCat(p, rawSearch){
+          if(!rawSearch) return true;
+          var s = normTxt(rawSearch.trim());
+          var c = normTxt(p.cat || '');
+          if(!s) return true;
+          if(!c) return false;
+          if(s === c) return true;
+          /* Solo «la búsqueda contiene la categoría»: buscar «limpieza» ya no
+             trae «limpieza de cisterna», pero «limpieza de cisterna» sí la trae. */
+          if(s.indexOf(c) !== -1) return true;
+          return false;
+        }
+        function approvedForCurrent(rawSearch){
+          return APPROVED_PROVIDERS.filter(function(p){
+            if(!approvedMatchesCat(p, rawSearch)) return false;
+            if(town === '__zona') return true;
+            if(p.isCoverage) return true;
+            return p.towns.indexOf(town) !== -1;
+          });
+        }
+        function hideDirLoading(){
+          var el = document.getElementById('dirLoading');
+          if(el) el.style.display = 'none';
+          var sk = document.getElementById('dirSkeleton');
+          if(sk) sk.style.display = 'none';
+        }
+        function loadApproved(){
+          if(typeof fetch !== 'function'){ APPROVED_LOADED = true; hideDirLoading(); refresh(); return; }
+          fetch(SHEETS_CSV_URL).then(function(res){
+            if(!res.ok) throw new Error('csv');
+            return res.text();
+          }).then(function(text){
+            APPROVED_PROVIDERS = buildApproved(parseCSV(text));
+            APPROVED_LOADED = true;
+            hideDirLoading();
+            refresh();
+          }).catch(function(){
+            /* Si el CSV falla, el directorio curado sigue visible sin romperse. */
+            APPROVED_LOADED = true;
+            hideDirLoading();
+            refresh();
+          });
+        }
+        var dirBody = document.getElementById('dirBody');
+        function normTxt(s){ return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+        function pilotCat(){
+          var s = normTxt(service());
+          if(!s) return null;
+          for(var i = 0; i < PILOT_CATS.length; i++){
+            var c = normTxt(PILOT_CATS[i]);
+            if(s === c || s.indexOf(c) !== -1) return PILOT_CATS[i];
+          }
+          return null;
+        }
+        function starStr(v){
+          var full = Math.round(v);
+          var out = '';
+          for(var i = 0; i < 5; i++) out += i < full ? '★' : '☆';
+          return out;
+        }
+        /* ---------- Horario de hoy, calculado del texto publicado ----------
+           Sustituye la foto fija de «abierto el 2 nov»: se calcula al abrir
+           la página, con el día y la hora reales del visitante. */
+        var DAY_TOKENS = ['dom','lun','mar','mie','jue','vie','sab'];
+        /* Índice por nombre/abreviatura COMPLETA de día (0 = domingo). */
+        var DAY_INDEX = { domingo:0, dom:0, lunes:1, lun:1, martes:2, mar:2, miercoles:3, mie:3, jueves:4, jue:4, viernes:5, vie:5, sabado:6, sab:6 };
+        function dayIndexOf(tok){
+          var t = (tok || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+          return Object.prototype.hasOwnProperty.call(DAY_INDEX, t) ? DAY_INDEX[t] : -1;
+        }
+        function daySetFor(segNorm){
+          /* Palabra COMPLETA obligatoria, con límites de palabra \b y
+             nombres largos antes que las abreviaturas: «domingo» gana a
+             «dom». Sin \b, «dom» se detectaba dentro de «domicilio»,
+             «mar» dentro de «marca», «jue» dentro de «juegos» y «sab»
+             dentro de «sabores». Se acepta con y sin acento (segNorm ya
+             viene sin acentos por normTxt, pero el patrón los cubre). */
+          var DAY_RE_SRC = 'domingo|dom|lunes|lun|martes|mar|miércoles|miercoles|mie|jueves|jue|viernes|vie|sábado|sabado|sab';
+          var toks = segNorm.match(new RegExp('\\b(?:' + DAY_RE_SRC + ')\\b', 'g'));
+          if(!toks) return null;
+          /* Rango con guion O con «a»: «Lun–Vie», «Lun a Vie» y «Lunes a
+             viernes» son el mismo rango. Antes solo se reconocía el
+             guion, así que «Lun a Vie» se leía como lunes y viernes
+             sueltos y martes a jueves quedaban fuera. */
+          var rm = new RegExp('\\b(' + DAY_RE_SRC + ')\\b\\s*(?:a|al|-|–|—)\\s*\\b(' + DAY_RE_SRC + ')\\b').exec(segNorm);
+          if(rm){
+            var a = dayIndexOf(rm[1]), b = dayIndexOf(rm[2]), out = [], i = a;
+            if(a !== -1 && b !== -1){
+              while(true){ out.push(i); if(i === b) break; i = (i + 1) % 7; if(out.length > 7) break; }
+              return out;
+            }
+          }
+          var set = [];
+          toks.forEach(function(t){ var ix = dayIndexOf(t); if(ix !== -1 && set.indexOf(ix) === -1) set.push(ix); });
+          return set.length ? set : null;
+        }
+        /* ¿El segmento trae una hora reconocible? («8:00 AM», «8am»,
+           «8:00» o un rango suelto tipo «8 a 5»). */
+        function segHasTime(seg){
+          return /\d/.test(seg) && (/(am|pm)/i.test(seg) || /\d{1,2}:\d{2}/.test(seg) || /\d{1,2}\s*(?:a|-)\s*\d{1,2}/.test(seg));
+        }
+        /* Los segmentos de un horario escrito a mano no vienen solo con
+           «·»: un dueño escribe comas, «y» o saltos de línea. Se corta
+           por cualquiera de esos separadores. */
+        function splitSegs(hours){
+          return String(hours || '').split(/[·,;\n]+|\s+y\s+/);
+        }
+        /* ¿El horario se puede interpretar EN ALGO? (algún día o alguna
+           hora reconocible, o un texto tipo «24/7»). Si no, el horario
+           «no se entiende»: quien lo usa decide qué hacer con él — el
+           filtro de aprobados lo aparta como «Horario sin confirmar»
+           en vez de hacerlo desaparecer. */
+        function scheduleParsed(hours){
+          if(!hours) return false;
+          if(/24\/7|7 dias|todos los dias|emergencia/.test(normTxt(hours))) return true;
+          var segs = splitSegs(hours);
+          for(var i = 0; i < segs.length; i++){
+            if(!normTxt(segs[i])) continue;
+            if(daySetFor(normTxt(segs[i]))) return true;
+            if(segHasTime(segs[i])) return true;
+          }
+          return false;
+        }
+        /* Acepta «8:00 AM», «8am» y también SIN am/pm: «8 a 5», «8-5» o
+           «17:00». Sin sufijo, una hora de cierre de 1 a 7 se lee como PM
+           (el «5» de «8 a 5» son las 5 PM) y una de 13 a 23 ya viene en
+           formato 24 h. isEnd marca si es la hora de cierre. */
+        function parseTimeMin(str, isEnd){
+          var s = str || '';
+          var m = /(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i.exec(s);
+          if(m){
+            var h = parseInt(m[1], 10) % 12;
+            if(/pm/i.test(m[3])) h += 12;
+            return h * 60 + parseInt(m[2] || '0', 10);
+          }
+          var m2 = /(\d{1,2})(?::(\d{2}))?/.exec(s);
+          if(!m2) return null;
+          var h2 = parseInt(m2[1], 10);
+          if(h2 > 23) return null;
+          if(isEnd && h2 >= 1 && h2 <= 7) h2 += 12;
+          return h2 * 60 + parseInt(m2[2] || '0', 10);
+        }
+        var TIME_TOKEN_RE = /\d{1,2}(?::\d{2})?\s*(?:am|pm)|\d{1,2}:\d{2}|\d{1,2}\s*(?:a|-)\s*\d{1,2}(?::\d{2})?/gi;
+        /* Devuelve {label, allDay, open, textual} si el negocio tiene
+           horario hoy; si no, null.
+           OJO: «Disponibilidad 7 días» significa que trabaja los 7 días,
+           NO las 24 horas; y «Emergencias 24/7» tampoco es estar abierto
+           siempre. Esos textos se devuelven como `textual` con open:null:
+           la tarjeta los muestra tal cual, sin etiqueta de «abierto». */
+        function todaySchedule(hours){
+          if(!hours) return null;
+          var hn = normTxt(hours);
+          if(/24\/7|7 dias|todos los dias|emergencia/.test(hn)){
+            return { label:hours.trim(), allDay:false, open:null, textual:true };
+          }
+          var today = new Date().getDay();
+          var segs = splitSegs(hours);
+          var curDays = null, foundSegs = [], closedToday = false, timeToday = false;
+          segs.forEach(function(seg){
+            var sn = normTxt(seg);
+            if(!sn) return;
+            var ds = daySetFor(sn);
+            if(ds) curDays = ds;
+            var hasTime = segHasTime(seg);
+            var coversToday = (curDays === null || curDays.indexOf(today) !== -1);
+            /* «Dom · Cerrado» o «Dom: cerrado»: ese día NO hay horario. */
+            if(/cerrad/.test(sn) && coversToday){
+              /* Un «cerrado» para hoy anula lo anterior: «Lun–Sáb · 8–5 · Mar · Cerrado». */
+              closedToday = true; timeToday = false; foundSegs = [];
+              return;
+            }
+            if(hasTime && coversToday) timeToday = true;
+            /* Un segmento de SOLO días que cubre hoy («Lun a Vie» sin
+               horas) también es horario de hoy: días conocidos, hora
+               sin publicar — se muestra tal cual, sin «abierto». */
+            /* Se recogen TODOS los tramos de hoy, no solo el último:
+               en un horario partido («8:00 AM–12:00 PM, 1:00 PM–5:00 PM»)
+               la coma separa dos tramos del mismo día y ambos cuentan. */
+            if((hasTime || ds) && (curDays === null || curDays.indexOf(today) !== -1)) foundSegs.push(seg.trim());
+          });
+          /* Cerrado hoy y sin ninguna hora para hoy: no hay horario de hoy
+             (no sale «Hoy: Dom» ni pasa el filtro «Con horario hoy»). */
+          if(closedToday && !timeToday) return null;
+          if(!foundSegs.length) return null;
+          var now = new Date(), mins = now.getHours() * 60 + now.getMinutes();
+          var open = null;
+          /* Abierto si la hora actual cae en CUALQUIERA de los tramos
+             de hoy; cerrado solo si hay tramos con horas y ninguno cubre
+             la hora actual; sin horas parseables, open queda null. */
+          foundSegs.forEach(function(found){
+            var times = found.match(TIME_TOKEN_RE) || [];
+            /* Un segmento tipo «8 a 5» es UN token con las dos horas dentro. */
+            if(times.length === 1 && /\d{1,2}\s*(?:a|-)\s*\d{1,2}/.test(times[0]) && !/(am|pm)/i.test(times[0])){
+              times = times[0].match(/\d{1,2}(?::\d{2})?/g) || [];
+            }
+            if(times.length >= 2){
+              var st = parseTimeMin(times[0], false), en = parseTimeMin(times[1], true);
+              if(st !== null && en !== null){
+                var inSeg = en > st ? (mins >= st && mins < en) : (mins >= st || mins < en);
+                if(inSeg) open = true;
+                else if(open !== true) open = false;
+              }
+            }
+          });
+          return { label:foundSegs.join(', '), allDay:false, open:open, textual:false };
+        }
+        function hasScheduleToday(p){ return !!todaySchedule(p.hours); }
+        function providerCard(p, isNew){
+          var card = document.createElement('article');
+          var catSlug = normTxt(p.cat || '').replace(/[^a-z0-9]+/g,'');
+          card.className = 'pcard' + (catSlug ? ' cat-' + catSlug : '');
+          var top = document.createElement('div'); top.className = 'pcard-top';
+          var avatar = document.createElement('span'); avatar.className = 'pcard-avatar'; avatar.setAttribute('aria-hidden','true');
+          var catIcon = null;
+          for(var ci = 0; ci < CATS.length; ci++){ if(normTxt(CATS[ci].name) === normTxt(p.cat || '')){ catIcon = CATS[ci].icon; break; } }
+          avatar.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (catIcon || '<circle cx="12" cy="12" r="9"/>') + '</svg>';
+          var h = document.createElement('h3'); h.textContent = p.name;
+          var badge = document.createElement('span');
+          badge.className = 'badge ' + (p.type === 'local' ? 'local' : p.type === 'cobertura' ? 'cob' : 'hand');
+          badge.textContent = p.type === 'local' ? 'Local' : p.type === 'cobertura' ? 'Cobertura' : 'Handyman';
+          top.appendChild(avatar); top.appendChild(h); top.appendChild(badge);
+          card.appendChild(top);
+
+          /* El SERVICIO en palabras, no solo un icono: sin esto una tarjeta
+             de «Nuevos en el directorio» no dice qué hace el negocio. */
+          var svcTxt = (p.cat || '').trim();
+          if(svcTxt){
+            var svc = document.createElement('span'); svc.className = 'svc-chip';
+            svc.textContent = svcTxt.charAt(0).toUpperCase() + svcTxt.slice(1);
+            card.appendChild(svc);
+          }
+
+          if(p.isApproved){
+            var am = document.createElement('span'); am.className = 'approved-mark';
+            am.textContent = 'Registro aprobado';
+            card.appendChild(am);
+          }
+
+          if(isNew && p.approvedDate){
+            var nd = document.createElement('span'); nd.className = 'new-date-line';
+            nd.textContent = 'Se sumó el ' + fmtDate(p.approvedDate);
+            card.appendChild(nd);
+          }
+
+          var addr = document.createElement('p'); addr.className = 'addr';
+          addr.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
+          var addrTxt = document.createElement('span');
+          addrTxt.textContent = p.isApproved ? p.addr : (p.addr + ' · ' + p.towns.join(', '));
+          addr.appendChild(addrTxt);
+          card.appendChild(addr);
+
+          /* Solo se muestra lo que la ficha sí publica: nada de «no publicado». */
+          var meta = document.createElement('div'); meta.className = 'meta';
+          if(p.rating){
+            var r = document.createElement('span');
+            var st = document.createElement('span'); st.className = 'stars'; st.setAttribute('aria-hidden','true'); st.textContent = starStr(p.rating.stars);
+            r.appendChild(st);
+            r.appendChild(document.createTextNode(p.rating.stars.toFixed(1) + ' · ' + p.rating.count + ' reseñas'));
+            meta.appendChild(r);
+          }
+          if(p.hours){
+            var hr = document.createElement('span');
+            hr.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+            hr.appendChild(document.createTextNode(p.hours));
+            meta.appendChild(hr);
+            var sched = todaySchedule(p.hours);
+            /* Textos como «Disponibilidad 7 días» o «Emergencias 24/7» ya
+               se muestran tal cual en la línea de horario: NO llevan
+               etiqueta de «abierto» ni resumen de «Hoy:», porque ninguno
+               de los dos significa que esté abierto ahora mismo. */
+            if(sched && !sched.textual && sched.open){
+              var oc = document.createElement('span'); oc.className = 'open';
+              oc.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="9"/></svg>';
+              oc.appendChild(document.createTextNode('Abierto ahora según su horario'));
+              meta.appendChild(oc);
+            } else if(sched && !sched.textual){
+              var sc = document.createElement('span');
+              sc.appendChild(document.createTextNode('Hoy: ' + sched.label));
+              meta.appendChild(sc);
+            }
+          }
+          if(meta.children.length) card.appendChild(meta);
+
+          if(p.note){
+            var nt = document.createElement('p'); nt.className = 'pnote'; nt.textContent = p.note;
+            card.appendChild(nt);
+          }
+
+          if(p.phone){
+            var digits = p.phone.replace(/\D/g,'');
+            var intl = digits.length === 10 ? '1' + digits : digits;
+            var pl = document.createElement('p'); pl.className = 'phone-line';
+            pl.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>';
+            pl.appendChild(document.createTextNode(p.phone));
+            card.appendChild(pl);
+            var acts = document.createElement('div'); acts.className = 'actions';
+            var call = document.createElement('a'); call.className = 'act-call';
+            call.href = 'tel:+' + intl;
+            call.innerHTML = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>';
+            call.appendChild(document.createTextNode('Llamar'));
+            acts.appendChild(call);
+            /* WhatsApp SOLO donde está verificado que el número lo tiene (wa:true). */
+            if(p.wa === true){
+              var wa = document.createElement('a'); wa.className = 'act-wa';
+              wa.href = 'https://wa.me/' + intl; wa.target = '_blank'; wa.rel = 'noopener';
+              wa.innerHTML = '<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2z"/></svg>';
+              wa.appendChild(document.createTextNode('WhatsApp'));
+              acts.appendChild(wa);
+            }
+            card.appendChild(acts);
+          }
+
+          /* Fecha de verificación por proveedor + reportar error */
+          var vl = document.createElement('span'); vl.className = 'verified-line';
+          if(p.isApproved){
+            vl.textContent = p.approvedDate ? ('Aprobado ' + relativeWhen(p.approvedDate) + ' · ' + fmtDate(p.approvedDate)) : 'Registro aprobado en revisión';
+          } else {
+            var vd = parseISODate(p.verified);
+            vl.textContent = vd ? ('Verificado ' + relativeWhen(vd) + ' · ' + fmtDate(vd)) : '';
+          }
+          if(vl.textContent) card.appendChild(vl);
+          var rep = document.createElement('button');
+          rep.type = 'button'; rep.className = 'report-link';
+          rep.textContent = 'Reportar error o negocio cerrado';
+          rep.addEventListener('click', function(){
+            var txt = 'Reporte — ' + p.name + ' (' + (p.cat || '') + ', ' + (p.towns && p.towns.length ? p.towns.join(', ') : p.addr || '') + '): ';
+            function done(){
+              showToast('Nombre del negocio copiado. Se abre el formulario: pégalo y cuenta qué está mal.');
+              window.open(FORM_URL, '_blank', 'noopener');
+            }
+            if(navigator.clipboard && navigator.clipboard.writeText){
+              navigator.clipboard.writeText(txt).then(done, done);
+            } else { done(); }
+          });
+          card.appendChild(rep);
+          return card;
+        }
+        /* ---------- Fecha legible: «2 de noviembre de 2026» ---------- */
+        function fmtDate(d){
+          if(!d) return '';
+          var MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+          return d.getDate() + ' de ' + MESES[d.getMonth()] + ' de ' + d.getFullYear();
+        }
+        function parseISODate(s){
+          var m = /^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(s || '');
+          if(!m) return null;
+          return new Date(parseInt(m[1],10), parseInt(m[2],10) - 1, parseInt(m[3],10));
+        }
+        /* «hoy», «ayer», «hace 5 días», «hace 3 semanas», «hace 2 meses»… */
+        function relativeWhen(d){
+          if(!d) return '';
+          var startToday = new Date(); startToday.setHours(0,0,0,0);
+          var d0 = new Date(d.getTime()); d0.setHours(0,0,0,0);
+          var days = Math.round((startToday - d0) / 86400000);
+          if(days <= 0) return 'hoy';
+          if(days === 1) return 'ayer';
+          if(days < 7) return 'hace ' + days + ' días';
+          if(days < 30){
+            var w = Math.floor(days / 7);
+            return 'hace ' + w + (w === 1 ? ' semana' : ' semanas');
+          }
+          if(days < 365){
+            var mo = Math.floor(days / 30);
+            return 'hace ' + mo + (mo === 1 ? ' mes' : ' meses');
+          }
+          var y = Math.floor(days / 365);
+          return 'hace ' + y + (y === 1 ? ' año' : ' años');
+        }
+        /* ---------- Conteos por categoría, CALCULADOS según el pueblo
+           elegido: directorio curado + registros aprobados que de verdad
+           atienden ese pueblo, sin contar dos veces el mismo negocio.
+           Antes se contaba todo el directorio: con Maunabo elegido,
+           «Plomero · 9» prometía tarjetas que al tocar no existían.
+           Con «Toda la zona» se cuenta el directorio completo; en un
+           pueblo sin cobertura de una categoría, el conteo queda en 0
+           y la etiqueta vuelve a «Maps», sin número que prometa nada. */
+        function catCounts(){
+          var counts = {}, seen = {};
+          var forTown = (typeof town !== 'undefined') ? town : '__zona';
+          function bump(catName, key){
+            var slug = catSlug(catName || '');
+            if(!slug) return;
+            if(!counts[slug]){ counts[slug] = 0; seen[slug] = {}; }
+            if(seen[slug][key]) return;
+            seen[slug][key] = true; counts[slug]++;
+          }
+          function keyFor(p){ return normTxt(p.name || '') + '|' + ((p.phone || '').replace(/\D/g,'')); }
+          function servesTown(p){
+            if(forTown === '__zona') return true;
+            if(p.isCoverage) return true;
+            return (p.towns || []).indexOf(forTown) !== -1;
+          }
+          if(typeof PROVIDERS !== 'undefined' && PROVIDERS){
+            PROVIDERS.forEach(function(p){ if(p.cat && servesTown(p)) bump(p.cat, keyFor(p)); });
+          }
+          if(typeof APPROVED_PROVIDERS !== 'undefined' && APPROVED_PROVIDERS){
+            APPROVED_PROVIDERS.forEach(function(p){
+              if(!servesTown(p)) return;
+              var target = null, pc = normTxt(p.cat || '');
+              for(var i = 0; i < CATS.length; i++){
+                var cn = normTxt(CATS[i].name);
+                if(pc === cn || (pc && cn && pc.indexOf(cn) !== -1)){ target = CATS[i].name; break; }
+              }
+              bump(target || p.cat || '', keyFor(p));
+            });
+          }
+          return counts;
+        }
+        function updateCatTags(){
+          var counts = catCounts();
+          document.querySelectorAll('.cat-btn').forEach(function(btn){
+            var name = btn.getAttribute('data-service');
+            var n = counts[catSlug(name)] || 0;
+            var tg = btn.querySelector('.cat-tag');
+            if(tg){
+              if(n > 0){ tg.textContent = 'En el directorio · ' + n; tg.classList.add('indir'); }
+              else { tg.textContent = 'Maps'; tg.classList.remove('indir'); }
+            }
+            btn.setAttribute('aria-label', n > 0 ? (name + ': ' + n + ' en el directorio') : (name + ': buscar en Maps'));
+          });
+        }
+        /* ---------- Nuevos en el directorio: SOLO los últimos aprobados ----------
+           Con fecha de aprobación, dentro de los últimos 30 días, máximo 3,
+           del más reciente al más viejo. Pasada la ventana, dejan de salir
+           como nuevos: no se quedan para siempre. */
+        var NEW_WINDOW_DAYS = 30, NEW_MAX = 3;
+        function renderNew(){
+          var sec = document.getElementById('newSection');
+          var body = document.getElementById('newBody');
+          if(!sec || !body) return;
+          body.innerHTML = '';
+          /* Durante una búsqueda (texto escrito o categoría elegida) la
+             sección se OCULTA: si no, empuja los resultados hacia abajo
+             y los mismos registros pueden salir dos veces. */
+          if(service()){
+            sec.classList.add('hidden');
+            return;
+          }
+          if(!APPROVED_LOADED){ sec.classList.remove('hidden'); return; }
+          var startToday = new Date(); startToday.setHours(0,0,0,0);
+          var recent = APPROVED_PROVIDERS.filter(function(p){
+            if(!p.approvedDate) return false;
+            if(town !== '__zona' && !p.isCoverage && p.towns.indexOf(town) === -1) return false;
+            var d0 = new Date(p.approvedDate.getTime()); d0.setHours(0,0,0,0);
+            var diff = Math.round((startToday - d0) / 86400000);
+            return diff >= 0 && diff <= NEW_WINDOW_DAYS;
+          }).sort(function(a,b){ return b.approvedDate - a.approvedDate; }).slice(0, NEW_MAX);
+          if(!recent.length){ sec.classList.add('hidden'); return; }
+          sec.classList.remove('hidden');
+          var grid = document.createElement('div'); grid.className = 'dir-grid';
+          recent.forEach(function(p){ grid.appendChild(providerCard(p, true)); });
+          body.appendChild(grid);
+        }
+        /* Bloque bajo cada resultado: seguir buscando fuera del directorio */
+        function moreSearchBlock(label){
+          var box = document.createElement('div'); box.className = 'more-search';
+          var h = document.createElement('h3'); h.textContent = '¿No ves lo que buscas?';
+          box.appendChild(h);
+          var p = document.createElement('p');
+          p.textContent = 'Busca más opciones de ' + (label || 'este servicio') + ' en ' + townLabel() + ' en vivo, fuera del directorio:';
+          box.appendChild(p);
+          var u = urls();
+          if(u){
+            var ext = document.createElement('div'); ext.className = 'ext-links';
+            [['Buscar en Maps', u.maps, 'maps'], ['ClasificadosOnline', u.clas, 'clas'], ['Facebook', u.fb, 'fb']].forEach(function(pair){
+              var a = document.createElement('a');
+              a.href = pair[1]; a.target = '_blank'; a.rel = 'noopener'; a.className = pair[2];
+              a.textContent = pair[0];
+              ext.appendChild(a);
+            });
+            box.appendChild(ext);
+          }
+          return box;
+        }
+        function renderDirectory(){
+          dirBody.innerHTML = '';
+          renderNew();
+          updateCatTags();
+          var section = document.getElementById('dirSection');
+          var filtersEl = document.getElementById('dirFilters');
+          var sticky = document.getElementById('stickyCats');
+          var cat = pilotCat();
+          var rawSearch = service();
+          /* Estado para el reporte de «sin resultado»: aquí SOLO se anota
+             si hubo o no resultado. Quien decide reportar es refresh(),
+             y únicamente tras una búsqueda explícita. */
+          lastSearchHadResult = true;
+          lastSearchLabel = '';
+
+          /* INICIO: sin categoría elegida no hay sección de resultados ni
+             directorio completo — solo «Nuevos en el directorio». */
+          if(!rawSearch){
+            section.classList.add('hidden');
+            if(filtersEl) filtersEl.classList.add('hidden');
+            if(sticky) sticky.classList.add('hidden');
+            return;
+          }
+          section.classList.remove('hidden');
+          if(sticky) sticky.classList.remove('hidden');
+
+          function applyFilters(list){
+            var out = list.slice();
+            if(openNow) out = out.filter(function(p){ return hasScheduleToday(p); });
+            if(sort === 'rated'){
+              out.sort(function(a,b){
+                var ra = a.rating ? a.rating.stars : -1, rb = b.rating ? b.rating.stars : -1;
+                return rb - ra;
+              });
+            }
+            return out;
+          }
+          function renderGrid(list, heading){
+            if(heading){
+              var hd = document.createElement('p'); hd.className = 'dir-approved-head'; hd.textContent = heading;
+              dirBody.appendChild(hd);
+            }
+            var grid = document.createElement('div'); grid.className = 'dir-grid';
+            list.forEach(function(p){ grid.appendChild(providerCard(p)); });
+            dirBody.appendChild(grid);
+          }
+          function resultTitle(){
+            var t = document.createElement('h3'); t.className = 'dir-result-title';
+            t.textContent = cat ? (cat + ' en ' + (town === '__zona' ? 'toda la zona' : town)) : ('Resultados para «' + rawSearch + '»');
+            dirBody.appendChild(t);
+          }
+          function emptyState(msg){
+            var box = document.createElement('div'); box.className = 'empty-state';
+            var p = document.createElement('p'); p.textContent = msg;
+            box.appendChild(p);
+            box.appendChild(moreSearchBlock(cat || rawSearch));
+            dirBody.appendChild(box);
+          }
+          /* Los filtros SOLO aparecen cuando ya hay resultados que filtrar
+             (o cuando un filtro activo hay que poder quitarlo). */
+          function setFiltersVisible(unfilteredTotal){
+            if(!filtersEl) return;
+            var show = unfilteredTotal >= 1 || openNow || sort === 'rated';
+            filtersEl.classList.toggle('hidden', !show);
+          }
+          function openBanner(){
+            var on = document.createElement('div'); on.className = 'gap-banner';
+            on.textContent = 'Filtro «Con horario hoy»: se muestran solo los que tienen horario publicado para hoy, calculado al abrir la página. Confirma llamando antes de ir.';
+            dirBody.appendChild(on);
+          }
+
+          /* Aprobados que coinciden con categoría + pueblo (cobertura = todos) */
+          var approvedAll = approvedForCurrent(rawSearch);
+          var approvedList = applyFilters(approvedAll);
+          /* Con «Con horario hoy» activo, un aprobado cuyo horario NO se
+             puede interpretar no desaparece de la lista: se aparta en el
+             grupo «Horario sin confirmar». Solo se excluye el aprobado
+             cuyo horario SÍ se entiende y no cubre hoy. (Los curados
+             siguen con la regla anterior: sin horario de hoy, fuera.) */
+          var approvedUnconfirmed = [];
+          if(openNow){
+            approvedUnconfirmed = approvedAll.filter(function(p){
+              return !hasScheduleToday(p) && !scheduleParsed(p.hours);
+            });
+          }
+          function renderUnconfirmed(){
+            if(!approvedUnconfirmed.length) return;
+            var hd = document.createElement('p'); hd.className = 'dir-approved-head'; hd.textContent = 'Horario sin confirmar';
+            dirBody.appendChild(hd);
+            var nt = document.createElement('p'); nt.className = 'dir-count';
+            nt.textContent = 'El horario publicado de estos registros no se pudo leer automáticamente. Llama para confirmar si atienden hoy.';
+            dirBody.appendChild(nt);
+            renderGrid(approvedUnconfirmed, null);
+          }
+
+          /* Búsqueda sin categoría del directorio: solo aprobados, si los hay */
+          if(!cat){
+            setFiltersVisible(approvedAll.length);
+            resultTitle();
+            if(approvedList.length || approvedUnconfirmed.length){
+              lastSearchHadResult = true;
+              if(openNow) openBanner();
+              var c1 = document.createElement('p'); c1.className = 'dir-count';
+              var c1parts = [];
+              if(approvedList.length) c1parts.push(approvedList.length + (approvedList.length === 1 ? ' registro aprobado' : ' registros aprobados'));
+              if(approvedUnconfirmed.length) c1parts.push(approvedUnconfirmed.length + ' con horario sin confirmar');
+              c1.textContent = c1parts.join(' · ') + ' · ' + rawSearch + ' en ' + (town === '__zona' ? 'toda la zona' : town);
+              dirBody.appendChild(c1);
+              if(approvedList.length) renderGrid(approvedList, null);
+              renderUnconfirmed();
+              dirBody.appendChild(moreSearchBlock(rawSearch));
+              return;
+            }
+            if(openNow && approvedAll.length){
+              emptyState('Sin registros aprobados con horario hoy para esa categoría. Quita el filtro «Con horario hoy» arriba para verlos — o busca en vivo aquí mismo:');
+              return;
+            }
+            lastSearchHadResult = false;
+            lastSearchLabel = rawSearch;
+            emptyState('Esa categoría aún no está en el directorio, pero no te quedes sin opciones: búscala en vivo con estos enlaces. El directorio cubre Patillas, Guayama y Arroyo.');
+            return;
+          }
+          /* Categoría del directorio: curados (si el pueblo está cubierto) + aprobados */
+          var curatedList = [];
+          if(DIR_TOWNS.indexOf(town) !== -1 || town === '__zona'){
+            curatedList = PROVIDERS.filter(function(p){
+              if(p.cat !== cat) return false;
+              if(town === '__zona') return true;
+              return p.towns.indexOf(town) !== -1;
+            });
+          }
+          setFiltersVisible(curatedList.length + approvedAll.length);
+          resultTitle();
+          if(DIR_TOWNS.indexOf(town) === -1 && town !== '__zona' && !curatedList.length && !approvedList.length && !approvedUnconfirmed.length){
+            if(openNow && approvedAll.length){
+              emptyState('Sin registros aprobados con horario hoy en ' + town + '. Quita el filtro «Con horario hoy» para verlos — o busca en vivo aquí mismo:');
+              return;
+            }
+            lastSearchHadResult = false;
+            lastSearchLabel = cat;
+            emptyState('El directorio aún no cubre ' + town + ' — cubre Patillas, Guayama y Arroyo. Para ' + town + ', busca en vivo con estos enlaces:');
+            return;
+          }
+          var gapKey = cat + '|' + town;
+          if(town !== '__zona' && GAPS[gapKey] && curatedList.length){
+            var g = document.createElement('div'); g.className = 'gap-banner'; g.textContent = GAPS[gapKey];
+            dirBody.appendChild(g);
+          }
+          var curatedFiltered = applyFilters(curatedList);
+          if(openNow) openBanner();
+          if(!curatedFiltered.length && !approvedList.length && !approvedUnconfirmed.length){
+            lastSearchHadResult = false;
+            lastSearchLabel = cat;
+          }
+          var total = curatedFiltered.length + approvedList.length + approvedUnconfirmed.length;
+          var count = document.createElement('p'); count.className = 'dir-count';
+          if(total){
+            var parts = [];
+            if(curatedFiltered.length) parts.push(curatedFiltered.length + (curatedFiltered.length === 1 ? ' opción verificada' : ' opciones verificadas'));
+            if(approvedList.length) parts.push(approvedList.length + (approvedList.length === 1 ? ' registro aprobado' : ' registros aprobados'));
+            if(approvedUnconfirmed.length) parts.push(approvedUnconfirmed.length + ' con horario sin confirmar');
+            count.textContent = parts.join(' · ') + ' · ' + cat + ' en ' + (town === '__zona' ? 'Patillas, Guayama y Arroyo' : town);
+          } else {
+            count.textContent = 'Sin opciones verificadas con ese filtro · ' + cat + ' en ' + (town === '__zona' ? 'la zona piloto' : town);
+          }
+          dirBody.appendChild(count);
+          var combined = curatedFiltered.concat(approvedList);
+          if(sort === 'rated'){
+            combined = applyFilters(combined);
+          }
+          if(combined.length){
+            renderGrid(combined, null);
+            renderUnconfirmed();
+            dirBody.appendChild(moreSearchBlock(cat));
+          } else if(approvedUnconfirmed.length){
+            renderUnconfirmed();
+            dirBody.appendChild(moreSearchBlock(cat));
+          } else {
+            emptyState('Sin opciones verificadas para esa combinación en el directorio. Si activaste un filtro, quítalo arriba; prueba con otro pueblo — o busca en vivo con estos enlaces:');
+          }
+        }
+        function refresh(){
+          renderDirectory();
+          /* Solo una búsqueda explítica (Buscar, Enter o chip) puede
+             reportar «sin resultado»; el refresco por cada letra, no.
+             Y SOLO cuando la hoja de aprobados ya cargó (APPROVED_LOADED):
+             si aún no llegó, un vacío puede ser falso — el registro
+             aprobado puede aparecer un instante después — y no se
+             reporta nada. */
+          if(explicitSearchPending && APPROVED_LOADED && !lastSearchHadResult && lastSearchLabel){
+            reportNoResult(lastSearchLabel);
+          }
+          var s = service();
+          var u = urls();
+          clearBtn.classList.toggle('show', s.length > 0);
+          goBtn.disabled = !u;
+          document.querySelectorAll('.cat-btn').forEach(function(c){
+            c.classList.toggle('active', c.getAttribute('data-service').toLowerCase() === s.toLowerCase());
+          });
+          document.querySelectorAll('.sticky-chip').forEach(function(c){
+            c.classList.toggle('active', c.getAttribute('data-service').toLowerCase() === s.toLowerCase());
+          });
+          /* La búsqueda de arriba y la de «Buscar en vivo» se reflejan: lo
+             que se elige arriba aparece abajo. */
+          liveInput.value = s;
+          liveTown.value = town;
+          refreshLive();
+        }
+
+        /* ---------- «Buscar en vivo»: campo y pueblo PROPIOS ----------
+           Escribir aquí solo actualiza estos botones: NO toca el
+           directorio de arriba (así la página no «salta» mientras se
+           escribe aquí abajo). Con el campo vacío, los botones quedan
+           desactivados y el aviso dice qué hacer. */
+        function liveUrls(){
+          var s = liveInput.value.trim();
+          if(!s) return null;
+          var save = town;
+          town = liveTown.value;
+          var u = urls(s);
+          var label = townLabel();
+          town = save;
+          if(u) u.townLabel = label;
+          return u;
+        }
+        function refreshLive(){
+          var s = liveInput.value.trim();
+          var u = liveUrls();
+          if(!u){
+            preview.classList.add('empty');
+            previewText.textContent = 'Escribe o elige un servicio arriba para activar los botones de abajo.';
+            [btnMaps, btnClas, btnFb, btnFbGroups, btnWa].forEach(function(b){ b.classList.add('disabled'); b.setAttribute('aria-disabled','true'); b.removeAttribute('href'); });
+            if(mapShown) mapIframe.src = 'https://www.google.com/maps?q=' + enc(liveTown.value === '__zona' ? 'Patillas, Puerto Rico' : liveTown.value + ', Puerto Rico') + '&output=embed';
+            return;
+          }
+          preview.classList.remove('empty');
+          previewText.innerHTML = '';
+          var a = document.createElement('span'); a.textContent = 'Vas a buscar: ';
+          var q = document.createElement('span'); q.className = 'q'; q.textContent = '“' + s + '” en ' + u.townLabel;
+          var f = document.createElement('span'); f.textContent = ' · ' + filterDesc();
+          previewText.appendChild(a); previewText.appendChild(q); previewText.appendChild(f);
+          btnMaps.href = u.maps; btnClas.href = u.clas; btnFb.href = u.fb; btnFbGroups.href = u.fbGroups; btnWa.href = u.wa;
+          [btnMaps, btnClas, btnFb, btnFbGroups, btnWa].forEach(function(b){ b.classList.remove('disabled'); b.removeAttribute('aria-disabled'); });
+          if(mapShown) mapIframe.src = u.embed;
+        }
+        liveInput.addEventListener('input', refreshLive);
+        liveTown.addEventListener('change', refreshLive);
+        var liveChipsEl = document.getElementById('liveChips');
+        ['Plomero','Electricista','Mecánico','Gomera','Pintura','Cerrajero'].forEach(function(s){
+          var ch = document.createElement('button');
+          ch.type = 'button'; ch.className = 'sugg-chip'; ch.textContent = s;
+          ch.addEventListener('click', function(){ liveInput.value = s; refreshLive(); });
+          liveChipsEl.appendChild(ch);
+        });
+
+        function setTown(t){
+          town = t;
+          document.querySelectorAll('.town').forEach(function(b){
+            b.setAttribute('aria-pressed', b.getAttribute('data-town') === t ? 'true' : 'false');
+          });
+        }
+        document.querySelectorAll('.town').forEach(function(b){
+          b.addEventListener('click', function(){ setTown(b.getAttribute('data-town')); refresh(); });
+        });
+
+        fOpen.addEventListener('click', function(){
+          openNow = !openNow;
+          fOpen.setAttribute('aria-pressed', openNow ? 'true' : 'false');
+          refresh();
+        });
+        fRated.addEventListener('click', function(){
+          sort = sort === 'rated' ? 'default' : 'rated';
+          fRated.setAttribute('aria-pressed', sort === 'rated' ? 'true' : 'false');
+          refresh();
+        });
+
+        mapToggle.addEventListener('click', function(){
+          mapShown = !mapShown;
+          mapFrame.classList.toggle('show', mapShown);
+          mapToggle.setAttribute('aria-expanded', mapShown ? 'true' : 'false');
+          mapToggle.textContent = mapShown ? 'Ocultar mapa' : 'Ver mapa';
+          if(mapShown){
+            var u = liveUrls();
+            mapIframe.src = u ? u.embed : 'https://www.google.com/maps?q=' + enc(liveTown.value === '__zona' ? 'Patillas, Puerto Rico' : liveTown.value + ', Puerto Rico') + '&output=embed';
+          }
+        });
+
+        goBtn.addEventListener('click', function(){
+          if(!service()) return;
+          doExplicitSearch();
+          scrollToDir();
+        });
+        input.addEventListener('input', refresh);
+        input.addEventListener('keydown', function(e){
+          if(e.key === 'Enter'){ e.preventDefault(); goBtn.click(); }
+        });
+        clearBtn.addEventListener('click', function(){ input.value = ''; refresh(); input.focus(); });
+
+        /* ---------- Help chat (secondary) ---------- */
+        var helpLog = document.getElementById('helpLog');
+        var helpForm = document.getElementById('helpForm');
+        var helpInput = document.getElementById('helpInput');
+        /* Palabras completas o raíces inequívocas, en orden de lo específico
+           a lo general. OJO al orden: «generador / planta eléctrica» va
+           ANTES que jardinería, porque «plantas?» también coincide con
+           «planta eléctrica» y si jardinería fuera primero, esa búsqueda
+           nunca llegaría a generador. «Plantas del patio» sigue siendo
+           jardinería: no lleva «eléctrica» detrás. Y «automático» ya NO
+           cae en «auto» de mecánico. */
+        var SYNONYMS = [
+          { re:/cisterna/i, s:'Limpieza de cisterna' },
+          { re:/\btecho\b|gotera/i, s:'Sellado de techo' },
+          { re:/generador|planta\s+el[eé]ctrica/i, s:'Reparación de generadores' },
+          { re:/\bjardin|patio|grama|plantas?\b/i, s:'Jardinería' },
+          { re:/plomer|tuber|inodoro|fregadero|\bbañ/i, s:'Plomero' },
+          { re:/electric|breaker|\bluz\b|enchufe/i, s:'Electricista' },
+          { re:/aire acondicionado|\ba\/c\b|acondicionador/i, s:'Aire acondicionado' },
+          { re:/nevera|refrigerador/i, s:'Reparación de neveras' },
+          { re:/mecanic|\bcarro\b|\bauto\b|\bmotor\b/i, s:'Mecánico' },
+          { re:/\bgoma|llanta|ponche/i, s:'Gomera' },
+          { re:/llave|cerraj/i, s:'Cerrajero' },
+          { re:/\bgrua\b|grúa|remolque/i, s:'Grúa' },
+          { re:/herramienta/i, s:'Alquiler de herramientas' },
+          { re:/mudanza|mover muebles/i, s:'Mudanzas' },
+          { re:/\bpintor\b|\bpintura\b|\bpintar\b/i, s:'Pintura' },
+          { re:/limpi/i, s:'Limpieza' },
+          { re:/plaga|cucaracha|hormiga|extermin/i, s:'Exterminador' },
+          { re:/handyman/i, s:'Handyman' }
+        ];
+        function parseHelp(raw){
+          var lower = ' ' + raw.toLowerCase().replace(/[.,;:!?¿¡"]/g,' ') + ' ';
+          var foundTown = null, foundZone = / toda la zona | sureste /.test(lower);
+          TOWN_NAMES.forEach(function(n){ if(lower.indexOf(' ' + n.toLowerCase() + ' ') !== -1) foundTown = n; });
+          var svc = '', recognized = false;
+          for(var i = 0; i < SYNONYMS.length; i++){ if(SYNONYMS[i].re.test(raw)){ svc = SYNONYMS[i].s; recognized = true; break; } }
+          if(!svc){
+            svc = raw.replace(/\b(en|de|para)\s+(patillas|guayama|arroyo|maunabo|yabucoa)\b/gi,' ')
+                     .replace(/^(busco|necesito|quiero|alguien que|una persona que|hay|tienen)\s+/i,' ')
+                     .replace(/\s{2,}/g,' ').trim();
+          }
+          return { service: svc, recognized: recognized, town: foundZone ? '__zona' : foundTown };
+        }
+        function helpBubble(dir, build){
+          var b = document.createElement('div');
+          b.className = 'hmsg ' + dir;
+          build(b);
+          helpLog.appendChild(b);
+          helpLog.scrollTop = helpLog.scrollHeight;
+          return b;
+        }
+        function helpUrls(s, t){
+          var save = town; town = t;
+          var sq = serviceQuery(s);
+          var mapsQ = sq + ' en ' + townForQuery() + (openNow ? ' abierto ahora' : '') + (sort === 'rated' ? ' mejor valorados' : '');
+          var r = {
+            label: townLabel(),
+            maps: 'https://www.google.com/maps/search/?api=1&query=' + enc(mapsQ),
+            clas: 'https://www.google.com/search?q=' + enc('site:clasificadosonline.com Servicios ' + sq + ' ' + (t === '__zona' ? 'Puerto Rico' : t)),
+            fb: 'https://www.facebook.com/search/top?q=' + enc(sq + ' ' + (t === '__zona' ? 'Patillas Guayama Arroyo Puerto Rico' : t + ' Puerto Rico'))
+          };
+          town = save;
+          return r;
+        }
+        helpForm.addEventListener('submit', function(e){
+          e.preventDefault();
+          var raw = helpInput.value.trim();
+          if(!raw) return;
+          helpInput.value = '';
+          helpBubble('out', function(b){ var p = document.createElement('p'); p.textContent = raw; b.appendChild(p); });
+          var parsed = parseHelp(raw);
+          var useTown = parsed.town || town;
+          if(!parsed.service || parsed.service.length < 3){
+            helpBubble('in', function(b){
+              var p = document.createElement('p');
+              p.textContent = 'Cuéntame un poco más: ¿qué servicio es y en qué pueblo? Por ejemplo: «plomero en Maunabo».';
+              b.appendChild(p);
+            });
+            return;
+          }
+          if(!parsed.recognized){
+            /* El pueblo del reporte es el que el usuario escribió en la
+               frase (useTown ya trae parsed.town si lo hay), no siempre
+               el pueblo seleccionado en el buscador. */
+            reportNoResult(parsed.service, useTown);
+            helpBubble('in', function(b){
+              var p = document.createElement('p');
+              p.textContent = 'No reconocí esa categoría. Estas son las que puedo buscar — toca una:';
+              b.appendChild(p);
+              var links = document.createElement('div'); links.className = 'links';
+              CATS.forEach(function(c){
+                var a = document.createElement('a');
+                a.href = '#'; a.textContent = c.name;
+                a.addEventListener('click', function(ev){
+                  ev.preventDefault();
+                  input.value = c.name; setTown(useTown); doExplicitSearch();
+                  scrollToDir();
+                });
+                links.appendChild(a);
+              });
+              b.appendChild(links);
+              var p2 = document.createElement('p');
+              p2.textContent = 'O busca lo que escribiste, tal cual, en Maps:';
+              b.appendChild(p2);
+              var links2 = document.createElement('div'); links2.className = 'links';
+              var a2 = document.createElement('a');
+              a2.href = helpUrls(parsed.service, useTown).maps; a2.target = '_blank'; a2.rel = 'noopener';
+              a2.textContent = 'Buscar «' + parsed.service + '» en Maps';
+              links2.appendChild(a2);
+              b.appendChild(links2);
+            });
+            return;
+          }
+          var nice = parsed.service.charAt(0).toUpperCase() + parsed.service.slice(1);
+          var u = helpUrls(nice, useTown);
+          helpBubble('in', function(b){
+            var p = document.createElement('p');
+            var strong = document.createElement('strong');
+            strong.textContent = '“' + nice + '” en ' + u.label;
+            p.appendChild(document.createTextNode('Entendido — esto buscaría: '));
+            p.appendChild(strong);
+            p.appendChild(document.createTextNode('. Ábrelo donde prefieras:'));
+            b.appendChild(p);
+            var links = document.createElement('div'); links.className = 'links';
+            [['Google Maps', u.maps], ['ClasificadosOnline', u.clas], ['Facebook', u.fb]].forEach(function(pair){
+              var a = document.createElement('a');
+              a.href = pair[1]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = pair[0];
+              links.appendChild(a);
+            });
+            b.appendChild(links);
+            var apply = document.createElement('div'); apply.className = 'links';
+            var ab = document.createElement('a');
+            ab.href = '#'; ab.textContent = 'Usar en el buscador de arriba ↑';
+            ab.addEventListener('click', function(ev){
+              ev.preventDefault();
+              input.value = nice; setTown(useTown); doExplicitSearch();
+              scrollToDir();
+            });
+            apply.appendChild(ab);
+            b.appendChild(apply);
+          });
+        });
+
+        /* ---------- Botón que despliega: más opciones ---------- */
+        var moreToggle = document.getElementById('moreToggle');
+        var moreBox = document.getElementById('moreBox');
+        moreToggle.addEventListener('click', function(){
+          var show = !moreBox.classList.contains('show');
+          moreBox.classList.toggle('show', show);
+          moreToggle.setAttribute('aria-expanded', show ? 'true' : 'false');
+        });
+
+        refresh();
+        loadApproved();
+      })();
+    </script>
+  </body>
+</html>
