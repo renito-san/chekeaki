@@ -1699,7 +1699,6 @@
               if(town === '__zona') return true;
               return p.towns.indexOf(town) !== -1;
             });
-          }
           setFiltersVisible(curatedList.length + approvedAll.length);
           resultTitle();
           if(DIR_TOWNS.indexOf(town) === -1 && town !== '__zona' && !curatedList.length && !approvedList.length && !approvedUnconfirmed.length){
