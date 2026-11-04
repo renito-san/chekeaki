@@ -428,7 +428,7 @@
         </div>
         <div class="sugg-chips" id="suggChips" role="group" aria-label="Sugerencias de búsqueda"></div>
         </div>
-        <p class="search-note">Guardamos de forma anónima las búsquedas sin resultado para añadir categorías</p>
+        <p class="search-note">Guardamos de forma anónima las búsquedas sin resultado para añadir categorías; no escribas datos personales</p>
 
         <span class="lab" id="townLab">Pueblo</span>
         <div class="towns" id="towns" role="group" aria-labelledby="townLab">
@@ -635,7 +635,7 @@
         </div>
       </section>
 
-      <p class="dir-note">Cada tarjeta del directorio muestra su fecha de verificación: el horario puede cambiar — confirma llamando antes de ir. <strong>Local</strong> = negocio en ese pueblo · <strong>Cobertura</strong> = empresa de fuera que atiende el área a domicilio · <strong>Handyman</strong> = servicios generales, no un especialista dedicado. El directorio cubre por ahora Patillas, Guayama, Arroyo, Maunabo y Yabucoa.</p>
+      <p class="dir-note">Cada tarjeta del directorio muestra su fecha de verificación: el horario puede cambiar — confirma llamando antes de ir. <strong>Local</strong> = negocio en ese pueblo · <strong>Cobertura</strong> = empresa de fuera que atiende el área a domicilio · <strong>Handyman</strong> = servicios generales, no un especialista dedicado. El directorio cubre por ahora <span id="zoneLabel"></span>.</p>
       <p class="dir-note">Los resultados en vivo se abren en cada fuente: verifica teléfono y horario allí, porque pueden cambiar.</p>
       </div>
       </section>
@@ -737,7 +737,7 @@
         }
 
         /* Sugerencias como chips (sustituyen al <datalist>, que varía por móvil) */
-        var SUGGESTIONS = ['Plomero','Electricista','Mecánico','Gomera','Pintura','Cerrajero'];
+        var SUGGESTIONS = CATS.map(function(c){ return c.name; }); // M1: chips generados desde CATS (todas las categorias)
         var suggEl = document.getElementById('suggChips');
         SUGGESTIONS.forEach(function(s){
           var ch = document.createElement('button');
@@ -877,7 +877,7 @@
            no traen el campo quedan con la verificación inicial del
            directorio, 2026-11-02. */
         PROVIDERS.forEach(function(p){ if(!p.verified) p.verified = '2026-11-02'; }); PROVIDERS.forEach(function(p){ if(p.type==='cobertura') p.isCoverage=true; });
-        var GAPS = {
+        /* M2: GAPS manual - revisar al añadir categoría nueva */ var GAPS = {
           'Plomero|Guayama':'Sin plomero dedicado verificado en Guayama: la opción de aquí es un handyman. Para plomería dedicada, usa la búsqueda en vivo de abajo.',
           'Plomero|Arroyo':'Sin local verificado en Arroyo. Lo que sigue son empresas de cobertura que sí listan Arroyo — no son talleres de Arroyo.',
           'Electricista|Patillas':'Sin electricista local verificado en Patillas. Lo que sigue es cobertura a domicilio para todo Puerto Rico.',
@@ -887,7 +887,7 @@
         };
         /* ---------- Registros aprobados desde Google Sheets (CSV público) ---------- */
         var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfw3Cu4Ce_ExO7nSsX-97k3YvFwVAaXDZZoGReoN1bu0URzsQ/viewform';
-        var SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/1OQ6Cp5mafPjEU5tOo__OI575_T4zU7aeNQJVfh0RtEo/export?format=csv&gid=0';
+        /* M9: No añadir columnas L+ con datos personales */ var SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/1OQ6Cp5mafPjEU5tOo__OI575_T4zU7aeNQJVfh0RtEo/export?format=csv&gid=0';
         var toastEl = document.getElementById('toast');
         var toastTimer = null;
         function showToast(msg){
@@ -966,7 +966,7 @@
         }
         /* Calificaciones por estrellas: un voto por navegador/dispositivo. Promedios desde el CSV publico de calificaciones (columnas Timestamp, Negocio, Estrellas, Fecha); el voto se envia con POST al Google Form de Rene. El nombre se normaliza (minusculas, sin acentos, recortado) para emparejar; la fila de prueba Negocio=PRUEBA se ignora. */ var RATINGS_CSV_URL = 'https://docs.google.com/spreadsheets/d/1UjFTi_edpu5WshK6LXAcn1x49-1VYuFZClVY4fngP1s/export?format=csv&gid=1692204768'; var RATINGS_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSf-oBvQ8mia8glAKrl6n1fQOX9tuQQwONa8Nbqav0KaTo_onA/formResponse'; var RATINGS_BY_NAME = {}; var RATINGS_LOADED = false; function ratingKeyFor(name, phone, cat){ var digits = String(phone || '').replace(/\D/g,''); var c = normTxt(cat || '').replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,''); return 'chekeaki_rated_' + normTxt(name || '').replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,'') + (digits ? '__' + digits : '') + (c ? '__' + c : ''); } function storedVote(name, phone, cat){ try{ if(window.localStorage){ return parseInt(localStorage.getItem(ratingKeyFor(name, phone, cat)) || '0', 10) || 0; } }catch(e){} return 0; } function castVote(name, phone, cat, stars){ var prev = storedVote(name, phone, cat); var key = ratingKeyFor(name, phone, cat); if(prev) return { voted:false, prev:prev }; try{ var d = new Date(); var ymd = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); var body = 'entry.1646434238=' + encodeURIComponent(name) + '&entry.667479108=' + encodeURIComponent(String(stars)) + '&entry.758402508=' + encodeURIComponent(ymd); fetch(RATINGS_FORM_URL, { method:'POST', mode:'no-cors', keepalive:true, headers:{ 'Content-Type':'application/x-www-form-urlencoded' }, body: body }); }catch(e){ return { voted:false, prev:0 }; } try{ if(window.localStorage) localStorage.setItem(key, String(stars)); }catch(e){} var nk = normTxt(name); if(!RATINGS_BY_NAME[nk]) RATINGS_BY_NAME[nk] = { sum:0, count:0 }; RATINGS_BY_NAME[nk].sum += stars; RATINGS_BY_NAME[nk].count += 1; return { voted:true, prev:0 }; } function loadRatings(){ if(typeof fetch !== 'function'){ RATINGS_LOADED = true; return; } fetch(RATINGS_CSV_URL).then(function(res){ if(!res.ok) throw new Error('csv'); return res.text(); }).then(function(text){ var rows = parseCSV(text); var headers = rows.length ? rows[0] : []; var cNeg = colIndex(headers, ['negocio'], 1); var cEst = colIndex(headers, ['estrella'], 2); rows.forEach(function(r, idx){ if(idx === 0) return; var negocio = (r[cNeg] || '').trim(); if(!negocio || normTxt(negocio) === 'prueba') return; var est = parseFloat(String(r[cEst] || '').replace(',', '.')); if(isNaN(est) || est < 1 || est > 5) return; var k = normTxt(negocio); if(!RATINGS_BY_NAME[k]) RATINGS_BY_NAME[k] = { sum:0, count:0 }; RATINGS_BY_NAME[k].sum += est; RATINGS_BY_NAME[k].count += 1; }); RATINGS_LOADED = true; refresh(); }).catch(function(){ RATINGS_LOADED = true; }); } var APPROVED_PROVIDERS = [];
         var APPROVED_LOADED = false;
-        var LOCAL_TOWN_NAMES = ['Patillas','Guayama','Arroyo','Maunabo','Yabucoa'];
+        var LOCAL_TOWN_NAMES = ['Patillas','Guayama','Arroyo','Maunabo','Yabucoa']; var ZONE_LABEL = 'Patillas, Guayama, Arroyo, Maunabo y Yabucoa'; /* M8: etiqueta de zona */ var zoneLabelEl=document.getElementById('zoneLabel'); if(zoneLabelEl) zoneLabelEl.textContent=ZONE_LABEL;
         function parseCSV(text){
           var rows = [], row = [], field = '', inQ = false;
           for(var i = 0; i < text.length; i++){
@@ -1066,15 +1066,15 @@
             if(!servicioFinal) servicioFinal = servicioBase;
             var puebloNorm = normTxt(pueblo);
             var isCoverage = (puebloNorm === 'toda la zona sureste' || puebloNorm === 'todo puerto rico');
-            var isLocal = false;
-            LOCAL_TOWN_NAMES.forEach(function(t){ if(normTxt(t) === puebloNorm) isLocal = true; });
+            var isLocal = false; var puebloCanon = pueblo; // M3: canonicaliza contra LOCAL_TOWN_NAMES vía normTxt
+            LOCAL_TOWN_NAMES.forEach(function(t){ if(normTxt(t) === puebloNorm){ isLocal = true; puebloCanon = t; } });
             var type = isCoverage ? 'cobertura' : 'local';
             out.push({
               cat: servicioFinal,
               name: nombre,
               type: type,
-              towns: isCoverage ? LOCAL_TOWN_NAMES.slice() : (pueblo ? [pueblo] : []),
-              addr: pueblo || 'Sureste de Puerto Rico',
+              towns: isCoverage ? LOCAL_TOWN_NAMES.slice() : (puebloCanon ? [puebloCanon] : []),
+              addr: puebloCanon || 'Sureste de Puerto Rico',
               phone: telefono ? telefono : null,
               wa: tieneWa,
               rating: null,
@@ -1426,7 +1426,7 @@
           var rpl = document.createElement('a'); rpl.className = 'report-link'; rpl.textContent = 'Reportar problema'; rpl.href = 'https://docs.google.com/forms/d/e/1FAIpQLSd-kh9WbSLjVebrg892lVXbJQfPCyY1zJxImedSa3-_StbF8A/viewform?usp=pp_url&entry.1530682228=' + encodeURIComponent(p.name); rpl.target = '_blank'; rpl.rel = 'noopener'; card.appendChild(rpl); /* Sitio web del registro aprobado (columna "Sitio web" de la hoja): solo si trae valor; abre en pestaña nueva y suma https:// si no trae esquema. */ if(p.website){ var wv = String(p.website || '').trim(); if(wv){ var whref = /^[a-z][a-z0-9+.-]*:\/\//i.test(wv) ? wv : 'https://' + wv; var wl = document.createElement('a'); wl.className = 'web-link'; wl.href = whref; wl.target = '_blank'; wl.rel = 'noopener'; wl.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.9 5.7 3.9 9s-1.4 6.4-3.9 9c-2.5-2.6-3.9-5.7-3.9-9S9.5 5.6 12 3z"/></svg>'; wl.appendChild(document.createTextNode('Sitio web')); card.appendChild(wl); } } /* Fecha de verificación por proveedor + reportar error */
           var vl = document.createElement('span'); vl.className = 'verified-line';
           if(p.isApproved){
-            vl.textContent = p.approvedDate ? ('Aprobado ' + relativeWhen(p.approvedDate) + ' · ' + fmtDate(p.approvedDate)) : 'Registro aprobado en revisión';
+            vl.textContent = p.approvedDate ? ('Aprobado ' + relativeWhen(p.approvedDate) + ' · ' + fmtDate(p.approvedDate)) : (p.fecha ? p.fecha : 'Registro aprobado en revisión'); // M6
           } else {
             var vd = parseISODate(p.verified);
             vl.textContent = vd ? ('Verificado ' + relativeWhen(vd) + ' · ' + fmtDate(vd)) : '';
@@ -1518,7 +1518,7 @@
             btn.setAttribute('aria-label', n > 0 ? (name + ': ' + n + ' en el directorio') : (name + ': buscar en Maps'));
           });
         }
-        /* ---------- Nuevos en el directorio: SOLO los últimos aprobados ----------
+        /* ---------- Nuevos en el directorio: últimos aprobados y curados verificados (M4) ----------
            Con fecha de aprobación, dentro de los últimos 30 días, máximo 3,
            del más reciente al más viejo. Pasada la ventana, dejan de salir
            como nuevos: no se quedan para siempre. */
@@ -1537,13 +1537,13 @@
           }
           if(!APPROVED_LOADED){ sec.classList.remove('hidden'); return; }
           var startToday = new Date(); startToday.setHours(0,0,0,0);
-          var recent = APPROVED_PROVIDERS.filter(function(p){
-            if(!p.approvedDate) return false;
+          var recent = APPROVED_PROVIDERS.concat(PROVIDERS.filter(function(p){ return p.verified && !p.isApproved; })).filter(function(p){ // M4: aprobados + curados verificados
+            if(!p.approvedDate && !p.verified) return false;
             if(town !== '__zona' && !p.isCoverage && p.towns.indexOf(town) === -1) return false;
-            var d0 = new Date(p.approvedDate.getTime()); d0.setHours(0,0,0,0);
+            var d0 = new Date(p.approvedDate ? p.approvedDate.getTime() : p.verified + 'T12:00:00'); d0.setHours(0,0,0,0);
             var diff = Math.round((startToday - d0) / 86400000);
             return diff >= 0 && diff <= NEW_WINDOW_DAYS;
-          }).sort(function(a,b){ return b.approvedDate - a.approvedDate; }).slice(0, NEW_MAX);
+          }).sort(function(a,b){ var da = a.approvedDate ? a.approvedDate.getTime() : Date.parse(a.verified); var db = b.approvedDate ? b.approvedDate.getTime() : Date.parse(b.verified); return db - da; }).slice(0, NEW_MAX);
           if(!recent.length){ sec.classList.add('hidden'); return; }
           sec.classList.remove('hidden');
           var grid = document.createElement('div'); grid.className = 'dir-grid';
@@ -1689,7 +1689,7 @@
             }
             lastSearchHadResult = false;
             lastSearchLabel = rawSearch;
-            emptyState('Esa categoría aún no está en el directorio, pero no te quedes sin opciones: búscala en vivo con estos enlaces. El directorio cubre Patillas, Guayama, Arroyo, Maunabo y Yabucoa.');
+            emptyState('Esa categoría aún no está en el directorio, pero no te quedes sin opciones: búscala en vivo con estos enlaces. El directorio cubre ' + ZONE_LABEL + '.'');
             return;
           }
           /* Categoría del directorio: curados + aprobados */
@@ -1709,7 +1709,7 @@
             }
             lastSearchHadResult = false;
             lastSearchLabel = cat;
-            emptyState('El directorio aún no cubre ' + town + ' — cubre Patillas, Guayama, Arroyo, Maunabo y Yabucoa. Para ' + town + ', busca en vivo con estos enlaces:');
+            emptyState('El directorio aún no cubre ' + town + ' — cubre ' + ZONE_LABEL + '. Para ' + town + ', busca en vivo con estos enlaces:');
             return;
           }
           var gapKey = cat + '|' + town;
@@ -1733,7 +1733,7 @@
             if(curatedFiltered.length) parts.push(curatedFiltered.length + (curatedFiltered.length === 1 ? ' opción verificada' : ' opciones verificadas'));
             if(approvedList.length) parts.push(approvedList.length + (approvedList.length === 1 ? ' registro aprobado' : ' registros aprobados'));
             if(approvedUnconfirmed.length) parts.push(approvedUnconfirmed.length + ' con horario sin confirmar');
-            count.textContent = parts.join(' · ') + ' · ' + cat + ' en ' + (town === '__zona' ? 'Patillas, Guayama, Arroyo, Maunabo y Yabucoa' : town);
+            count.textContent = parts.join(' · ') + ' · ' + cat + ' en ' + (town === '__zona' ? ZONE_LABEL : town);
           } else {
             count.textContent = 'Sin opciones verificadas con ese filtro · ' + cat + ' en ' + (town === '__zona' ? 'la zona piloto' : town);
           }
