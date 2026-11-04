@@ -1414,20 +1414,6 @@
             vl.textContent = vd ? ('Verificado ' + relativeWhen(vd) + ' · ' + fmtDate(vd)) : '';
           }
           if(vl.textContent) card.appendChild(vl);
-          var rep = document.createElement('button');
-          rep.type = 'button'; rep.className = 'report-link';
-          rep.textContent = 'Reportar error o negocio cerrado';
-          rep.addEventListener('click', function(){
-            var txt = 'Reporte — ' + p.name + ' (' + (p.cat || '') + ', ' + (p.towns && p.towns.length ? p.towns.join(', ') : p.addr || '') + '): ';
-            function done(){
-              showToast('Nombre del negocio copiado. Se abre el formulario: pégalo y cuenta qué está mal.');
-              window.open(FORM_URL, '_blank', 'noopener');
-            }
-            if(navigator.clipboard && navigator.clipboard.writeText){
-              navigator.clipboard.writeText(txt).then(done, done);
-            } else { done(); }
-          });
-          card.appendChild(rep);
           return card;
         }
         /* ---------- Fecha legible: «2 de noviembre de 2026» ---------- */
