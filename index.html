@@ -917,6 +917,12 @@
         var explicitSearchPending = false;
         var lastSearchHadResult = true;
         var lastSearchLabel = '';
+        /* Auditoría H3: cola de «sin resultado» pendiente de la hoja de aprobados.
+           Si una búsqueda explícita queda sin resultado con APPROVED_LOADED aún en
+           false, el vacío puede ser falso: se guarda aquí {label, town} y
+           loadApproved() la re-evalúa al terminar el CSV; solo se reporta si sigue
+           vacía (sin doble envío). */
+        var pendingNoResult = null;
         function reportNoResult(q, townOverride){
           if(!normTxt(q || '')) return;
           /* La búsqueda va SOLA (categoría o frase, sin repetir el pueblo);
@@ -1112,8 +1118,18 @@
           var sk = document.getElementById('dirSkeleton');
           if(sk) sk.style.display = 'none';
         }
+        /* Auditoría H3: re-evalúa la búsqueda que quedó en la cola pendingNoResult.
+           Se llama desde loadApproved() después de que la hoja ya cargó y refresh()
+           re-evaluó el resultado. Si la búsqueda sigue sin resultado, se reporta
+           ahora; si refresh() ya la había reportado, la cola estaría vacía y no
+           hay doble envío. */
+        function flushPendingNoResult(){
+          if(!pendingNoResult) return;
+          var p = pendingNoResult; pendingNoResult = null;
+          if(!lastSearchHadResult && lastSearchLabel && lastSearchLabel === p.label){ reportNoResult(p.label, p.town); }
+        }
         function loadApproved(){
-          if(typeof fetch !== 'function'){ APPROVED_LOADED = true; hideDirLoading(); refresh(); return; }
+          if(typeof fetch !== 'function'){ APPROVED_LOADED = true; hideDirLoading(); refresh(); flushPendingNoResult(); return; }
           fetch(SHEETS_CSV_URL).then(function(res){
             if(!res.ok) throw new Error('csv');
             return res.text();
@@ -1122,11 +1138,13 @@
             APPROVED_LOADED = true;
             hideDirLoading();
             refresh();
+            flushPendingNoResult();
           }).catch(function(){
             /* Si el CSV falla, el directorio curado sigue visible sin romperse. */
             APPROVED_LOADED = true;
             hideDirLoading();
             refresh();
+            flushPendingNoResult();
           });
         }
         var dirBody = document.getElementById('dirBody');
@@ -1702,7 +1720,10 @@
           }
           var curatedFiltered = applyFilters(curatedList);
           if(openNow) openBanner();
-          if(!curatedFiltered.length && !approvedList.length && !approvedUnconfirmed.length){
+          /* Auditoría H3: el «sin resultado» se decide con curatedList + approvedAll
+          ANTES del filtro «Con horario hoy»: un proveedor que existe pero queda
+          fuera por su horario no cuenta como búsqueda sin resultado. */
+          if(curatedList.length + approvedAll.length === 0){
             lastSearchHadResult = false;
             lastSearchLabel = cat;
           }
@@ -1735,14 +1756,15 @@
         }
         function refresh(){
           renderDirectory();
-          /* Solo una búsqueda explítica (Buscar, Enter o chip) puede
-             reportar «sin resultado»; el refresco por cada letra, no.
-             Y SOLO cuando la hoja de aprobados ya cargó (APPROVED_LOADED):
-             si aún no llegó, un vacío puede ser falso — el registro
-             aprobado puede aparecer un instante después — y no se
-             reporta nada. */
-          if(explicitSearchPending && APPROVED_LOADED && !lastSearchHadResult && lastSearchLabel){
-            reportNoResult(lastSearchLabel);
+          /* Solo una búsqueda explícita (Buscar, Enter o chip) puede reportar
+             «sin resultado»; el refresco por cada letra, no. Si la hoja de
+             aprobados ya cargó, se reporta de inmediato; si aún no llega, el
+             vacío puede ser falso (el registro aprobado puede aparecer un
+             instante después) y la búsqueda (etiqueta + pueblo) queda en la
+             cola pendingNoResult para re-evaluarla en loadApproved(). */
+          if(explicitSearchPending && !lastSearchHadResult && lastSearchLabel){
+            if(APPROVED_LOADED){ reportNoResult(lastSearchLabel); pendingNoResult = null; }
+            else if(!pendingNoResult){ pendingNoResult = { label: lastSearchLabel, town: town }; }
           }
           var s = service();
           var u = urls();
