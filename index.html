@@ -350,7 +350,7 @@
       @media (prefers-reduced-motion: reduce){.dir-loading::before{animation:none}}
       .verified-line{font-size:.76rem;font-weight:600;color:var(--ink-soft)}
       .report-link{align-self:flex-start;border:0;background:transparent;color:var(--ink-soft);font-size:.8rem;font-weight:600;text-decoration:underline;text-underline-offset:3px;padding:4px 0;cursor:pointer}
-      .report-link:hover{color:var(--ink)}
+      .report-link:hover{color:var(--ink)} .web-link{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:.92rem;color:var(--brand-dark);text-decoration:none;margin:2px 0;width:fit-content} @media (prefers-color-scheme: dark){.web-link{color:var(--brand)}} .web-link:hover{text-decoration:underline;text-underline-offset:3px} .rating-row{display:flex;align-items:center;gap:6px 10px;flex-wrap:wrap;margin:4px 0} .rating-label{font-size:.86rem;font-weight:600;color:var(--ink-soft)} .rating-stars{display:inline-flex;gap:1px} .rating-stars button{border:0;background:transparent;padding:4px 3px;font-size:1.35rem;line-height:1;color:var(--line);min-width:36px;min-height:36px} .rating-stars button.on{color:#d97706} @media (prefers-color-scheme: dark){.rating-stars button.on{color:#f0a04a}} .rating-avg{font-size:.85rem;font-weight:600;color:var(--ink-soft);display:inline-flex;align-items:center;gap:5px} .rating-avg .stars{color:#d97706;letter-spacing:1px} @media (prefers-color-scheme: dark){.rating-avg .stars{color:#f0a04a}} .rating-msg{font-size:.82rem;font-weight:600;color:var(--brand-dark)} @media (prefers-color-scheme: dark){.rating-msg{color:var(--brand)}}
       .ext-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
       .ext-links a{border-radius:999px;padding:10px 15px;font-weight:600;font-size:.88rem;text-decoration:none;min-height:42px;display:inline-flex;align-items:center}
       .ext-links a.maps,.ext-links a.clas,.ext-links a.fb{background:#0f766e;color:#fff}
@@ -948,7 +948,7 @@
           refresh();
           explicitSearchPending = false;
         }
-        var APPROVED_PROVIDERS = [];
+        /* Calificaciones por estrellas: un voto por telefono. Promedios desde el CSV publico de calificaciones (columnas Timestamp, Negocio, Estrellas, Fecha); el voto se envia con POST al Google Form de Rene. El nombre se normaliza (minusculas, sin acentos, recortado) para emparejar; la fila de prueba Negocio=PRUEBA se ignora. */ var RATINGS_CSV_URL = 'https://docs.google.com/spreadsheets/d/1UjFTi_edpu5WshK6LXAcn1x49-1VYuFZClVY4fngP1s/export?format=csv&gid=1692204768'; var RATINGS_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSf-oBvQ8mia8glAKrl6n1fQOX9tuQQwONa8Nbqav0KaTo_onA/formResponse'; var RATINGS_BY_NAME = {}; var RATINGS_LOADED = false; function ratingKeyFor(name){ return 'chekeaki_rated_' + normTxt(name || '').replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,''); } function storedVote(name){ try{ if(window.localStorage){ return parseInt(localStorage.getItem(ratingKeyFor(name)) || '0', 10) || 0; } }catch(e){} return 0; } function castVote(name, stars){ var prev = storedVote(name); if(prev) return { voted:false, prev:prev }; try{ var d = new Date(); var ymd = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); var body = 'entry.1646434238=' + encodeURIComponent(name) + '&entry.667479108=' + encodeURIComponent(String(stars)) + '&entry.758402508=' + encodeURIComponent(ymd); fetch(RATINGS_FORM_URL, { method:'POST', mode:'no-cors', keepalive:true, headers:{ 'Content-Type':'application/x-www-form-urlencoded' }, body: body }); }catch(e){} try{ if(window.localStorage) localStorage.setItem(ratingKeyFor(name), String(stars)); }catch(e){} var nk = normTxt(name); if(!RATINGS_BY_NAME[nk]) RATINGS_BY_NAME[nk] = { sum:0, count:0 }; RATINGS_BY_NAME[nk].sum += stars; RATINGS_BY_NAME[nk].count += 1; return { voted:true, prev:0 }; } function loadRatings(){ if(typeof fetch !== 'function'){ RATINGS_LOADED = true; return; } fetch(RATINGS_CSV_URL).then(function(res){ if(!res.ok) throw new Error('csv'); return res.text(); }).then(function(text){ var rows = parseCSV(text); var headers = rows.length ? rows[0] : []; var cNeg = colIndex(headers, ['negocio'], 1); var cEst = colIndex(headers, ['estrella'], 2); rows.forEach(function(r, idx){ if(idx === 0) return; var negocio = (r[cNeg] || '').trim(); if(!negocio || normTxt(negocio) === 'prueba') return; var est = parseFloat(String(r[cEst] || '').replace(',', '.')); if(isNaN(est) || est < 1 || est > 5) return; var k = normTxt(negocio); if(!RATINGS_BY_NAME[k]) RATINGS_BY_NAME[k] = { sum:0, count:0 }; RATINGS_BY_NAME[k].sum += est; RATINGS_BY_NAME[k].count += 1; }); RATINGS_LOADED = true; refresh(); }).catch(function(){ RATINGS_LOADED = true; }); } var APPROVED_PROVIDERS = [];
         var APPROVED_LOADED = false;
         var LOCAL_TOWN_NAMES = ['Patillas','Guayama','Arroyo','Maunabo','Yabucoa'];
         function parseCSV(text){
@@ -1013,7 +1013,7 @@
             aprobado: looksHeader ? colIndex(headers, ['aprob'], 6) : 6,
             fecha: looksHeader ? colIndex(headers, ['fecha'], 7) : 7,
             otro: looksHeader ? colIndex(headers, ['otro'], 8) : 8,
-            whatsapp: looksHeader ? waCol(headers) : -1
+            whatsapp: looksHeader ? waCol(headers) : -1, sitio: looksHeader ? colIndex(headers, ['sitio web','sitio','pagina web','website'], 10) : 10
           };
           rows.forEach(function(r, idx){
             if(idx === 0 && looksHeader) return;
@@ -1064,7 +1064,7 @@
               rating: null,
               hours: horario ? horario : null,
               note: descripcion ? descripcion : null,
-              fecha: fechaRaw ? fechaRaw : null,
+              fecha: fechaRaw ? fechaRaw : null, website: cell(COL.sitio),
               approvedDate: fechaDate,
               isApproved: true,
               isCoverage: isCoverage,
@@ -1361,7 +1361,7 @@
             card.appendChild(nt);
           }
 
-          if(p.phone){
+          /* Estrellas de la comunidad en cada tarjeta (curada y aprobada): 5 para votar + promedio y conteo. Un voto por telefono via localStorage. */ (function(){ var rr = document.createElement('div'); rr.className = 'rating-row'; var rlab = document.createElement('span'); rlab.className = 'rating-label'; rlab.textContent = 'Califica este negocio:'; rr.appendChild(rlab); var box = document.createElement('div'); box.className = 'rating-stars'; box.setAttribute('role','group'); box.setAttribute('aria-label','Califica a ' + p.name); var btns = []; function paint(n){ btns.forEach(function(b, i){ b.classList.toggle('on', i < n); b.setAttribute('aria-pressed', i < n ? 'true' : 'false'); }); } for(var vi = 1; vi <= 5; vi++){ (function(v){ var b = document.createElement('button'); b.type = 'button'; b.textContent = '★'; b.setAttribute('aria-label', v + (v === 1 ? ' estrella' : ' estrellas')); b.addEventListener('click', function(){ var res = castVote(p.name, v); if(res.voted){ paint(v); msgEl.textContent = '¡Gracias por tu voto!'; showAvg(); } else { paint(res.prev); msgEl.textContent = 'Ya calificaste este negocio'; } }); box.appendChild(b); btns.push(b); })(vi); } rr.appendChild(box); var avgEl = document.createElement('span'); avgEl.className = 'rating-avg'; rr.appendChild(avgEl); var msgEl = document.createElement('span'); msgEl.className = 'rating-msg'; rr.appendChild(msgEl); function showAvg(){ var agg = RATINGS_BY_NAME[normTxt(p.name)]; avgEl.innerHTML = ''; if(RATINGS_LOADED && agg && agg.count > 0){ var avg = agg.sum / agg.count; var fs = document.createElement('span'); fs.className = 'stars'; fs.setAttribute('aria-hidden','true'); fs.textContent = starStr(avg); avgEl.appendChild(fs); avgEl.appendChild(document.createTextNode(' ' + avg.toFixed(1) + ' · ' + agg.count + (agg.count === 1 ? ' voto' : ' votos'))); avgEl.style.display = ''; } else { avgEl.style.display = 'none'; } } var prev = storedVote(p.name); paint(prev); if(prev) msgEl.textContent = 'Ya calificaste este negocio'; showAvg(); card.appendChild(rr); })(); if(p.phone){
             var digits = p.phone.replace(/\D/g,'');
             var intl = digits.length === 10 ? '1' + digits : digits;
             var pl = document.createElement('p'); pl.className = 'phone-line';
@@ -1385,7 +1385,7 @@
             card.appendChild(acts);
           }
 
-          /* Fecha de verificación por proveedor + reportar error */
+          /* Sitio web del registro aprobado (columna "Sitio web" de la hoja): solo si trae valor; abre en pestaña nueva y suma https:// si no trae esquema. */ if(p.website){ var wv = String(p.website || '').trim(); if(wv){ var whref = /^[a-z][a-z0-9+.-]*:\/\//i.test(wv) ? wv : 'https://' + wv; var wl = document.createElement('a'); wl.className = 'web-link'; wl.href = whref; wl.target = '_blank'; wl.rel = 'noopener'; wl.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.9 5.7 3.9 9s-1.4 6.4-3.9 9c-2.5-2.6-3.9-5.7-3.9-9S9.5 5.6 12 3z"/></svg>'; wl.appendChild(document.createTextNode('Sitio web')); card.appendChild(wl); } } /* Fecha de verificación por proveedor + reportar error */
           var vl = document.createElement('span'); vl.className = 'verified-line';
           if(p.isApproved){
             vl.textContent = p.approvedDate ? ('Aprobado ' + relativeWhen(p.approvedDate) + ' · ' + fmtDate(p.approvedDate)) : 'Registro aprobado en revisión';
@@ -1999,7 +1999,7 @@
         });
 
         refresh();
-        loadApproved();
+        loadApproved(); loadRatings();
       })();
     </script>
   </body>
