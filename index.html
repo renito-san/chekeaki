@@ -750,7 +750,7 @@
         });
 
         function townLabel(){ return town === '__zona' ? 'el sureste de Puerto Rico' : town; }
-        function townForQuery(){ return town === '__zona' ? 'Patillas Puerto Rico' : town + ', Puerto Rico'; }
+        function townForQuery(){ return town === '__zona' ? 'Patillas Guayama Arroyo Maunabo Yabucoa Puerto Rico' : town + ', Puerto Rico'; }
         function service(){ return input.value.trim(); }
         function enc(s){ return encodeURIComponent(s); }
 
@@ -806,7 +806,7 @@
           var sq = serviceQuery(s);
           var townLoc = town === '__zona' ? 'Puerto Rico' : town;
           var clasQ = 'site:clasificadosonline.com Servicios ' + sq + ' ' + townLoc;
-          var fbQ = sq + ' ' + (town === '__zona' ? 'Patillas Guayama Arroyo Puerto Rico' : town + ' Puerto Rico');
+          var fbQ = sq + ' ' + (town === '__zona' ? 'Patillas Guayama Arroyo Maunabo Yabucoa Puerto Rico' : town + ' Puerto Rico');
           var mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + enc(mapsQuery(s));
           var clasUrl = 'https://www.google.com/search?q=' + enc(clasQ);
           var fbUrl = 'https://www.facebook.com/search/top?q=' + enc(fbQ);
@@ -876,7 +876,7 @@
            muestra relativa («hace 3 semanas») junto a la fecha. Los que
            no traen el campo quedan con la verificación inicial del
            directorio, 2026-11-02. */
-        PROVIDERS.forEach(function(p){ if(!p.verified) p.verified = '2026-11-02'; });
+        PROVIDERS.forEach(function(p){ if(!p.verified) p.verified = '2026-11-02'; }); PROVIDERS.forEach(function(p){ if(p.type==='cobertura') p.isCoverage=true; });
         var GAPS = {
           'Plomero|Guayama':'Sin plomero dedicado verificado en Guayama: la opción de aquí es un handyman. Para plomería dedicada, usa la búsqueda en vivo de abajo.',
           'Plomero|Arroyo':'Sin local verificado en Arroyo. Lo que sigue son empresas de cobertura que sí listan Arroyo — no son talleres de Arroyo.',
@@ -1602,8 +1602,7 @@
             if(openNow) out = out.filter(function(p){ return hasScheduleToday(p); });
             if(sort === 'rated'){
               out.sort(function(a,b){
-                var ra = a.rating ? a.rating.stars : -1, rb = b.rating ? b.rating.stars : -1;
-                return rb - ra;
+                var ca = RATINGS_BY_NAME[normTxt(a.name)], cb = RATINGS_BY_NAME[normTxt(b.name)];                 var aa = ca ? ca.sum/ca.count : null, ab = cb ? cb.sum/cb.count : null;                 if(aa !== ab){                   if(aa === null) return 1;                   if(ab === null) return -1;                   return ab - aa;                 }                 var na = ca ? ca.count : 0, nb = cb ? cb.count : 0;                 if(na !== nb) return nb - na;                 var ra = a.rating ? a.rating.stars : null, rb = b.rating ? b.rating.stars : null;                 if(ra !== rb){                   if(ra === null) return 1;                   if(rb === null) return -1;                   return rb - ra;                 }                 return 0;
               });
             }
             return out;
@@ -1806,7 +1805,7 @@
             preview.classList.add('empty');
             previewText.textContent = 'Escribe o elige un servicio arriba para activar los botones de abajo.';
             [btnMaps, btnClas, btnFb, btnFbGroups, btnWa].forEach(function(b){ b.classList.add('disabled'); b.setAttribute('aria-disabled','true'); b.removeAttribute('href'); });
-            if(mapShown) mapIframe.src = 'https://www.google.com/maps?q=' + enc(liveTown.value === '__zona' ? 'Patillas, Puerto Rico' : liveTown.value + ', Puerto Rico') + '&output=embed';
+            if(mapShown) mapIframe.src = 'https://www.google.com/maps?q=' + enc(liveTown.value === '__zona' ? 'Patillas Guayama Arroyo Maunabo Yabucoa Puerto Rico' : liveTown.value + ', Puerto Rico') + '&output=embed';
             return;
           }
           preview.classList.remove('empty');
@@ -1857,7 +1856,7 @@
           mapToggle.textContent = mapShown ? 'Ocultar mapa' : 'Ver mapa';
           if(mapShown){
             var u = liveUrls();
-            mapIframe.src = u ? u.embed : 'https://www.google.com/maps?q=' + enc(liveTown.value === '__zona' ? 'Patillas, Puerto Rico' : liveTown.value + ', Puerto Rico') + '&output=embed';
+            mapIframe.src = u ? u.embed : 'https://www.google.com/maps?q=' + enc(liveTown.value === '__zona' ? 'Patillas Guayama Arroyo Maunabo Yabucoa Puerto Rico' : liveTown.value + ', Puerto Rico') + '&output=embed';
           }
         });
 
