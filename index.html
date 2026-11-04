@@ -635,7 +635,7 @@
         </div>
       </section>
 
-      <p class="dir-note">Cada tarjeta del directorio muestra su fecha de verificación: el horario puede cambiar — confirma llamando antes de ir. <strong>Local</strong> = negocio en ese pueblo · <strong>Cobertura</strong> = empresa de fuera que atiende el área a domicilio · <strong>Handyman</strong> = servicios generales, no un especialista dedicado. El directorio cubre por ahora Patillas, Guayama y Arroyo; Maunabo y Yabucoa se buscan en vivo en Maps, ClasificadosOnline y Facebook.</p>
+      <p class="dir-note">Cada tarjeta del directorio muestra su fecha de verificación: el horario puede cambiar — confirma llamando antes de ir. <strong>Local</strong> = negocio en ese pueblo · <strong>Cobertura</strong> = empresa de fuera que atiende el área a domicilio · <strong>Handyman</strong> = servicios generales, no un especialista dedicado. El directorio cubre por ahora Patillas, Guayama, Arroyo, Maunabo y Yabucoa.</p>
       <p class="dir-note">Los resultados en vivo se abren en cada fuente: verifica teléfono y horario allí, porque pueden cambiar.</p>
       </div>
       </section>
@@ -827,8 +827,7 @@
         }
 
         /* ---------- Directorio curado (verificado el 2026-11-02) ---------- */
-        var PILOT_CATS = ['Plomero','Electricista','Mecánico','Gomera','Handyman'];
-        var DIR_TOWNS = ['Patillas','Guayama','Arroyo'];
+                var DIR_TOWNS = ['Patillas','Guayama','Arroyo'];
         var PROVIDERS = [{cat:'Exterminador',name:'Plagas PR / Specialist Pest Control — Exterminador',type:'cobertura',towns:['Patillas','Guayama','Arroyo','Maunabo','Yabucoa'],addr:'Cobertura en todo Puerto Rico',phone:'+1 787-547-4344',website:'https://plagaspr.com/',verified:'2026-11-04',rating:null,hours:null,note:'Control de plagas y exterminación, todo Puerto Rico.'},
           {cat:'Reparación de neveras', name:'Cesar Handyman multi Servicios', type:'cobertura', towns:['Arroyo','Guayama','Maunabo','Patillas','Yabucoa'], addr:'A domicilio', phone:'787-388-3253', note:'Reparación de neveras a domicilio; también handyman, pintura, limpieza y sellado.', verified:'2026-11-04'},{cat:'Plomero', name:'R W B Plumbing', type:'local', towns:['Patillas'], addr:'Calle Rubi, C14 Villas de Patillas, PR 00723', phone:'787-449-5361', rating:null, hours:null},
           {cat:'Plomero', name:'Alexis Navarro', type:'handyman', towns:['Guayama'], addr:'Guayama y pueblos limítrofes', phone:'787-910-6739', rating:null, hours:'Disponibilidad 7 días, según su anuncio', note:'Handyman que ofrece trabajos de plomería — no es un plomero dedicado.'},
@@ -1090,10 +1089,13 @@
           var c = normTxt(p.cat || '');
           if(!s) return true;
           if(!c) return false;
-          if(s === c) return true;
+                    if(s === c) return true;
+                  var syn = catSynonym(s);
+                  if(syn && normTxt(syn) === c) return true;
           /* Solo «la búsqueda contiene la categoría»: buscar «limpieza» ya no
              trae «limpieza de cisterna», pero «limpieza de cisterna» sí la trae. */
           if(s.indexOf(c) !== -1) return true;
+                  if(s.length >= 4 && c.indexOf(s) !== -1) return true;
           return false;
         }
         function approvedForCurrent(rawSearch){
@@ -1129,12 +1131,19 @@
         }
         var dirBody = document.getElementById('dirBody');
         function normTxt(s){ return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
-        function pilotCat(){
-          var s = normTxt(service());
+                           
+             /* Sinonimos de busqueda -> categoria. */
+        var CAT_SYNONYMS = { mudanza:'Mudanzas', sellado:'Sellado de techo', aire:'Aire acondicionado', nevera:'Reparación de neveras', herramientas:'Alquiler de herramientas', goma:'Gomera', fumigacion:'Exterminador', llaves:'Cerrajero' };
+              function catSynonym(q){ return CAT_SYNONYMS[q] || null; }
+              function pilotCat(){
+                    var s = normTxt(service());
+        
           if(!s) return null;
-          for(var i = 0; i < PILOT_CATS.length; i++){
-            var c = normTxt(PILOT_CATS[i]);
-            if(s === c || s.indexOf(c) !== -1) return PILOT_CATS[i];
+                            var syn = catSynonym(s);
+                  if(syn) return syn;
+                  for(var i = 0; i < CATS.length; i++){
+            var c = normTxt(CATS[i].name);
+            if(s === c || s.indexOf(c) !== -1 || (s.length >= 4 && c.indexOf(s) !== -1)) return CATS[i].name;
           }
           return null;
         }
@@ -1677,13 +1686,12 @@
             }
             lastSearchHadResult = false;
             lastSearchLabel = rawSearch;
-            emptyState('Esa categoría aún no está en el directorio, pero no te quedes sin opciones: búscala en vivo con estos enlaces. El directorio cubre Patillas, Guayama y Arroyo.');
+            emptyState('Esa categoría aún no está en el directorio, pero no te quedes sin opciones: búscala en vivo con estos enlaces. El directorio cubre Patillas, Guayama, Arroyo, Maunabo y Yabucoa.');
             return;
           }
-          /* Categoría del directorio: curados (si el pueblo está cubierto) + aprobados */
+          /* Categoría del directorio: curados + aprobados */
           var curatedList = [];
-          if(DIR_TOWNS.indexOf(town) !== -1 || town === '__zona'){
-            curatedList = PROVIDERS.filter(function(p){
+                      curatedList = PROVIDERS.filter(function(p){
               if(p.cat !== cat) return false;
               if(town === '__zona') return true;
               return p.towns.indexOf(town) !== -1;
@@ -1698,7 +1706,7 @@
             }
             lastSearchHadResult = false;
             lastSearchLabel = cat;
-            emptyState('El directorio aún no cubre ' + town + ' — cubre Patillas, Guayama y Arroyo. Para ' + town + ', busca en vivo con estos enlaces:');
+            emptyState('El directorio aún no cubre ' + town + ' — cubre Patillas, Guayama, Arroyo, Maunabo y Yabucoa. Para ' + town + ', busca en vivo con estos enlaces:');
             return;
           }
           var gapKey = cat + '|' + town;
@@ -1719,7 +1727,7 @@
             if(curatedFiltered.length) parts.push(curatedFiltered.length + (curatedFiltered.length === 1 ? ' opción verificada' : ' opciones verificadas'));
             if(approvedList.length) parts.push(approvedList.length + (approvedList.length === 1 ? ' registro aprobado' : ' registros aprobados'));
             if(approvedUnconfirmed.length) parts.push(approvedUnconfirmed.length + ' con horario sin confirmar');
-            count.textContent = parts.join(' · ') + ' · ' + cat + ' en ' + (town === '__zona' ? 'Patillas, Guayama y Arroyo' : town);
+            count.textContent = parts.join(' · ') + ' · ' + cat + ' en ' + (town === '__zona' ? 'Patillas, Guayama, Arroyo, Maunabo y Yabucoa' : town);
           } else {
             count.textContent = 'Sin opciones verificadas con ese filtro · ' + cat + ' en ' + (town === '__zona' ? 'la zona piloto' : town);
           }
