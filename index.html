@@ -1484,9 +1484,9 @@
             seen[slug][key] = true; counts[slug]++;
           }
           function keyFor(p){ return normTxt(p.name || '') + '|' + ((p.phone || '').replace(/\D/g,'')); }
+          // counts must use the same town list as the results filter; coverage providers count only for towns listed in their towns array.
           function servesTown(p){
             if(forTown === '__zona') return true;
-            if(p.isCoverage) return true;
             return (p.towns || []).indexOf(forTown) !== -1;
           }
           if(typeof PROVIDERS !== 'undefined' && PROVIDERS){
