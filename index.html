@@ -1683,20 +1683,20 @@
             renderGrid(unconfirmedAll, null);
           }
 
-          /* Búsqueda sin categoría del directorio: solo aprobados, si los hay */
-          if(!cat){
-            setFiltersVisible(approvedAll.length);
+          /* Busqueda por nombre: texto normalizado (minimo 3 caracteres) que coincide con el nombre de un proveedor curado. */ var nameQuery = normTxt(rawSearch); var nameMatches = (nameQuery && nameQuery.length >= 3) ? PROVIDERS.filter(function(p){ var nm = normTxt(p.name || ''); return nm && (town === '__zona' || p.towns.indexOf(town) !== -1) && (nm.indexOf(nameQuery) !== -1 || nameQuery.indexOf(nm) !== -1); }) : []; var nameList = applyFilters(nameMatches); /* Búsqueda sin categoría del directorio: aprobados, si los hay, o negocios curados por nombre */
+          if(openNow){ curatedUnconfirmed = nameMatches.filter(function(p){ return !hasScheduleToday(p) && !scheduleParsed(p.hours); }); } if(!cat){
+            setFiltersVisible(approvedAll.length + nameMatches.length);
             resultTitle();
-            if(approvedList.length || approvedUnconfirmed.length){
+            if(approvedList.length || approvedUnconfirmed.length || nameList.length || curatedUnconfirmed.length){
               lastSearchHadResult = true;
               if(openNow) openBanner();
               var c1 = document.createElement('p'); c1.className = 'dir-count';
               var c1parts = [];
               if(approvedList.length) c1parts.push(approvedList.length + (approvedList.length === 1 ? ' registro aprobado' : ' registros aprobados'));
-              if(approvedUnconfirmed.length) c1parts.push(approvedUnconfirmed.length + ' con horario sin confirmar');
+              if(approvedUnconfirmed.length) c1parts.push(approvedUnconfirmed.length + ' con horario sin confirmar'); if(nameList.length) c1parts.push(nameList.length + (nameList.length === 1 ? ' negocio en el directorio' : ' negocios en el directorio')); if(curatedUnconfirmed.length) c1parts.push(curatedUnconfirmed.length + ' con horario sin confirmar');
               c1.textContent = c1parts.join(' · ') + ' · ' + rawSearch + ' en ' + (town === '__zona' ? 'toda la zona' : town);
               dirBody.appendChild(c1);
-              if(approvedList.length) renderGrid(approvedList, null);
+              if(approvedList.length || nameList.length) renderGrid(approvedList.concat(nameList), null);
               renderUnconfirmed();
               dirBody.appendChild(moreSearchBlock(rawSearch));
               return;
