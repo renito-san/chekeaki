@@ -675,6 +675,7 @@
 
         var TOWN_NAMES = ['Patillas','Guayama','Arroyo','Maunabo','Yabucoa'];
         var town = '__zona';
+        try{ var savedTown = window.localStorage ? localStorage.getItem('chekeaki_town') : null; if(savedTown && ['Patillas', 'Guayama', 'Arroyo', 'Maunabo', 'Yabucoa', '__zona'].indexOf(savedTown) >= 0){ town = savedTown; } }catch(e){}
         var openNow = false; /* filtro «Con horario hoy»: calculado del horario publicado, no una foto fija */
         var sort = 'default'; /* 'default' | 'rated' */
         var mapShown = false;
@@ -1860,6 +1861,7 @@
         });
 
         function setTown(t){
+          try{ if(window.localStorage) localStorage.setItem('chekeaki_town', t); }catch(e){}
           town = t;
           document.querySelectorAll('.town').forEach(function(b){
             b.setAttribute('aria-pressed', b.getAttribute('data-town') === t ? 'true' : 'false');
@@ -2056,6 +2058,7 @@
         });
 
         refresh();
+        setTown(town);
         loadApproved(); loadRatings();
       })();
     </script>
