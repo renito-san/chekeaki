@@ -1471,6 +1471,7 @@ var APPROVED_PROVIDERS = [];
             call.innerHTML = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>';
             call.appendChild(document.createTextNode('Llamar'));
             acts.appendChild(call); card.appendChild(acts);
+call.addEventListener('click', function(){ trackEvent('llamada', p.name, p.cat, trackPueblo(p)); });
           }
           /* WhatsApp fuera del gate de p.phone (M7): usa p.waPhone || p.phone. */ if(p.wa === true){ var waSrc = p.waPhone || p.phone || ''; var waDigits = waSrc.replace(/\D/g,''); var waIntl = waDigits.length === 10 ? '1' + waDigits : waDigits; var waBox = acts; if(!waBox){ waBox = document.createElement('div'); waBox.className = 'actions'; card.appendChild(waBox); }
               var wa = document.createElement('a'); wa.className = 'act-wa';
