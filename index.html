@@ -430,6 +430,7 @@
         </div>
         <p class="search-note">Guardamos de forma anónima las búsquedas sin resultado para añadir categorías; no escribas datos personales</p>
         <p id="bizCount" style="text-align:center;font-size:.95rem;font-weight:700;color:#0f766e;margin:.5rem 0 0"></p>
+        <p style="text-align:center;margin:.6rem 0 0"><button type="button" id="shareBtn" style="background:#0f766e;color:#ffffff;border:none;border-radius:999px;padding:.55rem 1.3rem;font-size:.95rem;font-weight:700;cursor:pointer">Compartir</button></p>
 
         <span class="lab" id="townLab">Pueblo</span>
         <div class="towns" id="towns" role="group" aria-labelledby="townLab">
@@ -1784,7 +1785,8 @@
           }
         }
         function updateBizCount(){ var el = document.getElementById('bizCount'); if(!el) return; var seen = {}, n = 0; PROVIDERS.concat(APPROVED_PROVIDERS || []).forEach(function(p){ if(!p || !p.name) return; var digits = String(p.phone || '').replace(/\D/g, ''); if(digits.length > 10) digits = digits.slice(-10); var k = normTxt(p.name) + '|' + digits; if(!seen[k]){ seen[k] = 1; n++; } }); el.textContent = '✓ ' + n + ' negocios verificados del sureste'; }
-        function refresh(){
+        var shareBtn = document.getElementById('shareBtn'); if(shareBtn){ shareBtn.addEventListener('click', function(){ var sd = { title:'ChekEAki', text:'¿Se te dañó algo en la casa? En ChekEAki buscas el servicio, eliges el negocio y llamas directo, gratis. Plomeros, electricistas, mecánicos y más en el sureste de Puerto Rico.', url:'https://renito-san.github.io/chekeaki/' }; if(navigator.share){ navigator.share(sd).catch(function(){}); } else { window.open('https://wa.me/?text=' + encodeURIComponent(sd.text + ' ' + sd.url), '_blank'); } }); }
+            function refresh(){
           updateBizCount();
           renderDirectory();
           /* Solo una búsqueda explícita (Buscar, Enter o chip) puede reportar
