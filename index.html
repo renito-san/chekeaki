@@ -135,45 +135,45 @@
 
       /* ---------- Categories: colorful tiles ---------- */
       .cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;width:100%}
-      .cat-btn{--cat:#111827;--cat-bg:#ffedb3;border:2px solid transparent;background:var(--cat-bg);color:var(--ink);border-radius:20px;padding:16px 6px 13px;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:600;font-size:.84rem;text-align:center;min-height:106px;justify-content:center;min-width:0;overflow:hidden;transition:transform .15s,border-color .15s,box-shadow .15s}
+      .cat-btn{--cat:#1d4ed8;--cat-bg:#dbeafe;border:2px solid transparent;background:var(--cat-bg);color:var(--ink);border-radius:20px;padding:16px 6px 13px;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:600;font-size:.84rem;text-align:center;min-height:106px;justify-content:center;min-width:0;overflow:hidden;transition:transform .15s,border-color .15s,box-shadow .15s}
       .cat-btn>span{min-width:0;max-width:100%;overflow-wrap:break-word}
       .cat-btn svg{color:var(--cat);flex:none;width:44px;height:44px;background:var(--surface);border-radius:14px;padding:9px;box-shadow:0 5px 12px rgba(12,40,34,.12)}
       .cat-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
       .cat-btn:active{transform:scale(.97)}
       .cat-btn.active{border-color:var(--cat);box-shadow:0 0 0 3px color-mix(in srgb,var(--cat) 22%,transparent)}
-      .cat-btn[data-cat="plomero"]{--cat:#111827;--cat-bg:#ffedb3}
-      .cat-btn[data-cat="electricista"]{--cat:#b45309;--cat-bg:#fdeecd}
-      .cat-btn[data-cat="mecanico"]{--cat:#2563eb;--cat-bg:#e3ecfe}
-      .cat-btn[data-cat="gomera"]{--cat:#be3455;--cat-bg:#fde3ea}
-      .cat-btn[data-cat="limpieza"]{--cat:#15803d;--cat-bg:#dcf2e2}
-      .cat-btn[data-cat="handyman"]{--cat:#6d28d9;--cat-bg:#ebe4fd}
-      .cat-btn[data-cat="aireacondicionado"]{--cat:#0369a1;--cat-bg:#e0f2fe}
+      .cat-btn[data-cat="plomero"]{--cat:#1d4ed8;--cat-bg:#dbeafe}
+      .cat-btn[data-cat="electricista"]{--cat:#b45309;--cat-bg:#fef3c7}
+      .cat-btn[data-cat="mecanico"]{--cat:#334155;--cat-bg:#e2e8f0}
+      .cat-btn[data-cat="gomera"]{--cat:#111827;--cat-bg:#e5e7eb}
+      .cat-btn[data-cat="limpieza"]{--cat:#db2777;--cat-bg:#fce7f3}
+      .cat-btn[data-cat="handyman"]{--cat:#ea580c;--cat-bg:#ffedd5}
+      .cat-btn[data-cat="aireacondicionado"]{--cat:#0f766e;--cat-bg:#ccfbf1}
       .cat-btn[data-cat="selladodetecho"]{--cat:#9a3412;--cat-bg:#fde8dd}
-      .cat-btn[data-cat="exterminador"]{--cat:#4d7c0f;--cat-bg:#ecf3d8}
-      .cat-btn[data-cat="cerrajero"]{--cat:#a16207;--cat-bg:#fdf3c7}
-      .cat-btn[data-cat="grua"]{--cat:#b91c1c;--cat-bg:#fde2e2}
-      .cat-btn[data-cat="alquilerdeherramientas"]{--cat:#0e7490;--cat-bg:#dcf3f8}
-      .cat-btn[data-cat="mudanzas"]{--cat:#7c3aed;--cat-bg:#efe7fd}
-      .cat-btn[data-cat="jardineria"]{--cat:#15803d;--cat-bg:#dcf2e2}
-      .cat-btn[data-cat="reparaciondeneveras"]{--cat:#0284c7;--cat-bg:#e1f1fb}
-      .cat-btn[data-cat="pintura"]{--cat:#c026d3;--cat-bg:#fae3fb}
+      .cat-btn[data-cat="exterminador"]{--cat:#4d7c0f;--cat-bg:#ecfccb}
+      .cat-btn[data-cat="cerrajero"]{--cat:#854d0e;--cat-bg:#fef08a}
+      .cat-btn[data-cat="grua"]{--cat:#b91c1c;--cat-bg:#fee2e2}
+      .cat-btn[data-cat="alquilerdeherramientas"]{--cat:#4338ca;--cat-bg:#e0e7ff}
+      .cat-btn[data-cat="mudanzas"]{--cat:#7c3aed;--cat-bg:#ede9fe}
+      .cat-btn[data-cat="jardineria"]{--cat:#15803d;--cat-bg:#dcfce7}
+      .cat-btn[data-cat="reparaciondeneveras"]{--cat:#0284c7;--cat-bg:#e0f2fe}
+      .cat-btn[data-cat="pintura"]{--cat:#c026d3;--cat-bg:#fae8ff}
       @media (prefers-color-scheme: dark){
-        .cat-btn[data-cat="plomero"]{--cat:#ffc907;--cat-bg:#332a06}
-        .cat-btn[data-cat="electricista"]{--cat:#f0a04a;--cat-bg:#35260e}
-        .cat-btn[data-cat="mecanico"]{--cat:#7aa7f8;--cat-bg:#18294d}
-        .cat-btn[data-cat="gomera"]{--cat:#fb8fab;--cat-bg:#3a1622}
-        .cat-btn[data-cat="limpieza"]{--cat:#4ade80;--cat-bg:#12301c}
-        .cat-btn[data-cat="handyman"]{--cat:#b79cff;--cat-bg:#271a4d}
-        .cat-btn[data-cat="aireacondicionado"]{--cat:#38bdf8;--cat-bg:#0c2a3d}
-        .cat-btn[data-cat="selladodetecho"]{--cat:#fb923c;--cat-bg:#38200f}
-        .cat-btn[data-cat="exterminador"]{--cat:#a3e635;--cat-bg:#243311}
-        .cat-btn[data-cat="cerrajero"]{--cat:#facc15;--cat-bg:#33290a}
-        .cat-btn[data-cat="grua"]{--cat:#fca5a5;--cat-bg:#3a1515}
-        .cat-btn[data-cat="alquilerdeherramientas"]{--cat:#22d3ee;--cat-bg:#0d2c33}
-        .cat-btn[data-cat="mudanzas"]{--cat:#c4b5fd;--cat-bg:#251947}
-        .cat-btn[data-cat="jardineria"]{--cat:#4ade80;--cat-bg:#12301c}
-        .cat-btn[data-cat="reparaciondeneveras"]{--cat:#38bdf8;--cat-bg:#0c2a3d}
-        .cat-btn[data-cat="pintura"]{--cat:#f0abfc;--cat-bg:#33123a}
+        .cat-btn[data-cat="plomero"]{--cat:#60a5fa;--cat-bg:#172554}
+        .cat-btn[data-cat="electricista"]{--cat:#fbbf24;--cat-bg:#451a03}
+        .cat-btn[data-cat="mecanico"]{--cat:#94a3b8;--cat-bg:#1e293b}
+        .cat-btn[data-cat="gomera"]{--cat:#f3f4f6;--cat-bg:#374151}
+        .cat-btn[data-cat="limpieza"]{--cat:#f472b6;--cat-bg:#500724}
+        .cat-btn[data-cat="handyman"]{--cat:#fb923c;--cat-bg:#431407}
+        .cat-btn[data-cat="aireacondicionado"]{--cat:#2dd4bf;--cat-bg:#042f2e}
+        .cat-btn[data-cat="selladodetecho"]{--cat:#eda97e;--cat-bg:#3a1c0d}
+        .cat-btn[data-cat="exterminador"]{--cat:#a3e635;--cat-bg:#1a2e05}
+        .cat-btn[data-cat="cerrajero"]{--cat:#facc15;--cat-bg:#422006}
+        .cat-btn[data-cat="grua"]{--cat:#f87171;--cat-bg:#450a0a}
+        .cat-btn[data-cat="alquilerdeherramientas"]{--cat:#a5b4fc;--cat-bg:#1e1b4b}
+        .cat-btn[data-cat="mudanzas"]{--cat:#c4b5fd;--cat-bg:#2e1065}
+        .cat-btn[data-cat="jardineria"]{--cat:#4ade80;--cat-bg:#052e16}
+        .cat-btn[data-cat="reparaciondeneveras"]{--cat:#38bdf8;--cat-bg:#082f49}
+        .cat-btn[data-cat="pintura"]{--cat:#f0abfc;--cat-bg:#4a044e}
         .cat-btn svg{background:#0d1513;box-shadow:none}
       }
       @media (max-width:520px){.cats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.cat-btn{font-size:.78rem;min-height:98px;padding:12px 4px 10px;border-radius:17px}.cat-btn svg{width:38px;height:38px;padding:8px}.cat-tag{padding:3px 6px}}
@@ -217,17 +217,25 @@
       /* ---------- Provider cards ---------- */
       .dir-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
       @media (max-width:700px){.dir-grid{grid-template-columns:1fr}}
-      .pcard{--pc:#111827;--pc-soft:#ffedb3;position:relative;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 14px rgba(12,40,34,.06);overflow:hidden}
-      .pcard.cat-plomero{--pc:#111827;--pc-soft:#ffedb3}.pcard.cat-electricista{--pc:#b45309;--pc-soft:#fdeecd}
-      .pcard.cat-mecanico{--pc:#2563eb;--pc-soft:#e3ecfe}.pcard.cat-gomera{--pc:#be3455;--pc-soft:#fde3ea}
-      .pcard.cat-limpieza{--pc:#15803d;--pc-soft:#dcf2e2}.pcard.cat-handyman{--pc:#6d28d9;--pc-soft:#ebe4fd}
-      .pcard.cat-aireacondicionado{--pc:#0369a1;--pc-soft:#e0f2fe}.pcard.cat-pintura{--pc:#c026d3;--pc-soft:#fae3fb}
+      .pcard{--pc:#1d4ed8;--pc-soft:#dbeafe;position:relative;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 14px rgba(12,40,34,.06);overflow:hidden}
+      .pcard.cat-plomero{--pc:#1d4ed8;--pc-soft:#dbeafe}.pcard.cat-electricista{--pc:#b45309;--pc-soft:#fef3c7}
+      .pcard.cat-mecanico{--pc:#334155;--pc-soft:#e2e8f0}.pcard.cat-gomera{--pc:#111827;--pc-soft:#e5e7eb}
+      .pcard.cat-limpieza{--pc:#db2777;--pc-soft:#fce7f3}.pcard.cat-handyman{--pc:#ea580c;--pc-soft:#ffedd5}
+      .pcard.cat-aireacondicionado{--pc:#0f766e;--pc-soft:#ccfbf1}.pcard.cat-selladodetecho{--pc:#9a3412;--pc-soft:#fde8dd}
+      .pcard.cat-exterminador{--pc:#4d7c0f;--pc-soft:#ecfccb}.pcard.cat-cerrajero{--pc:#854d0e;--pc-soft:#fef08a}
+      .pcard.cat-grua{--pc:#b91c1c;--pc-soft:#fee2e2}.pcard.cat-alquilerdeherramientas{--pc:#4338ca;--pc-soft:#e0e7ff}
+      .pcard.cat-mudanzas{--pc:#7c3aed;--pc-soft:#ede9fe}.pcard.cat-jardineria{--pc:#15803d;--pc-soft:#dcfce7}
+      .pcard.cat-reparaciondeneveras{--pc:#0284c7;--pc-soft:#e0f2fe}.pcard.cat-pintura{--pc:#c026d3;--pc-soft:#fae8ff}
       @media (prefers-color-scheme: dark){
-        .pcard{--pc:#ffc907;--pc-soft:#1b2421}
-        .pcard.cat-plomero{--pc:#ffc907;--pc-soft:#332a06}.pcard.cat-electricista{--pc:#f0a04a;--pc-soft:#35260e}
-        .pcard.cat-mecanico{--pc:#7aa7f8;--pc-soft:#18294d}.pcard.cat-gomera{--pc:#fb8fab;--pc-soft:#3a1622}
-        .pcard.cat-limpieza{--pc:#4ade80;--pc-soft:#12301c}.pcard.cat-handyman{--pc:#b79cff;--pc-soft:#271a4d}
-        .pcard.cat-aireacondicionado{--pc:#38bdf8;--pc-soft:#0c2a3d}.pcard.cat-pintura{--pc:#f0abfc;--pc-soft:#33123a}
+        .pcard{--pc:#60a5fa;--pc-soft:#172554}
+        .pcard.cat-plomero{--pc:#60a5fa;--pc-soft:#172554}.pcard.cat-electricista{--pc:#fbbf24;--pc-soft:#451a03}
+        .pcard.cat-mecanico{--pc:#94a3b8;--pc-soft:#1e293b}.pcard.cat-gomera{--pc:#f3f4f6;--pc-soft:#374151}
+        .pcard.cat-limpieza{--pc:#f472b6;--pc-soft:#500724}.pcard.cat-handyman{--pc:#fb923c;--pc-soft:#431407}
+        .pcard.cat-aireacondicionado{--pc:#2dd4bf;--pc-soft:#042f2e}.pcard.cat-selladodetecho{--pc:#eda97e;--pc-soft:#3a1c0d}
+        .pcard.cat-exterminador{--pc:#a3e635;--pc-soft:#1a2e05}.pcard.cat-cerrajero{--pc:#facc15;--pc-soft:#422006}
+        .pcard.cat-grua{--pc:#f87171;--pc-soft:#450a0a}.pcard.cat-alquilerdeherramientas{--pc:#a5b4fc;--pc-soft:#1e1b4b}
+        .pcard.cat-mudanzas{--pc:#c4b5fd;--pc-soft:#2e1065}.pcard.cat-jardineria{--pc:#4ade80;--pc-soft:#052e16}
+        .pcard.cat-reparaciondeneveras{--pc:#38bdf8;--pc-soft:#082f49}.pcard.cat-pintura{--pc:#f0abfc;--pc-soft:#4a044e}
         .pcard .pnote{color:#c3d2ca}
       }
       .pcard-top{display:flex;align-items:center;gap:12px}
@@ -709,7 +717,7 @@
         var REDUCED_MOTION = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
         function scrollToDir(){ var el = document.getElementById('dirSection'); if(el) el.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block:'start' }); }
         function catSlug(name){ return (name || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,''); }
-        var CAT_COLORS = { plomero:['#111827','#ffedb3'], electricista:['#b45309','#fdeecd'], mecanico:['#2563eb','#e3ecfe'], gomera:['#be3455','#fde3ea'], limpieza:['#15803d','#dcf2e2'], handyman:['#6d28d9','#ebe4fd'], aireacondicionado:['#0369a1','#e0f2fe'], selladodetecho:['#9a3412','#fde8dd'], exterminador:['#4d7c0f','#ecf3d8'], cerrajero:['#a16207','#fdf3c7'], grua:['#b91c1c','#fde2e2'], alquilerdeherramientas:['#0e7490','#dcf3f8'], mudanzas:['#7c3aed','#efe7fd'], jardineria:['#15803d','#dcf2e2'], reparaciondeneveras:['#0284c7','#e1f1fb'], pintura:['#c026d3','#fae3fb'] };
+        var CAT_COLORS = { plomero:['#1d4ed8','#dbeafe'], electricista:['#b45309','#fef3c7'], mecanico:['#334155','#e2e8f0'], gomera:['#111827','#e5e7eb'], limpieza:['#db2777','#fce7f3'], handyman:['#ea580c','#ffedd5'], aireacondicionado:['#0f766e','#ccfbf1'], selladodetecho:['#9a3412','#fde8dd'], exterminador:['#4d7c0f','#ecfccb'], cerrajero:['#854d0e','#fef08a'], grua:['#b91c1c','#fee2e2'], alquilerdeherramientas:['#4338ca','#e0e7ff'], mudanzas:['#7c3aed','#ede9fe'], jardineria:['#15803d','#dcfce7'], reparaciondeneveras:['#0284c7','#e0f2fe'], pintura:['#c026d3','#fae8ff'] };
         var catsEl = document.getElementById('cats');
         CATS.forEach(function(c){
           var b = document.createElement('button');
