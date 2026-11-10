@@ -138,7 +138,7 @@
       .cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;width:100%}
       .cat-btn{--cat:#1d4ed8;--cat-bg:#dbeafe;border:2px solid transparent;background:var(--cat-bg);color:var(--ink);border-radius:20px;padding:16px 6px 13px;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:600;font-size:.84rem;text-align:center;min-height:106px;justify-content:center;min-width:0;overflow:hidden;transition:transform .15s,border-color .15s,box-shadow .15s}
       .cat-btn>span{min-width:0;max-width:100%;overflow-wrap:break-word}
-      .cat-btn svg{color:var(--cat);flex:none;width:44px;height:44px;background:var(--surface);border-radius:14px;padding:9px;box-shadow:0 5px 12px rgba(12,40,34,.12)}
+      .cat-btn svg{color:var(--cat);flex:none;width:44px;height:44px;background:var(--surface);border-radius:14px;padding:4px;box-shadow:0 5px 12px rgba(12,40,34,.12)}
       .cat-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
       .cat-btn:active{transform:scale(.97)}
       .cat-btn.active{border-color:var(--cat);box-shadow:0 0 0 3px color-mix(in srgb,var(--cat) 22%,transparent)}
@@ -177,7 +177,7 @@
         .cat-btn[data-cat="pintura"]{--cat:#f0abfc;--cat-bg:#4a044e}
         .cat-btn svg{background:#0d1513;box-shadow:none}
       }
-      @media (max-width:520px){.cats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.cat-btn{font-size:.78rem;min-height:98px;padding:12px 4px 10px;border-radius:17px}.cat-btn svg{width:38px;height:38px;padding:8px}.cat-tag{padding:3px 6px}}
+      @media (max-width:520px){.cats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.cat-btn{font-size:.78rem;min-height:98px;padding:12px 4px 10px;border-radius:17px}.cat-btn svg{width:38px;height:38px;padding:4px}.cat-tag{padding:3px 6px}}
 
       /* ---------- Filters / preview / live results ---------- */
       .filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
