@@ -749,7 +749,7 @@ function e(e){return Array.isArray?Array.isArray(e):u(e)===`[object Array]`}func
         CATS.forEach(function(c){
           var b = document.createElement('button');
           b.type = 'button'; b.className = 'cat-btn'; b.setAttribute('data-service', c.name); b.setAttribute('data-cat', catSlug(c.name));
-          b.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + c.icon + '</svg>';
+          b.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + c.icon + '</svg>';
           var nm = document.createElement('span'); nm.textContent = c.name; b.appendChild(nm);
           /* La etiqueta se calcula en updateCatTags(): «En el directorio · N»
              con N contado del directorio curado + aprobados, o «Maps». */
@@ -773,7 +773,7 @@ function e(e){return Array.isArray?Array.isArray(e):u(e)===`[object Array]`}func
             b.type = 'button'; b.className = 'sticky-chip'; b.setAttribute('data-service', c.name);
             b.style.setProperty('--chip-c', col[0]);
             b.style.setProperty('--chip-bg', col[1]);
-            b.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + c.icon + '</svg>';
+            b.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + c.icon + '</svg>';
             var nm = document.createElement('span'); nm.textContent = c.name; b.appendChild(nm);
             b.addEventListener('click', function(){ input.value = c.name; doExplicitSearch(); });
             stickyEl.appendChild(b);
@@ -1481,7 +1481,7 @@ var APPROVED_PROVIDERS = [];
           var avatar = document.createElement('span'); avatar.className = 'pcard-avatar'; avatar.setAttribute('aria-hidden','true');
           var catIcon = null;
           for(var ci = 0; ci < CATS.length; ci++){ if(normTxt(CATS[ci].name) === normTxt(p.cat || '')){ catIcon = CATS[ci].icon; break; } }
-          avatar.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (catIcon || '<circle cx="12" cy="12" r="9"/>') + '</svg>';
+          avatar.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (catIcon || '<circle cx="12" cy="12" r="9"/>') + '</svg>';
           var h = document.createElement('h3'); h.textContent = p.name;
           var badge = document.createElement('span');
           badge.className = 'badge ' + (p.type === 'local' ? 'local' : p.type === 'cobertura' ? 'cob' : 'hand');
