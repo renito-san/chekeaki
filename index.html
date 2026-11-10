@@ -18,7 +18,8 @@
     <meta name="twitter:image" content="https://renito-san.github.io/chekeaki/icon.png" />
     <meta name="twitter:description" content="ChekEAki" />
         <link rel="icon" type="image/png" href="icon.png">
-    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="apple-touch-icon" href="icon-180.png">
+    <link rel="manifest" href="manifest.webmanifest">
     <title>ChekEAki</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -2179,6 +2180,14 @@ wa.addEventListener('click', function(){ trackEvent('whatsapp', p.name, p.cat, t
         setTown(town);
         loadApproved(); loadRatings(); trackSessionOnce();
       })();
+      /* Service worker (PWA instalable): registro defensivo — si el
+         navegador no lo soporta o el registro falla, la página sigue
+         funcionando exactamente como siempre. */
+      if('serviceWorker' in navigator){
+        window.addEventListener('load', function(){
+          navigator.serviceWorker.register('sw.js').catch(function(){});
+        });
+      }
     </script>
   </body>
 </html>
