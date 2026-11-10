@@ -752,11 +752,6 @@ function e(e){return Array.isArray?Array.isArray(e):u(e)===`[object Array]`}func
           b.type = 'button'; b.className = 'cat-btn'; b.setAttribute('data-service', c.name); b.setAttribute('data-cat', catSlug(c.name));
           b.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + c.icon + '</svg>';
           var nm = document.createElement('span'); nm.textContent = c.name; b.appendChild(nm);
-          /* La etiqueta se calcula en updateCatTags(): «En el directorio · N»
-             con N contado del directorio curado + aprobados, o «Maps». */
-          var tg = document.createElement('span'); tg.className = 'cat-tag';
-          tg.textContent = 'Maps';
-          b.appendChild(tg);
           b.addEventListener('click', function(){
             input.value = c.name;
             doExplicitSearch();
