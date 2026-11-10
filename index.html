@@ -280,7 +280,11 @@
       .reg-error{display:none;grid-column:1 / -1;background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);border-radius:12px;padding:11px 14px;font-weight:600;font-size:.92rem}.reg-error.show{display:block}
       .reg-submit{grid-column:1 / -1;border:0;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600;font-size:.98rem;padding:14px 18px;min-height:50px}
       .reg-preview{display:none;margin-top:20px}.reg-preview.show{display:block}.reg-preview h3{font-size:1rem;font-weight:600;margin-bottom:10px}
-      .reg-share{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+      .install-banner{background:#ffc907;color:#111827;border-radius:14px;padding:12px 14px;margin:10px 0 0;display:flex;gap:10px;align-items:flex-start;font-size:.93rem;line-height:1.45}
+        .install-banner[hidden]{display:none}
+        .install-banner p{margin:0;flex:1}
+        .install-banner button{flex:none;background:#111827;color:#ffc907;border:none;border-radius:999px;width:28px;height:28px;font-size:1.05rem;line-height:1;cursor:pointer;padding:0}
+        .reg-share{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
       .reg-share button,.reg-share a{flex:1;min-width:170px;border-radius:999px;padding:12px;font-weight:600;font-size:.93rem;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;min-height:48px;text-align:center}
       .reg-copy{border:1px solid var(--line);background:var(--surface);color:var(--ink)} .reg-wa{background:var(--wa);color:#052e12;border:0}
       .reg-status{margin:10px 0 0;font-size:.9rem;font-weight:600;color:var(--brand-dark)}
@@ -414,6 +418,10 @@
   </head>
   <body>
     <div class="wrap">
+      <div class="install-banner" id="installBanner" hidden>
+        <p><strong>📲 Instala ChekEAki como app:</strong> estás dentro de otra aplicación y aquí no sale la opción. Toca el menú <strong>⋯</strong> o <strong>Compartir</strong> y elige <strong>«Abrir en Safari»</strong>. Ya en Safari: <strong>Compartir → «Añadir a pantalla de inicio»</strong>.</p>
+        <button type="button" id="installBannerClose" aria-label="Cerrar aviso">×</button>
+      </div>
 
       <div class="hero-shell" id="topSearch">
       <header class="hero">
@@ -440,7 +448,7 @@
         <p class="search-note">Guardamos de forma anónima las búsquedas sin resultado para añadir categorías; no escribas datos personales</p>
                 <p style="text-align:center;font-size:.92rem;color:#ffc907;font-weight:600;margin:.4rem 0 0">Sin descargar nada — se abre aquí mismo, gratis.</p>
         <p id="bizCount" style="text-align:center;font-size:.95rem;font-weight:700;color:#ffc907;margin:.5rem 0 0"></p>
-        <p style="text-align:center;margin:.6rem 0 0"><button type="button" id="shareBtn" style="background:#ffc907;color:#111827;border:none;border-radius:999px;padding:.55rem 1.3rem;font-size:.95rem;font-weight:700;cursor:pointer">Compartir</button></p>
+        <p style="text-align:center;margin:.6rem 0 0"><button type="button" id="shareBtn" style="background:#ffc907;color:#111827;border:none;border-radius:999px;padding:.55rem 1.3rem;font-size:.95rem;font-weight:700;cursor:pointer">Compartir</button><button type="button" id="installBtn" hidden style="background:transparent;color:#ffc907;border:2px solid #ffc907;border-radius:999px;padding:.5rem 1.2rem;font-size:.95rem;font-weight:700;cursor:pointer;margin-left:.5rem">📲 Instalar app</button></p>
 
         <span class="lab" id="townLab">Pueblo</span>
         <div class="towns" id="towns" role="group" aria-labelledby="townLab">
@@ -2188,6 +2196,53 @@ wa.addEventListener('click', function(){ trackEvent('whatsapp', p.name, p.cat, t
           navigator.serviceWorker.register('sw.js').catch(function(){});
         });
       }
+    </script>
+    <script>
+      /* Instalar como app: (a) guia para iPhone dentro de navegadores
+         internos de otras apps (WhatsApp/Facebook/etc.), donde iOS no
+         ofrece «Añadir a pantalla de inicio»; (b) boton de instalacion
+         nativo en Android/Chrome via beforeinstallprompt. Todo va con
+         deteccion de capacidad y try/catch: si algo falla, la pagina
+         sigue exactamente como siempre. */
+      (function(){
+        try{
+          var ua = navigator.userAgent || '';
+          var isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+          var standalone = (window.navigator.standalone === true) || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+          var inApp = /FBAN|FBAV|FB_IAB|Instagram|WhatsApp|Messenger|Line\/|Twitter|TikTok|musical_ly/i.test(ua) || (isIOS && !/Safari\//.test(ua));
+          var banner = document.getElementById('installBanner');
+          if(banner && isIOS && inApp && !standalone){
+            var off = false;
+            try{ off = localStorage.getItem('chekeaki_install_banner_off') === '1'; }catch(e){}
+            if(!off){
+              banner.removeAttribute('hidden');
+              var closeBtn = document.getElementById('installBannerClose');
+              if(closeBtn){ closeBtn.addEventListener('click', function(){
+                banner.setAttribute('hidden', '');
+                try{ localStorage.setItem('chekeaki_install_banner_off', '1'); }catch(e){}
+              }); }
+            }
+          }
+          var btn = document.getElementById('installBtn');
+          var deferred = null;
+          window.addEventListener('beforeinstallprompt', function(ev){
+            ev.preventDefault();
+            deferred = ev;
+            if(btn && !standalone){ btn.removeAttribute('hidden'); }
+          });
+          if(btn){ btn.addEventListener('click', function(){
+            if(!deferred){ return; }
+            var p = deferred; deferred = null;
+            btn.setAttribute('hidden', '');
+            p.prompt();
+            if(p.userChoice && p.userChoice.then){ p.userChoice.then(function(){}).catch(function(){}); }
+          }); }
+          window.addEventListener('appinstalled', function(){
+            if(btn){ btn.setAttribute('hidden', ''); }
+            if(banner){ banner.setAttribute('hidden', ''); }
+          });
+        }catch(e){}
+      })();
     </script>
   </body>
 </html>
