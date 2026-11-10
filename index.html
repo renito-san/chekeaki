@@ -1199,6 +1199,8 @@ var APPROVED_PROVIDERS = [];
              trae «limpieza de cisterna», pero «limpieza de cisterna» sí la trae. */
           if(s.indexOf(c) !== -1) return true;
                   if(s.length >= 4 && c.indexOf(s) !== -1) return true;
+          var fc = fuzzyCat(s);
+          if(fc && normTxt(fc) === c) return true;
           return false;
         }
         function approvedForCurrent(rawSearch){
@@ -1260,7 +1262,54 @@ var APPROVED_PROVIDERS = [];
             var c = normTxt(CATS[i].name);
             if(s === c || s.indexOf(c) !== -1 || (s.length >= 4 && c.indexOf(s) !== -1)) return CATS[i].name;
           }
+          return fuzzyCat(s);
+        }
+        /* ---------- Búsqueda difusa con Fuse.js (incrustado arriba) ----------
+           Solo actúa como RESPALDO: primero manda la búsqueda exacta de
+           siempre (categoría por coincidencia y sinónimos; nombre por texto
+           contenido). Solo si eso no encuentra categoría o nombre, y Fuse
+           cargó bien, se intenta la versión difusa: categoría con umbral
+           0.3 (los errores reales puntúan 0.09-0.23; «pizzeria» daría 0.38
+           contra Jardinería y queda fuera) y nombre con umbral 0.4. Si
+           Fuse falla o no está, todo queda exactamente como antes. Los
+           textos se comparan normalizados (minúsculas, sin acentos),
+           igual que en el resto de la app.
+           Ojo con Fuse v7: el «threshold» del constructor NO basta, porque
+           devuelve resultados cuyo puntaje reportado supera el umbral
+           (probado: «cosme» devolvía 22 resultados con puntaje 0.52);
+           por eso cada resultado se filtra además por su score. */
+        var _fuseCatIndex = null, _fuseNameIndex = null;
+        function fuseCatSearch(){
+          if(_fuseCatIndex) return _fuseCatIndex;
+          var docs = [];
+          CATS.forEach(function(c){ docs.push({ q: normTxt(c.name), cat: c.name }); });
+          Object.keys(CAT_SYNONYMS).forEach(function(k){ docs.push({ q: normTxt(k), cat: CAT_SYNONYMS[k] }); });
+          _fuseCatIndex = new window.Fuse(docs, { keys: ['q'], threshold: 0.3, ignoreLocation: true, includeScore: true });
+          return _fuseCatIndex;
+        }
+        function fuzzyCat(s){
+          if(typeof window === 'undefined' || typeof window.Fuse !== 'function') return null;
+          var q = normTxt(s || '');
+          if(q.length < 4) return null;
+          try{
+            var res = fuseCatSearch().search(q);
+            if(res.length && res[0].score <= 0.3) return res[0].item.cat;
+          }catch(e){}
           return null;
+        }
+        function fuseNameSearch(){
+          if(_fuseNameIndex) return _fuseNameIndex;
+          var docs = PROVIDERS.map(function(p, i){ return { q: normTxt(p.name || ''), i: i }; });
+          _fuseNameIndex = new window.Fuse(docs, { keys: ['q'], threshold: 0.4, ignoreLocation: true, includeScore: true });
+          return _fuseNameIndex;
+        }
+        function fuzzyNameMatches(nameQuery){
+          if(typeof window === 'undefined' || typeof window.Fuse !== 'function') return [];
+          try{
+            return fuseNameSearch().search(nameQuery).filter(function(r){ return r.score <= 0.4; }).map(function(r){ return PROVIDERS[r.item.i]; }).filter(function(p){
+              return town === '__zona' || p.towns.indexOf(town) !== -1;
+            });
+          }catch(e){ return []; }
         }
         function starStr(v){
           var full = Math.round(v);
@@ -1764,7 +1813,7 @@ wa.addEventListener('click', function(){ trackEvent('whatsapp', p.name, p.cat, t
             renderGrid(unconfirmedAll, null);
           }
 
-          /* Busqueda por nombre: texto normalizado (minimo 3 caracteres) que coincide con el nombre de un proveedor curado. */ var nameQuery = normTxt(rawSearch); var nameMatches = (nameQuery && nameQuery.length >= 3) ? PROVIDERS.filter(function(p){ var nm = normTxt(p.name || ''); return nm && (town === '__zona' || p.towns.indexOf(town) !== -1) && (nm.indexOf(nameQuery) !== -1 || nameQuery.indexOf(nm) !== -1); }) : []; var nameList = applyFilters(nameMatches); /* Búsqueda sin categoría del directorio: aprobados, si los hay, o negocios curados por nombre */
+          /* Busqueda por nombre: texto normalizado (minimo 3 caracteres) que coincide con el nombre de un proveedor curado. */ var nameQuery = normTxt(rawSearch); var nameMatches = (nameQuery && nameQuery.length >= 3) ? PROVIDERS.filter(function(p){ var nm = normTxt(p.name || ''); return nm && (town === '__zona' || p.towns.indexOf(town) !== -1) && (nm.indexOf(nameQuery) !== -1 || nameQuery.indexOf(nm) !== -1); }) : []; if(!nameMatches.length && nameQuery && nameQuery.length >= 3){ nameMatches = fuzzyNameMatches(nameQuery); } var nameList = applyFilters(nameMatches); /* Búsqueda sin categoría del directorio: aprobados, si los hay, o negocios curados por nombre */
           if(openNow){ curatedUnconfirmed = nameMatches.filter(function(p){ return !hasScheduleToday(p) && !scheduleParsed(p.hours); }); } if(!cat){
             setFiltersVisible(approvedAll.length + nameMatches.length);
             resultTitle();
