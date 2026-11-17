@@ -1265,7 +1265,7 @@ var APPROVED_PROVIDERS = [];
         function normTxt(s){ return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
                            
              /* Sinonimos de busqueda -> categoria. */
-        var CAT_SYNONYMS = { mudanza:'Mudanzas', sellado:'Sellado de techo', aire:'Aire acondicionado', nevera:'Reparación de neveras', herramientas:'Alquiler de herramientas', goma:'Gomera', fumigacion:'Exterminador', llaves:'Cerrajero' };
+        var CAT_SYNONYMS = { mudanza:'Mudanzas', sellado:'Sellado de techo', aire:'Aire acondicionado', nevera:'Reparación de neveras', herramientas:'Alquiler de herramientas', goma:'Gomera', fumigacion:'Exterminador', llaves:'Cerrajero', 'placas solares':'Limpieza', 'paneles solares':'Limpieza', placas:'Limpieza', paneles:'Limpieza' };
               function catSynonym(q){ return CAT_SYNONYMS[q] || null; }
               function pilotCat(){
                     var s = normTxt(service());
