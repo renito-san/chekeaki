@@ -1314,16 +1314,43 @@ var APPROVED_PROVIDERS = [];
           }catch(e){}
           return null;
         }
+        /* Lista combinada para buscar por nombre: curados + aprobados de la
+           hoja. Los índices difusos se reconstruyen si cambia el tamaño de
+           la lista combinada (la hoja carga async, después del primer render). */
+        function allProviders(){ return PROVIDERS.concat(APPROVED_PROVIDERS || []); }
+        var _fuseNameBuiltFor = -1, _fuseNoteIndex = null, _fuseNoteBuiltFor = -1;
         function fuseNameSearch(){
-          if(_fuseNameIndex) return _fuseNameIndex;
-          var docs = PROVIDERS.map(function(p, i){ return { q: normTxt(p.name || ''), i: i }; });
+          var all = allProviders();
+          if(_fuseNameIndex && _fuseNameBuiltFor === all.length) return _fuseNameIndex;
+          var docs = all.map(function(p, i){ return { q: normTxt(p.name || ''), i: i }; });
           _fuseNameIndex = new window.Fuse(docs, { keys: ['q'], threshold: 0.4, ignoreLocation: true, includeScore: true });
+          _fuseNameBuiltFor = all.length;
           return _fuseNameIndex;
+        }
+        function fuseNoteSearch(){
+          var all = allProviders();
+          if(_fuseNoteIndex && _fuseNoteBuiltFor === all.length) return _fuseNoteIndex;
+          var docs = all.map(function(p, i){ return { q: normTxt(p.note || ''), i: i }; }).filter(function(d){ return d.q; });
+          _fuseNoteIndex = new window.Fuse(docs, { keys: ['q'], threshold: 0.4, ignoreLocation: true, includeScore: true });
+          _fuseNoteBuiltFor = all.length;
+          return _fuseNoteIndex;
         }
         function fuzzyNameMatches(nameQuery){
           if(typeof window === 'undefined' || typeof window.Fuse !== 'function') return [];
+          var all = allProviders();
           try{
-            return fuseNameSearch().search(nameQuery).filter(function(r){ return r.score <= 0.4; }).map(function(r){ return PROVIDERS[r.item.i]; }).filter(function(p){
+            return fuseNameSearch().search(nameQuery).filter(function(r){ return r.score <= 0.4; }).map(function(r){ return all[r.item.i]; }).filter(function(p){
+              return town === '__zona' || p.towns.indexOf(town) !== -1;
+            });
+          }catch(e){ return []; }
+        }
+        /* Difuso sobre la NOTA de la tarjeta: ahí vive el nombre de la
+           persona cuando la tarjeta lo trae (ej. el dueño en la nota). */
+        function fuzzyNoteMatches(nameQuery){
+          if(typeof window === 'undefined' || typeof window.Fuse !== 'function') return [];
+          var all = allProviders();
+          try{
+            return fuseNoteSearch().search(nameQuery).filter(function(r){ return r.score <= 0.4; }).map(function(r){ return all[r.item.i]; }).filter(function(p){
               return town === '__zona' || p.towns.indexOf(town) !== -1;
             });
           }catch(e){ return []; }
@@ -1830,7 +1857,7 @@ wa.addEventListener('click', function(){ trackEvent('whatsapp', p.name, p.cat, t
             renderGrid(unconfirmedAll, null);
           }
 
-          /* Busqueda por nombre: texto normalizado (minimo 3 caracteres) que coincide con el nombre de un proveedor curado. */ var nameQuery = normTxt(rawSearch); var nameMatches = (nameQuery && nameQuery.length >= 3) ? PROVIDERS.filter(function(p){ var nm = normTxt(p.name || ''); return nm && (town === '__zona' || p.towns.indexOf(town) !== -1) && (nm.indexOf(nameQuery) !== -1 || nameQuery.indexOf(nm) !== -1); }) : []; if(!nameMatches.length && nameQuery && nameQuery.length >= 3){ nameMatches = fuzzyNameMatches(nameQuery); } var nameList = applyFilters(nameMatches); /* Búsqueda sin categoría del directorio: aprobados, si los hay, o negocios curados por nombre */
+          /* Busqueda por nombre: texto normalizado (minimo 3 caracteres) que coincide con el nombre de un proveedor — curado o aprobado en la hoja. Si el nombre no basta, se busca en la nota de la tarjeta (minimo 4 caracteres), donde vive el nombre de la persona cuando la tarjeta lo trae. */ var nameQuery = normTxt(rawSearch); var allForName = allProviders(); function inTownName(p){ return town === '__zona' || (p.towns && p.towns.indexOf(town) !== -1); } var nameMatches = (nameQuery && nameQuery.length >= 3) ? allForName.filter(function(p){ var nm = normTxt(p.name || ''); return nm && inTownName(p) && (nm.indexOf(nameQuery) !== -1 || nameQuery.indexOf(nm) !== -1); }) : []; if(!nameMatches.length && nameQuery && nameQuery.length >= 4){ nameMatches = allForName.filter(function(p){ var nt = normTxt(p.note || ''); return nt && inTownName(p) && nt.indexOf(nameQuery) !== -1; }); } if(!nameMatches.length && nameQuery && nameQuery.length >= 3){ nameMatches = fuzzyNameMatches(nameQuery); } if(!nameMatches.length && nameQuery && nameQuery.length >= 4){ nameMatches = fuzzyNoteMatches(nameQuery); } var nameList = applyFilters(nameMatches); /* Búsqueda sin categoría del directorio: aprobados, si los hay, o negocios curados por nombre */
           if(openNow){ curatedUnconfirmed = nameMatches.filter(function(p){ return !hasScheduleToday(p) && !scheduleParsed(p.hours); }); } if(!cat){
             setFiltersVisible(approvedAll.length + nameMatches.length);
             resultTitle();
