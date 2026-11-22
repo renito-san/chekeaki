@@ -1291,7 +1291,21 @@ var APPROVED_PROVIDERS = [];
           ['cortar la grama','Jardinería'], ['cortar grama','Jardinería'], ['podar','Jardinería'], ['desyerbar','Jardinería'], ['deshierbar','Jardinería'],
           ['lavado a presion','Limpieza'], ['limpiar','Limpieza'],
           ['pintar','Pintura'], ['mudar','Mudanzas'],
-          ['tapad','Plomero'], ['breaker','Electricista']
+          ['tapad','Plomero'], ['breaker','Electricista'],
+          ['se fue el agua','Plomero'], ['no sale agua','Plomero'], ['fuga','Plomero'], ['grifo','Plomero'], ['desague','Plomero'],
+          ['inodoro no baja','Plomero'], ['se sale el agua','Plomero'], ['bomba de agua','Plomero'], ['presion de agua','Plomero'],
+          ['no hay corriente','Electricista'], ['sin corriente','Electricista'], ['parpadea','Electricista'], ['enchufe','Electricista'],
+          ['avispa','Exterminador'], ['pulgas','Exterminador'], ['garrapata','Exterminador'], ['mosquito','Exterminador'],
+          ['refrigerador no enfria','Reparación de neveras'], ['freezer no enfria','Reparación de neveras'], ['refrigerador','Reparación de neveras'], ['freezer','Reparación de neveras'],
+          ['mini split','Aire acondicionado'], ['minisplit','Aire acondicionado'], ['inverter','Aire acondicionado'], ['split','Aire acondicionado'], ['mantenimiento de aire','Aire acondicionado'],
+          ['check engine','Mecánico'], ['cambio de aceite','Mecánico'], ['alternador','Mecánico'], ['transmision','Mecánico'], ['starter','Mecánico'], ['arranque','Mecánico'], ['freno','Mecánico'],
+          ['alineamiento','Gomera'], ['balanceo','Gomera'],
+          ['membrana','Sellado de techo'],
+          ['llave partida','Cerrajero'], ['partio la llave','Cerrajero'], ['abrir el carro','Cerrajero'], ['copia de llave','Cerrajero'],
+          ['sistema de riego','Jardinería'], ['sprinkler','Jardinería'], ['riego','Jardinería'], ['cortar un arbol','Jardinería'], ['cortar un palo','Jardinería'], ['tumbar un arbol','Jardinería'],
+          ['escombros','Limpieza'], ['pressure washing','Limpieza'],
+          ['flete','Mudanzas'], ['acarreo','Mudanzas'],
+          ['alquiler de equipo','Alquiler de herramientas'], ['renta de equipo','Alquiler de herramientas']
         ];
         PROBLEM_PHRASES.sort(function(a,b){ return b[0].length - a[0].length; });
         function problemCat(s){ for(var i = 0; i < PROBLEM_PHRASES.length; i++){ if(s.indexOf(PROBLEM_PHRASES[i][0]) !== -1) return PROBLEM_PHRASES[i][1]; } return null; }
