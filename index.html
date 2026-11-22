@@ -1792,6 +1792,18 @@ wa.addEventListener('click', function(){ trackEvent('whatsapp', p.name, p.cat, t
           function applyFilters(list){
             var out = list.slice();
             if(openNow) out = out.filter(function(p){ return hasScheduleToday(p); });
+            if(sort !== 'rated' && town !== '__zona'){
+              /* Orden por localización (aprobado por René el 2026-11-22): con un
+                 pueblo elegido, primero los negocios locales de ese pueblo y
+                 después los de cobertura; dentro de cada grupo se mantiene el
+                 orden actual de la lista. El orden por calificación, cuando la
+                 persona lo activa, manda sobre este. */
+              out = out.map(function(p, i){ return {p: p, i: i}; }).sort(function(a, b){
+                var ra = a.p.isCoverage ? 1 : 0, rb = b.p.isCoverage ? 1 : 0;
+                if(ra !== rb) return ra - rb;
+                return a.i - b.i;
+              }).map(function(w){ return w.p; });
+            }
             if(sort === 'rated'){
               out.sort(function(a,b){
                 var ca = RATINGS_BY_NAME[normTxt(a.name)], cb = RATINGS_BY_NAME[normTxt(b.name)];                 var aa = ca ? ca.sum/ca.count : null, ab = cb ? cb.sum/cb.count : null;                 if(aa !== ab){                   if(aa === null) return 1;                   if(ab === null) return -1;                   return ab - aa;                 }                 var na = ca ? ca.count : 0, nb = cb ? cb.count : 0;                 if(na !== nb) return nb - na;                 var ra = a.rating ? a.rating.stars : null, rb = b.rating ? b.rating.stars : null;                 if(ra !== rb){                   if(ra === null) return 1;                   if(rb === null) return -1;                   return rb - ra;                 }                 return 0;
