@@ -285,6 +285,19 @@
         .install-banner[hidden]{display:none}
         .install-banner p{margin:0;flex:1}
         .install-banner button{flex:none;background:#111827;color:#ffc907;border:none;border-radius:999px;width:28px;height:28px;font-size:1.05rem;line-height:1;cursor:pointer;padding:0}
+      .install-card{position:fixed;left:12px;right:12px;bottom:calc(80px + env(safe-area-inset-bottom));z-index:55;background:#111827;color:#f9fafb;border-radius:18px;padding:16px 18px 14px;box-shadow:0 18px 44px rgba(7,30,25,.42);animation:installUp .45s ease}
+      .install-card[hidden]{display:none}
+      @keyframes installUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+      @media (min-width:701px){.install-card{left:50%;right:auto;transform:translateX(-50%);width:min(680px,calc(100% - 32px));bottom:18px;animation:installUpD .45s ease}@keyframes installUpD{from{opacity:0;transform:translate(-50%,14px)}to{opacity:1;transform:translate(-50%,0)}}}
+      .install-card-x{position:absolute;top:8px;right:10px;background:transparent;color:#9ca3af;border:none;font-size:1.25rem;line-height:1;cursor:pointer;padding:6px}
+      .install-card-main{display:flex;gap:14px;align-items:center}
+      .install-card-text{flex:1;min-width:0}
+      .install-card-title{margin:0 0 2px;font-weight:800;font-size:1.05rem}
+      .install-card-pitch{margin:0;color:#d1d5db;font-size:.93rem;line-height:1.45}
+      .install-card-btn{flex:none;background:#ffc907;color:#111827;border:none;border-radius:999px;padding:.7rem 1.15rem;font-size:.95rem;font-weight:800;cursor:pointer}
+      .install-card-steps{margin:12px 0 0;padding-top:10px;border-top:1px solid rgba(255,255,255,.14);color:#e5e7eb;font-size:.9rem;line-height:1.5;border-radius:8px;transition:background .3s}
+      .install-card-steps[hidden]{display:none}
+      .install-card-steps.flash{background:rgba(255,201,7,.18)}
         .reg-share{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
       .reg-share button,.reg-share a{flex:1;min-width:170px;border-radius:999px;padding:12px;font-weight:600;font-size:.93rem;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;min-height:48px;text-align:center}
       .reg-copy{border:1px solid var(--line);background:var(--surface);color:var(--ink)} .reg-wa{background:var(--wa);color:#052e12;border:0}
@@ -422,6 +435,19 @@
       <div class="install-banner" id="installBanner" hidden>
         <p><strong>📲 Instala ChekEAki como app:</strong> estás dentro de otra aplicación y aquí no sale la opción. Toca el menú <strong>⋯</strong> o <strong>Compartir</strong> y elige <strong>«Abrir en Safari»</strong>. Ya en Safari: <strong>Compartir → «Añadir a pantalla de inicio»</strong>.</p>
         <button type="button" id="installBannerClose" aria-label="Cerrar aviso">×</button>
+      </div>
+
+      <div class="install-card" id="installCard" hidden>
+        <button type="button" class="install-card-x" id="installCardClose" aria-label="Cerrar aviso">×</button>
+        <div class="install-card-main">
+          <div class="install-card-text">
+            <p class="install-card-title">ChekEAki como app:</p>
+            <p class="install-card-pitch">instálala y la tendrás a un toque en tu pantalla, con los teléfonos de los negocios a la mano — sin depender de que te compartan el enlace.</p>
+          </div>
+          <button type="button" class="install-card-btn" id="installCardBtn">📲 Instalar app</button>
+        </div>
+        <p class="install-card-steps" id="installCardIos">En iPhone o iPad: toca <strong>Compartir</strong> (el cuadrado con la flecha hacia arriba) y luego <strong>«Añadir a pantalla de inicio»</strong>. ChekEAki quedará como una app más en tu pantalla.</p>
+        <p class="install-card-steps" id="installCardMenu" hidden>Toca el menú <strong>⋮</strong> y luego <strong>«Instalar app»</strong> o <strong>«Añadir a pantalla de inicio»</strong>. ChekEAki quedará como una app más en tu pantalla.</p>
       </div>
 
       <div class="hero-shell" id="topSearch">
@@ -2330,6 +2356,45 @@ wa.addEventListener('click', function(){ trackEvent('whatsapp', p.name, p.cat, t
             if(btn){ btn.setAttribute('hidden', ''); }
             if(banner){ banner.setAttribute('hidden', ''); }
           });
+          /* Tarjeta flotante de instalacion (estilo plantilla Shopper):
+             se muestra a quien no la tiene instalada ni la ha cerrado;
+             en iPhone dentro de otra app NO se muestra, porque ese caso
+             lo cubre el banner amarillo con los pasos de abrir en Safari. */
+          var card = document.getElementById('installCard');
+          if(card){
+            var cardBtn = document.getElementById('installCardBtn');
+            var cardClose = document.getElementById('installCardClose');
+            var cardIos = document.getElementById('installCardIos');
+            var cardMenu = document.getElementById('installCardMenu');
+            if(!isIOS){
+              if(cardIos){ cardIos.setAttribute('hidden', ''); }
+              if(cardMenu){ cardMenu.removeAttribute('hidden'); }
+            }
+            var cardOff = false;
+            try{ cardOff = localStorage.getItem('chekeaki_install_card_off') === '1'; }catch(e){}
+            if(!standalone && !cardOff && !(isIOS && inApp)){
+              setTimeout(function(){ card.removeAttribute('hidden'); }, 1000);
+            }
+            if(cardClose){ cardClose.addEventListener('click', function(){
+              card.setAttribute('hidden', '');
+              try{ localStorage.setItem('chekeaki_install_card_off', '1'); }catch(e){}
+            }); }
+            if(cardBtn){ cardBtn.addEventListener('click', function(){
+              if(deferred){
+                var p2 = deferred; deferred = null;
+                if(btn){ btn.setAttribute('hidden', ''); }
+                p2.prompt();
+                if(p2.userChoice && p2.userChoice.then){ p2.userChoice.then(function(){}).catch(function(){}); }
+              } else {
+                var line = (cardIos && !cardIos.hasAttribute('hidden')) ? cardIos : cardMenu;
+                if(line){ line.classList.add('flash'); setTimeout(function(){ line.classList.remove('flash'); }, 1600); }
+              }
+            }); }
+            window.addEventListener('appinstalled', function(){
+              card.setAttribute('hidden', '');
+              try{ localStorage.setItem('chekeaki_install_card_off', '1'); }catch(e){}
+            });
+          }
         }catch(e){}
       })();
     </script>
