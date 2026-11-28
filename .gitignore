@@ -1,0 +1,8 @@
+# Archivos locales y secretos — nunca subir a GitHub
+# Protege contra el leak de settings.local.json (Claude Code) y .env
+.claude/
+settings.local.json
+*.local.json
+.env
+.env.*
+!.env.example
